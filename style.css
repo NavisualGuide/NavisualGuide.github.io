@@ -180,6 +180,41 @@ main {
   line-height: 1.6;
 }
 
+/* ── Privacy section ── */
+
+.privacy-section {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 96px;
+  padding: 0 8px;
+  text-align: left;
+}
+
+.privacy-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.privacy-section p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.privacy-section a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.privacy-section a:hover {
+  color: var(--text);
+}
+
 /* ── Footer ── */
 
 footer {
