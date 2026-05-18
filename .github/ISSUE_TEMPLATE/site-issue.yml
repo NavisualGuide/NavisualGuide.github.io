@@ -1,0 +1,21 @@
+name: Site issue or improvement
+description: Bug, typo, or improvement for navisualguide.com
+title: ""
+labels: ["polish"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page / section
+      placeholder: e.g. hero, FAQ, privacy section
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong or what should change?
+    validations:
+      required: true
+  - type: textarea
+    id: extras
+    attributes:
+      label: Anything else?
+      description: Screenshot, screen size, browser, etc.
