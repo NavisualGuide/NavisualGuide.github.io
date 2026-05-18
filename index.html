@@ -14,7 +14,7 @@
 <body>
   <main>
     <div class="hero">
-      <div class="badge">Windows · Free to try</div>
+      <div class="badge">Windows 10 / 11 · Free to try</div>
       <h1 class="wordmark">Navisual</h1>
       <p class="slogan">The AI guides, never overrides.</p>
       <p class="desc">
@@ -39,7 +39,7 @@
       <div class="feature">
         <span class="feature-icon">🎯</span>
         <h3>Precise targeting</h3>
-        <p>Uses Windows accessibility APIs and OCR to pinpoint the right element — not pixel guessing.</p>
+        <p>The pointer lands on the actual button — buttons, fields, menu items — not pixels around them.</p>
       </div>
       <div class="feature">
         <span class="feature-icon">🔒</span>
@@ -48,12 +48,33 @@
       </div>
     </div>
 
+    <section class="use-cases">
+      <h2>Try asking it</h2>
+      <div class="case-grid">
+        <div class="case">
+          <span class="case-icon">📊</span>
+          <p class="case-prompt">"Make a pivot table from this data."</p>
+          <p class="case-desc">Walks you through Insert → PivotTable, field setup, and formatting in Excel.</p>
+        </div>
+        <div class="case">
+          <span class="case-icon">🎨</span>
+          <p class="case-prompt">"Where's the layer mask tool?"</p>
+          <p class="case-desc">Points at the icon in Photoshop and narrates the keyboard shortcut.</p>
+        </div>
+        <div class="case">
+          <span class="case-icon">📧</span>
+          <p class="case-prompt">"Help me set up my email."</p>
+          <p class="case-desc">Walks through the account wizard step by step — handy for setting up a parent's new laptop.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="privacy-section">
       <h2>Privacy</h2>
       <p>
         Only the <strong>active window</strong> is sent to the AI — not your full desktop.
-        Local element matching runs on your machine; coordinates never leave the device.
         Screenshots are held in memory only and never written to disk.
+        Coordinates are matched on your machine, not in the cloud.
       </p>
       <p>
         Choose where the screenshot goes: the free managed tier, your own API key
@@ -61,6 +82,38 @@
         <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>.
         Full details in the <a href="https://github.com/NavisualGuide/navisual#privacy" target="_blank" rel="noopener">README privacy section</a>.
       </p>
+    </section>
+
+    <section class="faq">
+      <h2>Frequently asked</h2>
+      <details>
+        <summary>Does the AI control my mouse?</summary>
+        <p>No. Navisual only points at where to click and narrates the next step. Every click, keystroke, and confirmation is yours.</p>
+      </details>
+      <details>
+        <summary>What data leaves my machine?</summary>
+        <p>A screenshot of your <strong>active window</strong> (not the full desktop) plus your conversation text, sent to whichever AI provider you pick. Element matching runs locally.</p>
+      </details>
+      <details>
+        <summary>Can it run fully offline?</summary>
+        <p>Yes. Choose <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> as your provider and pull a vision model (e.g. <code>llama3.2-vision</code>). Nothing leaves your machine.</p>
+      </details>
+      <details>
+        <summary>Which Windows versions are supported?</summary>
+        <p>Windows 10 (1809 or later) and Windows 11. WebView2 is required — it ships with Windows 11 and installs automatically on Windows 10.</p>
+      </details>
+      <details>
+        <summary>Is it open source?</summary>
+        <p>Source-available under <a href="https://fsl.software/" target="_blank" rel="noopener">FSL-1.1-Apache-2.0</a>. Each version converts to Apache 2.0 two years after release.</p>
+      </details>
+      <details>
+        <summary>What happens after the free 50 requests?</summary>
+        <p>Bring your own API key (Anthropic, Gemini, OpenAI, DeepSeek, Qwen) or run locally with Ollama for unlimited free use. A paid managed tier is on the roadmap.</p>
+      </details>
+      <details>
+        <summary>macOS or Linux?</summary>
+        <p>Windows only for now. macOS and Linux ports are planned after the public 1.0 launch.</p>
+      </details>
     </section>
   </main>
 
