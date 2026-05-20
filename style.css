@@ -116,19 +116,22 @@ main {
   margin-top: 2px;
 }
 
-.coming-soon {
+.hero-links {
   margin-top: 16px;
   font-size: 13px;
   color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.coming-soon a {
+.hero-links a {
   color: var(--text-muted);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.coming-soon a:hover {
+.hero-links a:hover {
   color: var(--text);
 }
 
@@ -180,6 +183,144 @@ main {
   line-height: 1.6;
 }
 
+/* ── Demo video ── */
+
+.video-section {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+.demo-video {
+  width: 100%;
+  display: block;
+}
+
+/* ── How it works ── */
+
+.how-it-works {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.step {
+  background: var(--surface);
+  padding: 28px 24px;
+  text-align: left;
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.15);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.step kbd {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text);
+}
+
+/* ── Providers ── */
+
+.providers {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.providers h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.providers-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.provider-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.provider-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 16px;
+}
+
+.provider-chip.managed {
+  border-color: rgba(255, 107, 53, 0.3);
+  background: rgba(255, 107, 53, 0.06);
+  color: var(--accent);
+}
+
+.chip-note {
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 /* ── Use cases ── */
 
 .use-cases {
@@ -219,10 +360,17 @@ main {
   margin-bottom: 12px;
 }
 
-.case-prompt {
+.case-title {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text);
+  margin-bottom: 10px;
+}
+
+.case-prompt {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
   margin-bottom: 8px;
   font-style: italic;
   line-height: 1.5;

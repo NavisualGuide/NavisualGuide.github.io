@@ -4,77 +4,116 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Navisual — The AI guides, never overrides.</title>
-  <meta name="description" content="Step-by-step on-screen guidance for any Windows task. The AI shows you where to click — you stay in control. Free to try, no sign-up." />
-  <meta property="og:title" content="Navisual" />
-  <meta property="og:description" content="The AI guides, never overrides. Step-by-step on-screen guidance for any Windows task." />
+  <meta name="description" content="Step-by-step on-screen guidance for any Windows task. The AI shows you exactly where to click — you stay in control. 50 free requests, no sign-up." />
+  <meta property="og:title" content="Navisual — The AI guides, never overrides." />
+  <meta property="og:description" content="Step-by-step on-screen guidance for any Windows task. The AI shows you exactly where to click — you stay in control." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://navisualguide.com" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
+
+    <!-- ── Hero ── -->
     <div class="hero">
-      <div class="badge">Windows 10 / 11 · Free to try</div>
+      <div class="badge">Windows 10 / 11 · Public beta · Free to try</div>
       <h1 class="wordmark">Navisual</h1>
       <p class="slogan">The AI guides, never overrides.</p>
       <p class="desc">
-        Stuck on a task? Type what you want to do — Navisual walks you through it,
-        pointing at the exact button to click. The AI never clicks or types for you.
-        Every action stays in your hands.
+        Stuck on a task? Tell Navisual what you want to do.
+        It watches your screen and walks you through it — pointing at the exact button to click,
+        step by step. The AI never touches your mouse or keyboard.
       </p>
       <a class="cta" href="https://github.com/NavisualGuide/navisual/releases/latest/download/Navisual-Setup.exe">
         Download for Windows
-        <span class="cta-sub">Free trial included · No sign-up</span>
+        <span class="cta-sub">50 free requests · No sign-up · Signed installer</span>
       </a>
-      <p class="coming-soon">Public beta — <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">view on GitHub</a></p>
+      <p class="hero-links">
+        <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">View on GitHub</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">Release notes</a>
+      </p>
       <p class="disclaimer">Navisual uses AI, which can make mistakes — always verify each suggested action before performing it.</p>
     </div>
 
-    <div class="features">
-      <div class="feature">
-        <span class="feature-icon">🖥️</span>
-        <h3>Step-by-step guidance</h3>
-        <p>Arrows, boxes, and spoken cues show you exactly where to click — for any task, in any app.</p>
-      </div>
-      <div class="feature">
-        <span class="feature-icon">🎯</span>
-        <h3>Precise targeting</h3>
-        <p>The pointer lands on the actual button — buttons, fields, menu items — not pixels around them.</p>
-      </div>
-      <div class="feature">
-        <span class="feature-icon">🔒</span>
-        <h3>You stay in control</h3>
-        <p>The AI advises only. It never moves your mouse, clicks, or types on your behalf.</p>
-      </div>
-    </div>
+    <!-- ── Demo video ── -->
+    <!-- Replace src with the actual video file or YouTube embed once recorded.
+         Suggested: record a 30–60s screen capture of one real task end-to-end. -->
+    <!--
+    <section class="video-section">
+      <video class="demo-video" autoplay muted loop playsinline poster="assets/demo-poster.jpg">
+        <source src="assets/demo.mp4" type="video/mp4" />
+      </video>
+    </section>
+    -->
 
+    <!-- ── Use cases ── -->
     <section class="use-cases">
-      <h2>Try asking it</h2>
+      <h2>Works for any task, in any app</h2>
       <div class="case-grid">
         <div class="case">
-          <span class="case-icon">📊</span>
-          <p class="case-prompt">"Make a pivot table from this data."</p>
-          <p class="case-desc">Walks you through Insert → PivotTable, field setup, and formatting in Excel.</p>
+          <span class="case-icon">📄</span>
+          <h3 class="case-title">Office &amp; productivity</h3>
+          <p class="case-prompt">"Add a pivot table to this spreadsheet."</p>
+          <p class="case-desc">Walks you through Insert → PivotTable, field setup, and formatting step by step in Excel or Google Sheets.</p>
         </div>
         <div class="case">
           <span class="case-icon">🎨</span>
-          <p class="case-prompt">"Where's the layer mask tool?"</p>
-          <p class="case-desc">Points at the icon in Photoshop and narrates the keyboard shortcut.</p>
+          <h3 class="case-title">Learning new software</h3>
+          <p class="case-prompt">"Where is the layer mask tool in Photoshop?"</p>
+          <p class="case-desc">Points at the right panel and narrates the shortcut — learn by doing, not by reading a manual.</p>
         </div>
         <div class="case">
-          <span class="case-icon">📧</span>
-          <p class="case-prompt">"Help me set up my email."</p>
-          <p class="case-desc">Walks through the account wizard step by step — handy for setting up a parent's new laptop.</p>
+          <span class="case-icon">🙌</span>
+          <h3 class="case-title">Everyday computer help</h3>
+          <p class="case-prompt">"Help me set up my email account."</p>
+          <p class="case-desc">Guides through account wizards, settings pages, and unfamiliar dialogs — great for helping family with a new PC.</p>
         </div>
       </div>
     </section>
 
+    <!-- ── How it works ── -->
+    <section class="how-it-works">
+      <h2>How it works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p>Type what you want to do — or say it out loud with push-to-talk.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p>Navisual reads your screen, asks the AI for instructions, and points at the exact button to click.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p>Follow the pointer and audio narration. Press <kbd>Alt+`</kbd> when done to advance to the next step.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Providers ── -->
+    <section class="providers">
+      <h2>Works with your preferred AI</h2>
+      <p class="providers-sub">50 free requests included. Bring your own key for unlimited use — or run fully offline with Ollama.</p>
+      <div class="provider-grid">
+        <div class="provider-chip managed">Managed <span class="chip-note">free</span></div>
+        <div class="provider-chip">Gemini</div>
+        <div class="provider-chip">Claude</div>
+        <div class="provider-chip">OpenAI</div>
+        <div class="provider-chip">DeepSeek</div>
+        <div class="provider-chip">Qwen</div>
+        <div class="provider-chip">Ollama <span class="chip-note">local</span></div>
+      </div>
+    </section>
+
+    <!-- ── Privacy ── -->
     <section class="privacy-section">
       <h2>Privacy</h2>
       <p>
         Only the <strong>active window</strong> is sent to the AI — not your full desktop.
         Screenshots are held in memory only and never written to disk.
-        Coordinates are matched on your machine, not in the cloud.
+        Element coordinates are matched locally (Windows UI Automation + built-in OCR),
+        so your screen layout never leaves your machine.
       </p>
       <p>
         Choose where the screenshot goes: the free managed tier, your own API key
@@ -84,6 +123,7 @@
       </p>
     </section>
 
+    <!-- ── FAQ ── -->
     <section class="faq">
       <h2>Frequently asked</h2>
       <details>
@@ -92,7 +132,7 @@
       </details>
       <details>
         <summary>What data leaves my machine?</summary>
-        <p>A screenshot of your <strong>active window</strong> (not the full desktop) plus your conversation text, sent to whichever AI provider you pick. Element matching runs locally.</p>
+        <p>A screenshot of your <strong>active window</strong> (not the full desktop) plus your conversation text, sent to whichever AI provider you choose. Element matching runs locally.</p>
       </details>
       <details>
         <summary>Can it run fully offline?</summary>
@@ -108,19 +148,26 @@
       </details>
       <details>
         <summary>What happens after the free 50 requests?</summary>
-        <p>Bring your own API key (Anthropic, Gemini, OpenAI, DeepSeek, Qwen) or run locally with Ollama for unlimited free use. A paid managed tier is on the roadmap.</p>
+        <p>Bring your own API key (Anthropic, Gemini, OpenAI, DeepSeek, Qwen) or run locally with Ollama for unlimited free use. A paid managed tier is coming soon.</p>
       </details>
       <details>
         <summary>macOS or Linux?</summary>
-        <p>Windows only for now. macOS and Linux ports are planned after the public 1.0 launch.</p>
+        <p>Windows only for now. macOS and Linux ports are planned after the 1.0 public launch.</p>
+      </details>
+      <details>
+        <summary>支持中文 / DeepSeek / Qwen 吗？</summary>
+        <p>支持。在设置中选择 DeepSeek 或 Qwen，填入 API Key 即可。DeepSeek 仅传输文字（不上传截图）；Qwen 支持截图理解。</p>
       </details>
     </section>
+
   </main>
 
   <footer>
     <span>navisualguide.com</span>
     <span class="sep">·</span>
     <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">Releases</a>
     <span class="sep">·</span>
     <span>FSL-1.1-Apache-2.0</span>
     <span class="sep">·</span>
