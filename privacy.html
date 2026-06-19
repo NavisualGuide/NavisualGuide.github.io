@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Navisual</title>
+  <meta name="description" content="How Navisual handles your data: screenshots, accounts, payments, and third-party processors." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <article class="legal">
+      <a class="legal-back" href="/">← Back to navisualguide.com</a>
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: 18 June 2026</p>
+
+      <p>
+        Navisual (“we”, “us”) is a Windows desktop app that watches your active window and
+        shows you where to click. This policy explains what data the app handles, what leaves
+        your computer, and the third parties involved. The short version: <strong>your
+        screenshots are processed to answer your request and are not stored on our servers</strong>,
+        and the free tier requires no account.
+      </p>
+      <p>
+        Navisual is operated from <strong>British Columbia, Canada</strong>. Because the AI and
+        infrastructure providers below operate globally, data you send (such as a screenshot for a
+        request) may be processed on servers <strong>outside Canada</strong>, including in the
+        United States.
+      </p>
+
+      <h2>1. What the app processes</h2>
+      <ul>
+        <li><strong>Screenshots of your active window.</strong> When you ask for guidance, a
+          screenshot of the foreground application window (not your whole desktop) is sent to
+          the AI provider you’ve selected so it can identify the next step. Screenshots are held
+          in memory and are <strong>not written to disk</strong> at default settings, and are
+          <strong>not stored on Navisual’s servers</strong>.</li>
+        <li><strong>Window title and size.</strong> The focused window’s title and its on-screen
+          position/size are sent with the request to give the AI context.</li>
+        <li><strong>Your request text.</strong> What you type or say, plus a short running summary
+          of the task.</li>
+        <li><strong>Voice input (optional).</strong> If you enable push-to-talk, your spoken audio
+          is transcribed by the WebView2 Web Speech API, which streams it to Microsoft’s online
+          speech service. This is a separate data flow you can leave disabled.</li>
+      </ul>
+      <p>
+        Element coordinates are matched <strong>locally</strong> on your machine (Windows UI
+        Automation + built-in OCR). Your screen layout is not used to build any profile of you.
+      </p>
+
+      <h2>2. Where your screenshot goes (you choose)</h2>
+      <p>The AI provider is your choice in Settings:</p>
+      <ul>
+        <li><strong>Managed tier (free / paid)</strong> — routed through our relay (see §4) to an
+          AI provider on your behalf.</li>
+        <li><strong>Bring your own key</strong> — sent directly to Anthropic, Google, OpenAI,
+          DeepSeek, or Qwen using your own API key; our servers are not involved.</li>
+        <li><strong>Ollama (local)</strong> — runs entirely on your own machine or LAN; nothing
+          leaves your network.</li>
+      </ul>
+      <p>
+        Whichever provider receives a request processes it under <em>their</em> privacy policy.
+        We don’t control how third-party AI providers use data sent with your own key.
+      </p>
+
+      <h2>3. Data we store</h2>
+      <p><strong>On your computer</strong> (under <code>%LOCALAPPDATA%\com.navisual.app</code>):
+        your settings and any API keys you enter, your sign-in token, conversation/session files,
+        and (only if you turn on debug logging) diagnostic logs. These never leave your machine
+        unless you send them to us.</p>
+      <p><strong>On our servers (Supabase)</strong>, only for the managed tier:</p>
+      <ul>
+        <li><strong>Account record</strong> — an anonymous user id, your request count, coin
+          balance, tier, and (after a purchase) your Stripe customer id. The free tier uses
+          <em>anonymous</em> sign-in, so it holds <strong>no name or email</strong> until you
+          choose to sign in with Google to buy coins.</li>
+        <li><strong>Feedback</strong> — if you tap a “wrong” reason or send feedback, we store the
+          category, the AI’s instruction/target, the provider/model, and any note you type.
+          <strong>No screenshots and no request text</strong> are included.</li>
+      </ul>
+
+      <h2>4. Third-party processors</h2>
+      <table class="legal-table">
+        <tr><th>Processor</th><th>Purpose</th><th>What they receive</th></tr>
+        <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Your account record; the request payload passes through the relay in transit</td></tr>
+        <tr><td>OpenRouter</td><td>Upstream for the free managed tier</td><td>The request payload (screenshot + text) for that request</td></tr>
+        <tr><td>Google (AI Studio) / OpenAI</td><td>Upstream for the paid managed tiers</td><td>The request payload for that request</td></tr>
+        <tr><td>Stripe</td><td>Payments</td><td>Your email and payment details — <strong>never your screenshots</strong>. Card data goes directly to Stripe (PCI); we never see card numbers.</td></tr>
+        <tr><td>Microsoft</td><td>Voice transcription (only if you enable push-to-talk)</td><td>Your spoken audio</td></tr>
+        <tr><td>GitHub</td><td>App downloads and updates</td><td>Standard request metadata when you download</td></tr>
+      </table>
+
+      <h2>5. Payments</h2>
+      <p>
+        Coin purchases are processed by <strong>Stripe</strong>. We receive a confirmation that a
+        payment succeeded (to credit your balance) and store your Stripe customer id; we do not
+        receive or store your card number. Stripe’s handling of your payment data is governed by
+        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe’s Privacy Policy</a>.
+      </p>
+
+      <h2>6. Retention &amp; deletion</h2>
+      <p>
+        Managed-tier requests are processed in transit and not retained by us after the response.
+        Your account record and any feedback rows persist until you ask us to delete them. Local
+        files live on your machine until you uninstall or delete them. To request deletion of your
+        managed-tier account data, contact us (§9).
+      </p>
+
+      <h2>7. Your rights</h2>
+      <p>
+        Depending on where you live (e.g. GDPR in the EU/UK, CCPA in California), you may have the
+        right to access, correct, or delete the data we hold about you, and to object to or
+        restrict its processing. The free tier is anonymous, so we typically hold no information
+        that identifies you until you make a purchase. Contact us to exercise any of these rights.
+      </p>
+
+      <h2>8. Children</h2>
+      <p>Navisual is not directed to children under 13 (or the minimum age in your country), and we
+        do not knowingly collect their data.</p>
+
+      <h2>9. Contact</h2>
+      <p>
+        Questions or requests: <a href="mailto:support@navisualguide.com">support@navisualguide.com</a>,
+        or open an issue at
+        <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">github.com/NavisualGuide/navisual</a>.
+      </p>
+
+      <h2>10. Changes</h2>
+      <p>We’ll update this page when our practices change and revise the “last updated” date above.</p>
+
+      <p class="legal-footnote">
+        See also our <a href="/terms.html">Terms of Service</a>.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">Privacy</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">Terms</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-Apache-2.0</span>
+  </footer>
+</body>
+</html>
