@@ -75,6 +75,12 @@
           balance, tier, and (after a purchase) your Stripe customer id. The free tier uses
           <em>anonymous</em> sign-in, so it holds <strong>no name or email</strong> until you
           choose to sign in with Google to buy coins.</li>
+        <li><strong>Free-tier device count</strong> — to keep the 50 free requests per device
+          (rather than per throwaway anonymous session), the app sends a <em>one-way hash</em> of a
+          Windows machine identifier with managed-tier requests, and we store that hash alongside a
+          request count <strong>only</strong> to enforce the free limit. The hash cannot be reversed
+          to identify your machine or you; paid requests bill by coins and ignore it, and
+          bring-your-own-key or local (Ollama) providers never receive it.</li>
         <li><strong>Feedback</strong> — if you tap a “wrong” reason or send feedback, we store the
           category, the AI’s instruction/target, the provider/model, and any note you type.
           <strong>No screenshots and no request text</strong> are included.</li>
