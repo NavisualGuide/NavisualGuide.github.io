@@ -73,11 +73,14 @@
       </p>
       <ul>
         <li>the <strong>paid managed tier</strong> — routed to Google’s and OpenAI’s <em>paid</em>
-          endpoints, which do <strong>not</strong> use API data to train their models;</li>
-        <li>a <strong>bring-your-own-key</strong> provider on a paid plan (note: a provider’s own
-          <em>free</em> tier — e.g. a free Google AI Studio key — may itself train on your data;
-          check that provider’s policy); or</li>
-        <li><strong>Ollama</strong> (local) — nothing leaves your machine.</li>
+          endpoints, whose <strong>current API policies state they do not use your data for model
+          training</strong> (this is their policy, not a guarantee by us, and a provider may change
+          it — see their terms);</li>
+        <li>a <strong>bring-your-own-key</strong> provider on a paid plan, under that provider’s
+          current policy (note: a provider’s own <em>free</em> tier — e.g. a free Google AI Studio
+          key — may itself train on your data; check that provider’s policy); or</li>
+        <li><strong>Ollama</strong> (local) — nothing leaves your machine (the only option that
+          doesn’t depend on any provider’s policy).</li>
       </ul>
 
       <h2>3. Data we store</h2>
@@ -107,7 +110,7 @@
         <tr><th>Processor</th><th>Purpose</th><th>What they receive</th></tr>
         <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Your account record; the request payload passes through the relay in transit</td></tr>
         <tr><td>OpenRouter → free AI models (Google / NVIDIA)</td><td>Upstream for the <strong>free</strong> managed tier</td><td>The request payload (screenshot + text). <strong>May be retained and used to train the model provider’s AI</strong> — see §2</td></tr>
-        <tr><td>Google (AI Studio) / OpenAI — paid endpoints</td><td>Upstream for the <strong>paid</strong> managed tiers</td><td>The request payload. <strong>Not</strong> used to train their models (paid API terms)</td></tr>
+        <tr><td>Google (AI Studio) / OpenAI — paid endpoints</td><td>Upstream for the <strong>paid</strong> managed tiers</td><td>The request payload. Not used for training under their <em>current</em> paid-API policies (subject to change by those providers)</td></tr>
         <tr><td>Stripe</td><td>Payments</td><td>Your email and payment details — <strong>never your screenshots</strong>. Card data goes directly to Stripe (PCI); we never see card numbers.</td></tr>
         <tr><td>Microsoft</td><td>Voice transcription (only if you enable push-to-talk)</td><td>Your spoken audio</td></tr>
         <tr><td>GitHub</td><td>App downloads and updates</td><td>Standard request metadata when you download</td></tr>
@@ -137,8 +140,9 @@
         <strong>On Navisual’s servers</strong>, managed-tier requests pass through the relay in
         transit and are not retained after the response. <strong>Upstream AI providers, however,
         may retain them:</strong> the <em>free</em> tier’s models may keep your request and use it
-        to train their AI (see §2), while the <em>paid</em> tier’s providers process it under their
-        paid-API terms and do not use it for training. Your account record and any feedback rows
+        to train their AI (see §2), while the <em>paid</em> tier’s providers, under their current
+        paid-API policies, state they do not use it for training (their policy, which they may
+        change). Your account record and any feedback rows
         persist until you ask us to delete them. Local files live on your machine until you
         uninstall or delete them. To request deletion of your managed-tier account data, contact
         us (§10).
