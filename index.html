@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Navisual — The AI guides, never overrides.</title>
-  <meta name="description" content="Step-by-step on-screen guidance for any Windows task. The AI shows you exactly where to click — you stay in control. 50 free requests, no sign-up." />
-  <meta property="og:title" content="Navisual — The AI guides, never overrides." />
-  <meta property="og:description" content="Step-by-step on-screen guidance for any Windows task. The AI shows you exactly where to click — you stay in control." />
+  <title>Navisual — Step-by-step guidance for any task, in any app</title>
+  <meta name="description" content="Navisual points you to the exact button to click, step by step, for any task in any Windows app. You stay in control — the AI guides, never overrides. 50 free requests, no sign-up." />
+  <meta property="og:title" content="Navisual — Step-by-step guidance for any task, in any app" />
+  <meta property="og:description" content="Navisual points you to the exact button to click, step by step, for any task in any Windows app. You stay in control — the AI guides, never overrides." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://navisualguide.com" />
   <link rel="stylesheet" href="style.css" />
@@ -16,9 +16,9 @@
 
     <!-- ── Hero ── -->
     <div class="hero">
-      <div class="badge">Windows 10 / 11 · Public beta · Free to try</div>
+      <div class="badge">Windows · Public beta · Free to try</div>
       <h1 class="wordmark">Navisual</h1>
-      <p class="slogan">The AI guides, never overrides.</p>
+      <p class="slogan">Your step-by-step guidance for any task, in any app.</p>
       <p class="desc">
         Ask a chatbot how to do something — and you're still hunting for the button it means.
         Let an AI agent do it for you — and you give up control of your computer.
@@ -33,6 +33,7 @@
         <span class="sep">·</span>
         <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">Release notes</a>
       </p>
+      <p class="tagline-secondary">The AI guides, never overrides.</p>
       <p class="disclaimer">Navisual uses AI, which can make mistakes — always verify each suggested action before performing it.</p>
     </div>
 
@@ -69,6 +70,10 @@
           <p class="case-desc">Guides through account wizards, settings pages, and unfamiliar dialogs — great for helping family with a new PC.</p>
         </div>
       </div>
+      <p class="providers-sub" style="text-align: center; margin-top: 20px; margin-bottom: 0;">
+        Navisual is designed to work with any Windows application. Some apps are more deeply
+        optimized than others — more optimization is on the way.
+      </p>
     </section>
 
     <!-- ── How it works ── -->
@@ -95,7 +100,7 @@
       <h2>Works with your preferred AI</h2>
       <p class="providers-sub">50 free requests included. Bring your own key for unlimited use — or run fully offline with Ollama.</p>
       <div class="provider-grid">
-        <div class="provider-chip managed">Managed <span class="chip-note">free</span></div>
+        <div class="provider-chip managed">Managed <span class="chip-note">free &amp; paid</span></div>
         <div class="provider-chip">Gemini</div>
         <div class="provider-chip">Claude</div>
         <div class="provider-chip">OpenAI</div>
@@ -109,32 +114,24 @@
     <section class="privacy-section">
       <h2>Privacy</h2>
       <p>
-        Only the <strong>active window</strong> is sent to the AI — not your full desktop.
-        Screenshots are held in memory only and never written to disk.
-        Element coordinates are matched locally (Windows UI Automation + built-in OCR),
-        so your screen layout never leaves your machine.
+        Navisual sends only your <strong>active window</strong> — never your full desktop —
+        and only to the AI provider you choose. Screenshots stay in memory and are never
+        written to disk.
       </p>
       <p>
-        Choose where the screenshot goes: the free managed tier, your own API key
-        (Anthropic, Gemini, OpenAI, DeepSeek, Qwen), or stay fully offline with
-        <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>.
-      </p>
-      <p>
-        <strong>The free tier uses free AI models that may keep your requests — including the
-        screenshot — to train their models</strong> (that's how they're offered free). Want that
-        kept private? Use a paid tier or your own paid API key (whose providers, under their current
-        policies, don't train on API data — subject to those providers' policies), or fully-offline
-        Ollama (the only option that depends on no provider's policy). See the
-        <a href="/privacy.html">Privacy Policy</a> for the exact per-provider breakdown.
-      </p>
-      <p>
-        Full details in the <a href="https://github.com/NavisualGuide/navisual#privacy" target="_blank" rel="noopener">README privacy section</a>.
+        The free tier is free because its AI provider may retain and train on your requests;
+        paid tiers, your own API key, and offline <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>
+        don't. Full details in our <a href="/privacy.html">Privacy Policy</a>.
       </p>
     </section>
 
     <!-- ── FAQ ── -->
     <section class="faq">
       <h2>Frequently asked</h2>
+      <details>
+        <summary>What does Navisual do, and who is it for?</summary>
+        <p>It watches your active window and gives you real-time, step-by-step guidance for whatever task you describe — pointing at the exact button or menu to click next, with audio narration. It's for anyone stuck on a task in an unfamiliar app: learning new software, walking a family member through a setup wizard, or just not remembering where a setting lives. Think of it as someone experienced sitting next to you and pointing — except you're always the one clicking.</p>
+      </details>
       <details>
         <summary>Does the AI control my mouse?</summary>
         <p>No. Navisual only points at where to click and narrates the next step. Every click, keystroke, and confirmation is yours.</p>

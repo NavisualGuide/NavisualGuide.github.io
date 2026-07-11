@@ -135,6 +135,14 @@ main {
   color: var(--text);
 }
 
+.tagline-secondary {
+  margin-top: 18px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
 .disclaimer {
   margin-top: 12px;
   font-size: 12px;
