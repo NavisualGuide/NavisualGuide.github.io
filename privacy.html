@@ -13,7 +13,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 10 July 2026</p>
+      <p class="legal-updated">Last updated: 19 July 2026</p>
 
       <p>
         Navisual (“we”, “us”) is a Windows desktop app that watches your active window and
@@ -52,7 +52,7 @@
       <h2>2. Where your screenshot goes (you choose)</h2>
       <p>The AI provider is your choice in Settings:</p>
       <ul>
-        <li><strong>Managed tier (free / paid)</strong> — routed through our relay (see §4) to an
+        <li><strong>Managed tier (free / paid)</strong> — routed through our relay (see §5) to an
           AI provider on your behalf.</li>
         <li><strong>Bring your own key</strong> — sent directly to Anthropic, Google, OpenAI,
           DeepSeek, or Qwen using your own API key; our servers are not involved.</li>
@@ -92,7 +92,37 @@
         provider’s own terms for the specifics that apply to your region.
       </p>
 
-      <h2>3. Data we store</h2>
+      <h2>3. Optional app add-ons (Blender)</h2>
+      <p>
+        For a few applications whose interface Navisual cannot read reliably from the screen
+        alone, we offer an <strong>optional add-on</strong> that lets the app tell Navisual where
+        its buttons are. Today this exists for <strong>Blender</strong>. It is entirely optional:
+        Navisual works without it, and nothing about it runs unless you install <em>and</em> enable
+        it yourself.
+      </p>
+      <ul>
+        <li><strong>How it gets installed.</strong> Navisual can copy the add-on file into
+          Blender’s add-ons folder for you, but only when you click <em>Install</em> on the offer.
+          It is then inert until you tick its checkbox in Blender’s own
+          <em>Preferences → Add-ons</em> panel — that checkbox is the consent step, and Navisual
+          cannot tick it for you.</li>
+        <li><strong>What it does when enabled.</strong> It listens on a local network port
+          (<code>127.0.0.1:47611</code>) that is reachable <strong>only from your own
+          computer</strong> — it does not accept connections from other machines and does not send
+          anything to the internet. Navisual asks it read-only questions such as “where is the tool
+          shelf?”, “which mode is open?”, and “which brush is selected?”.</li>
+        <li><strong>What it can’t do.</strong> It is read-only by construction: it cannot click,
+          type, run commands, or change or save your file. This matches Navisual’s core rule — the
+          AI guides, it never acts.</li>
+        <li><strong>What reaches the AI.</strong> The interface facts above (mode, tool, brush
+          names, object names in your scene) are included in the request to your chosen AI provider,
+          alongside the screenshot, and are covered by §2. No file contents, geometry, or file paths
+          are sent.</li>
+        <li><strong>Turning it off.</strong> Untick it in Blender’s Add-ons panel to stop it, or use
+          <em>Remove</em> there to delete the file. Navisual keeps working without it.</li>
+      </ul>
+
+      <h2>4. Data we store</h2>
       <p><strong>On your computer</strong> (under <code>%LOCALAPPDATA%\com.navisual.app</code>):
         your settings and any API keys you enter, your sign-in token, conversation/session files,
         and (only if you turn on debug logging) diagnostic logs. These never leave your machine
@@ -114,7 +144,7 @@
           <strong>No screenshots and no request text</strong> are included.</li>
       </ul>
 
-      <h2>4. Third-party processors</h2>
+      <h2>5. Third-party processors</h2>
       <table class="legal-table">
         <tr><th>Processor</th><th>Purpose</th><th>What they receive</th></tr>
         <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Your account record; the request payload passes through the relay in transit</td></tr>
@@ -125,7 +155,7 @@
         <tr><td>GitHub</td><td>App downloads and updates</td><td>Standard request metadata when you download</td></tr>
       </table>
 
-      <h2>5. International data transfers</h2>
+      <h2>6. International data transfers</h2>
       <p>
         Our managed services run on infrastructure provided by <strong>Supabase</strong> and the
         upstream AI providers listed above. Your account record and the request payloads you send
@@ -136,7 +166,7 @@
         to any third party.
       </p>
 
-      <h2>6. Payments</h2>
+      <h2>7. Payments</h2>
       <p>
         Coin purchases are processed by <strong>Stripe</strong>. We receive a confirmation that a
         payment succeeded (to credit your balance) and store your Stripe customer id; we do not
@@ -144,7 +174,7 @@
         <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe’s Privacy Policy</a>.
       </p>
 
-      <h2>7. Retention &amp; deletion</h2>
+      <h2>8. Retention &amp; deletion</h2>
       <p>
         <strong>On Navisual’s servers</strong>, managed-tier requests pass through the relay in
         transit and are not retained after the response. <strong>Upstream AI providers, however,
@@ -154,10 +184,10 @@
         change). Your account record and any feedback rows
         persist until you ask us to delete them. Local files live on your machine until you
         uninstall or delete them. To request deletion of your managed-tier account data, contact
-        us (§10).
+        us (§11).
       </p>
 
-      <h2>8. Your rights</h2>
+      <h2>9. Your rights</h2>
       <p>
         Depending on where you live (e.g. GDPR in the EU/UK, CCPA in California), you may have the
         right to access, correct, or delete the data we hold about you, and to object to or
@@ -165,18 +195,18 @@
         that identifies you until you make a purchase. Contact us to exercise any of these rights.
       </p>
 
-      <h2>9. Children</h2>
+      <h2>10. Children</h2>
       <p>Navisual is not directed to children under 13 (or the minimum age in your country), and we
         do not knowingly collect their data.</p>
 
-      <h2>10. Contact</h2>
+      <h2>11. Contact</h2>
       <p>
         Questions or requests: <a href="mailto:support@navisualguide.com">support@navisualguide.com</a>,
         or open an issue at
         <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">github.com/NavisualGuide/navisual</a>.
       </p>
 
-      <h2>11. Changes</h2>
+      <h2>12. Changes</h2>
       <p>We’ll update this page when our practices change and revise the “last updated” date above.</p>
 
       <p class="legal-footnote">
@@ -187,6 +217,8 @@
 
   <footer>
     <a href="/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/docs.html">Guide</a>
     <span class="sep">·</span>
     <a href="/privacy.html">Privacy</a>
     <span class="sep">·</span>

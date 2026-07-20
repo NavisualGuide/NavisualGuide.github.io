@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide — Navisual</title>
+  <meta name="description" content="How to use Navisual: choosing what it sees, following the pointer, hotkeys, correcting a wrong answer, AI providers, and app-specific setup." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <article class="legal docs">
+      <a class="legal-back" href="/">← Back to navisualguide.com</a>
+      <h1>User Guide</h1>
+      <p class="legal-updated">For Navisual 0.7.5 · Windows</p>
+
+      <p>
+        Navisual watches the app you point it at, and shows you where to click — one step at a
+        time, out loud and on screen. It never clicks or types for you. This guide covers the
+        parts that aren’t obvious from the window.
+      </p>
+
+      <nav class="docs-toc">
+        <a href="#start">Getting started</a>
+        <a href="#target">Choosing what Navisual sees</a>
+        <a href="#following">Following the guidance</a>
+        <a href="#hotkeys">Hotkeys</a>
+        <a href="#wrong">When it points at the wrong thing</a>
+        <a href="#providers">AI providers &amp; cost</a>
+        <a href="#apps">App-specific support</a>
+        <a href="#trouble">Troubleshooting</a>
+        <a href="#privacy">Privacy in one screen</a>
+      </nav>
+
+      <h2 id="start">1. Getting started</h2>
+      <p>
+        Download and run the installer from the <a href="/">home page</a>. It’s code-signed, but a
+        newly-released app still trips Microsoft SmartScreen — click <strong>More info →
+        Run anyway</strong> if you see it.
+      </p>
+      <p>
+        On first launch you’ll see a short privacy notice explaining what leaves your computer.
+        You don’t need an account: the free tier signs you in anonymously and gives you
+        <strong>30 requests</strong> to try it with.
+      </p>
+      <p>Then the loop is always the same:</p>
+      <ol>
+        <li><strong>Open the app you want help with</strong> and leave it visible.</li>
+        <li><strong>Type what you want to do</strong> in Navisual’s box — plain language, e.g.
+          “make a pivot table from this data” or “add a bevel to this cube”.</li>
+        <li><strong>Follow the pointer.</strong> Navisual takes one screenshot, works out the next
+          step, and draws a marker on the exact button, with the instruction spoken and captioned.</li>
+        <li><strong>Do the step yourself</strong>, then press <kbd>Ctrl</kbd>+<kbd>~</kbd> for the
+          next one.</li>
+      </ol>
+      <p>
+        Navisual only captures a screenshot at the moment it needs one — when you ask a question,
+        or when you ask for the next step. It is not watching continuously.
+      </p>
+
+      <h2 id="target">2. Choosing what Navisual sees</h2>
+      <p>
+        By default Navisual looks at whichever window is in front. The header chip shows which app
+        that currently is — <em>Shared: Excel</em>, and so on. Its border flashes on screen briefly
+        when the target changes, so you can always see what’s being shared.
+      </p>
+      <p><strong>Click that chip</strong> to change it. You get three kinds of choice:</p>
+      <ul>
+        <li><strong>A specific window.</strong> Picking one <em>pins</em> it (📌): Navisual keeps
+          looking at that window even when you click elsewhere. This is the right choice whenever
+          you’ll be switching between windows, or when the app opens dialogs that steal focus.</li>
+        <li><strong>Entire desktop</strong> (or <strong>Screen 1 / Screen 2</strong> on a
+          multi-monitor setup) — for tasks that span apps, like dragging a file from Explorer into
+          another program. On multiple monitors, pick the individual screen rather than the whole
+          desktop: stitching every screen into one image shrinks the detail past the point where
+          the AI can read it.</li>
+        <li><strong>Unpin</strong> to go back to following the foreground window.</li>
+      </ul>
+      <p>
+        When one window is shared, everything outside it — including other apps overlapping it and
+        Navisual’s own panel — is greyed out before the image is sent. The AI sees your target app
+        and nothing else.
+      </p>
+
+      <h2 id="following">3. Following the guidance</h2>
+      <p>
+        Each step gives you an instruction, spoken aloud with a caption on screen, and — when
+        Navisual can pin down the exact control — a marker on the button itself.
+      </p>
+      <p>
+        <strong>If no marker appears</strong>, you’ll see a quiet note saying the pointer isn’t
+        available. That’s deliberate. Navisual would rather show you nothing than point at the
+        wrong thing, and some surfaces genuinely can’t be read from the outside — a 3D viewport,
+        a drawing canvas, a game. The written instruction is still correct; only the arrow is
+        missing.
+      </p>
+      <p>
+        <strong>→ Next</strong> asks for the following step. <strong>Autopilot</strong> (in the
+        action row) does the same automatically whenever the screen changes enough to look like you
+        finished the step. It’s off every time the app starts, on purpose — it costs a request each
+        time it fires. Autopilot suits long, obvious sequences; manual stepping suits anything where
+        you want to think between steps.
+      </p>
+      <p>
+        Sometimes Navisual asks you a question instead of giving a step. Type the answer in the reply
+        box and press Enter. If it can’t see enough to be sure, the honest answer — “bring the right
+        window forward” — is what you’ll get.
+      </p>
+      <p>
+        <strong>The re-analyse banner</strong> appears when the screen changed a lot while the AI was
+        thinking, meaning the advice may describe a screen you’ve already left. Take it as a hint,
+        not an error — if the step still makes sense, carry on.
+      </p>
+
+      <h2 id="hotkeys">4. Hotkeys</h2>
+      <p>
+        Hotkeys are the smooth way to use Navisual, because <strong>they never move keyboard focus
+        away from your app</strong>. Clicking Navisual’s panel does — and Windows then eats your
+        next click on the target app, because that click is spent re-activating the window. If
+        you’ve ever had to click a button twice, that’s why. Use the hotkey and it doesn’t happen.
+      </p>
+      <table class="legal-table">
+        <tr><th>Action</th><th>Default</th><th>What it does</th></tr>
+        <tr><td>Next step</td><td><kbd>Ctrl</kbd>+<kbd>~</kbd></td><td>Ask for the next step — the one you’ll use constantly</td></tr>
+        <tr><td>Mark wrong</td><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Tell Navisual this step is wrong (see §5)</td></tr>
+        <tr><td>Voice input</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Push-to-talk: speak your request instead of typing</td></tr>
+        <tr><td>Pause / cancel</td><td><em>unset</em></td><td>Stop guidance — assign your own key</td></tr>
+        <tr><td>Toggle icon mode</td><td><em>unset</em></td><td>Shrink the panel to the goldfish icon, and back</td></tr>
+      </table>
+      <p>
+        The last two ship unassigned deliberately: the obvious candidates (<kbd>Ctrl</kbd>+<kbd>S</kbd>,
+        <kbd>Ctrl</kbd>+<kbd>Q</kbd>) are Save and Quit in most apps. Set your own in
+        <strong>Settings → Hotkeys</strong>, where you can also clear any binding with the ×.
+      </p>
+
+      <h2 id="wrong">5. When it points at the wrong thing</h2>
+      <p>
+        Under every instruction there’s a <strong>✗ Wrong</strong> button. Pressing it asks
+        <em>what</em> was wrong, and the four answers do genuinely different things — picking the
+        accurate one gets you a better fix, faster:
+      </p>
+      <table class="legal-table">
+        <tr><th>You say</th><th>What happens</th></tr>
+        <tr><td><strong>Wrong spot</strong><br />(right instruction, marker on the wrong button)</td><td>Navisual re-searches your screen <strong>locally</strong>, excluding the spot you rejected. No AI request, usually instant — the advice was right, only the aim was off. If the second try also misses, it escalates to the AI.</td></tr>
+        <tr><td><strong>Can’t find it</strong><br />(nothing was marked, or the thing described isn’t there)</td><td>Same local re-search first, then a fresh look at your screen.</td></tr>
+        <tr><td><strong>Wrong instruction</strong><br />(this step isn’t what you need)</td><td>Goes straight back to the AI for a new plan, told what it got wrong.</td></tr>
+        <tr><td><strong>Already did that</strong></td><td>Moves on. If the next step is already prepared it advances instantly, without spending a request.</td></tr>
+      </table>
+      <p>
+        You can also just type a message while the picker is open — it’s sent as free-text feedback
+        along with your correction.
+      </p>
+      <p>
+        <strong>Several boxes instead of one arrow?</strong> That means Navisual found more than one
+        equally good match — three cells that all say “Total”, say — and it isn’t going to guess.
+        Click the one you meant. Your click <em>is</em> the answer; there’s no dialog to dismiss.
+      </p>
+
+      <h2 id="providers">6. AI providers &amp; cost</h2>
+      <p>Navisual works with several AI backends. Choose in <strong>Settings → Provider</strong>.</p>
+      <ul>
+        <li><strong>Managed — free.</strong> No key, no account. 30 requests per device.
+          <strong>Note:</strong> free-of-charge AI models generally retain requests — including your
+          screenshot — to train on. If that matters to you, use any option below instead.
+          (<a href="/privacy.html">Details in the privacy policy</a>.)</li>
+        <li><strong>Managed — pay as you go.</strong> Top up from $5 and Navisual routes to
+          strong paid models for you, with no API key to manage. You buy <em>coins</em> (a coin is
+          $0.005, fixed); a request costs 6, 12 or 18 coins depending on which quality tier you
+          pick — so $5 is roughly 55–165 requests. Paid providers state they don’t train on your
+          data.</li>
+        <li><strong>Bring your own key.</strong> Anthropic, Google Gemini, OpenAI, DeepSeek, Qwen,
+          or any OpenAI-compatible endpoint. Requests go straight from your machine to that provider
+          — our servers aren’t involved at all — and they bill you directly.</li>
+        <li><strong>Ollama (local).</strong> Runs on your own machine. Nothing leaves your network,
+          nothing is billed, and it works offline. Quality depends entirely on the model you run.</li>
+      </ul>
+      <p>
+        <strong>Which to pick?</strong> If you’re trying Navisual out, the free tier is fine. If
+        you’re using it on real work, pay-as-you-go or your own key — both are markedly more
+        accurate, and both keep your screen out of training data. If your screen content can’t leave
+        your machine at all, Ollama is the only option that guarantees it by construction.
+      </p>
+      <p>
+        Your balance is in the header; click it to reach billing. Under the info (ⓘ) button,
+        <strong>Usage</strong> breaks down what you’ve spent.
+      </p>
+
+      <h2 id="apps">7. App-specific support</h2>
+      <p>
+        Navisual reads most Windows apps through the accessibility information they already publish,
+        which is why buttons, menus and ribbons work well nearly everywhere. Some apps need more.
+      </p>
+      <p>
+        <strong>Excel, Word and PowerPoint</strong> are handled specially — Navisual can resolve a
+        cell reference, a phrase in your document, or a shape on a slide to exact pixels, rather than
+        guessing visually. Nothing to set up.
+      </p>
+      <p>
+        <strong>Blender</strong> offers an <strong>optional add-on</strong>. Blender draws its whole
+        interface itself, so from the outside it’s just an image — the add-on lets Blender tell
+        Navisual where its tools are, and which mode and brush you’re in. It makes tool-shelf and
+        properties-tab guidance far more reliable.
+      </p>
+      <ul>
+        <li>Navisual offers to install it when it notices you’re working in Blender. Click
+          <strong>Install</strong>, and it copies the file into Blender’s add-ons folder.</li>
+        <li><strong>Then restart Blender</strong>, open <strong>Edit → Preferences → Add-ons</strong>,
+          search for <em>Navisual</em>, and tick its checkbox. That tick is the consent step —
+          Navisual can’t and won’t do it for you.</li>
+        <li>It is <strong>read-only</strong>: it answers questions about the interface and cannot
+          click, type, run commands, or touch your file. It listens only on your own computer and
+          sends nothing to the internet.</li>
+        <li>Each Blender version has its own add-ons folder, so install it once per version you use.
+          Untick it any time to turn it off.</li>
+      </ul>
+      <p>
+        <strong>Where Navisual struggles:</strong> apps that paint their own interface with no
+        accessibility information and no add-on — SolidWorks’ ribbon is the clearest example — and
+        very small text, which on-screen text recognition can miss. In those cases you’ll still get
+        correct written instructions; you may not get the arrow.
+      </p>
+
+      <h2 id="trouble">8. Troubleshooting</h2>
+      <table class="legal-table">
+        <tr><th>Symptom</th><th>What to do</th></tr>
+        <tr><td>My first click on the app does nothing</td><td>You clicked Navisual’s panel just before, so Windows spent that click re-focusing the app. Use <kbd>Ctrl</kbd>+<kbd>~</kbd> instead of clicking → Next.</td></tr>
+        <tr><td>No pointer, ever, in one app</td><td>That app likely paints its own interface (3D viewport, canvas, game). Follow the written instruction; see §7.</td></tr>
+        <tr><td>It’s guiding the wrong app</td><td>Click the header chip and pin the window you actually mean.</td></tr>
+        <tr><td>Requests time out</td><td>Usually a slow free model under load. Try again, or switch provider in Settings.</td></tr>
+        <tr><td>“Free requests used up”</td><td>Top up with coins, add your own API key, or run Ollama locally — all in Settings → Provider.</td></tr>
+        <tr><td>The pointer is in the wrong place after unplugging a monitor</td><td>It should re-align itself within a second. If it doesn’t, restart Navisual and let us know.</td></tr>
+        <tr><td>Voice input transcribes Chinese as pinyin</td><td>Speech recognition can’t detect a language before you speak. Set it explicitly in Settings → Audio.</td></tr>
+        <tr><td>Something else</td><td>Use <strong>Send feedback</strong> in the info (ⓘ) dialog — it fills in your version and model automatically — or open an issue on <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">GitHub</a>.</td></tr>
+      </table>
+
+      <h2 id="privacy">9. Privacy in one screen</h2>
+      <ul>
+        <li>Screenshots are taken <strong>only</strong> when you ask a question or ask for the next
+          step — never continuously.</li>
+        <li>When one window is shared, everything else on screen is greyed out before sending.</li>
+        <li>Your screenshot goes to the AI provider <em>you</em> chose. With your own key or Ollama,
+          our servers never see it.</li>
+        <li>We don’t store your screenshots. Settings, API keys and logs stay on your machine.</li>
+        <li>The free tier’s models may train on what you send. Paid, BYOK and local options don’t.</li>
+      </ul>
+      <p>The full details, including the Blender add-on, are in the
+        <a href="/privacy.html">Privacy Policy</a>.</p>
+
+      <p class="legal-footnote">
+        Navisual is AI-assisted guidance — it can be wrong. Check anything consequential before you
+        act on it, and never rely on it alone for financial, legal, medical or safety-critical
+        decisions.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/docs.html">Guide</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">Privacy</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">Terms</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-Apache-2.0</span>
+  </footer>
+</body>
+</html>
