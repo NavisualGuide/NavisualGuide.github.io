@@ -103,6 +103,20 @@
         you want to think between steps.
       </p>
       <p>
+        <strong>Anything you'd have to type is put on your clipboard.</strong> A terminal command, a
+        URL, a filename, text for a form field — when a step involves typing, the exact text is
+        copied for you and the step shows a 📋 badge, so you paste rather than retype it. Keyboard
+        shortcuts are the deliberate exception: those are named in the instruction, because a
+        shortcut has to be pressed, not pasted. Navisual never runs a command or presses anything
+        for you — you read it, then paste it and press Enter yourself.
+      </p>
+      <p>
+        <strong>Tasks that span several apps</strong> work without any setup: download something in
+        the browser, edit a file, run a command in a terminal, and Navisual follows whichever window
+        you're working in. If you'd rather it stayed fixed on one app while you move around, pin
+        that window (§2).
+      </p>
+      <p>
         Sometimes Navisual asks you a question instead of giving a step. Type the answer in the reply
         box and press Enter. If it can’t see enough to be sure, the honest answer — “bring the right
         window forward” — is what you’ll get.
@@ -190,6 +204,16 @@
       <p>
         Navisual reads most Windows apps through the accessibility information they already publish,
         which is why buttons, menus and ribbons work well nearly everywhere. Some apps need more.
+      </p>
+      <p>
+        <strong>Browsers</strong> are one of the best cases — web pages publish rich structure, so
+        pointing inside a web app, form or admin panel is usually exact. Chrome and Edge get a
+        dedicated fast path.
+      </p>
+      <p>
+        <strong>Terminals</strong> (Windows Terminal, PowerShell, a shell inside your editor) work
+        through the clipboard rather than through pointing: there are no buttons to aim at, so
+        Navisual gives you the command to paste instead (§3). It never runs one for you.
       </p>
       <p>
         <strong>Excel, Word and PowerPoint</strong> are handled specially — Navisual can resolve a
