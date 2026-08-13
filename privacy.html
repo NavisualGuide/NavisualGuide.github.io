@@ -53,10 +53,28 @@
           position/size are sent with the request to give the AI context.</li>
         <li><strong>Your request text.</strong> What you type or say, plus a short running summary
           of the task.</li>
+        <li><strong>The control you last clicked.</strong> While a guidance session is active,
+          Navisual records the <em>name and type</em> of the control you click — for example
+          <em>Button “Save”</em> — so the AI knows what you just did instead of having to guess it
+          from pixels. This applies <strong>only to clicks inside the app you are being guided
+          in</strong>; clicks anywhere else on your screen are discarded immediately and are never
+          stored or sent. Navisual records a control’s <strong>name, never its contents</strong>:
+          the text inside a box is not read, and a password field is reported only as
+          “(password field)”. <strong>Navisual does not monitor your keyboard at all.</strong></li>
+        <li><strong>Where your cursor is, in supported apps.</strong> In Microsoft Word, Navisual
+          reads the cursor’s page, section and line number, whether text is selected, and the style
+          and text of the paragraph you are in (long paragraphs are reported only as a character
+          count). A screenshot cannot show a text cursor, so without this the AI cannot tell where
+          you are in a document.</li>
         <li><strong>Voice input (optional).</strong> If you enable push-to-talk, your spoken audio
           is transcribed by the WebView2 Web Speech API, which streams it to Microsoft’s online
           speech service. This is a separate data flow you can leave disabled.</li>
       </ul>
+      <p>
+        Click context and cursor position both stop the moment guidance stops, are never written to
+        disk unless you turn on prompt logging in Developer settings, and are not collected while
+        capture is paused with the Pause hotkey.
+      </p>
       <p>
         Element coordinates are matched <strong>locally</strong> on your machine (Windows UI
         Automation + built-in OCR). Your screen layout is not used to build any profile of you.
