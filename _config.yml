@@ -1,0 +1,45 @@
+# Jekyll config for navisualguide.com
+#
+# Jekyll was ALREADY active here (GitHub Pages runs it by default; there is no
+# .nojekyll file). This config does not switch it on — it only gives the /guides
+# content a layout, and makes sitemap.xml generate itself.
+#
+# The five hand-written pages (index/docs/privacy/terms/checkout-complete) carry
+# NO front matter, so Jekyll copies them through byte-for-byte and they are
+# unaffected by anything here. Do not add front matter to them without also
+# giving them a layout, or they will render as bare content.
+
+title: Navisual
+description: >-
+  Navisual understands what's on your screen, works out what to do, and shows
+  you where — step by step, in any Windows app. The AI guides, you decide.
+url: https://navisualguide.com
+author: Jin Fu
+
+# /guides/<slug>/ — a directory-style permalink, chosen deliberately over
+# /guides/<slug>.html because URL shape is expensive to change later (redirects
+# + lost link equity) and this one stays valid if the stack ever changes.
+collections:
+  guides:
+    output: true
+    permalink: /guides/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: guide
+
+# Keep internal/tooling files out of the built site.
+exclude:
+  - README.md
+  - LICENSE
+  - .github/
+  - GUIDE-TEMPLATE.md
+
+# Markdown: GFM via kramdown (GitHub Pages' only supported processor).
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

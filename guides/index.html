@@ -1,0 +1,63 @@
+---
+layout: null
+title: Guides
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guides — Navisual</title>
+  <meta name="description" content="Step-by-step walkthroughs for the settings and click-paths that are genuinely hard to find — the ones where published instructions don't match what's on your screen." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://navisualguide.com/guides/" />
+  <meta property="og:title" content="Guides — Navisual" />
+  <meta property="og:description" content="Step-by-step walkthroughs for the settings and click-paths that are genuinely hard to find." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://navisualguide.com/guides/" />
+  <meta property="og:site_name" content="Navisual" />
+  <meta property="og:image" content="https://navisualguide.com/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://navisualguide.com/social-preview.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main>
+    <a class="legal-back" href="/">← Back to navisualguide.com</a>
+    <h1>Guides</h1>
+    <p>
+      Walkthroughs for the settings that are genuinely buried — the cases where the
+      instructions you find online describe a dialog that isn't on your screen.
+    </p>
+
+    {% assign sorted = site.guides | sort: 'date' | reverse %}
+    {% if sorted.size > 0 %}
+    <ul class="guide-list">
+      {% for g in sorted %}
+      <li>
+        <a href="{{ g.url }}">{{ g.title }}</a>
+        {% if g.app %}<span class="guide-app">{{ g.app }}</span>{% endif %}
+        {% if g.description %}<p>{{ g.description }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p><em>First guide coming shortly.</em></p>
+    {% endif %}
+  </main>
+
+  <footer>
+    <a href="/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/docs.html">Guide</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">Privacy</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">Terms</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-Apache-2.0</span>
+  </footer>
+</body>
+</html>

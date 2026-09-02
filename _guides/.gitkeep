@@ -1,0 +1,3 @@
+Guides live here as markdown, one file per article.
+Filename becomes the URL slug: word-copilot-tab-missing.md -> /guides/word-copilot-tab-missing/
+See ../GUIDE-TEMPLATE.md for the front matter and structure.

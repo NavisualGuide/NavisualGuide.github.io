@@ -1,14 +1,28 @@
+---
+# Front matter is what makes Jekyll render this file rather than copy it.
+# It MUST stay, even though it is empty apart from this comment.
+layout: null
+sitemap: false
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Indexable pages only. checkout-complete.html is deliberately absent: it is a
-  post-payment landing page carrying its own <meta name="robots" content="noindex">.
+  GENERATED — do not hand-edit.
 
-  lastmod values are the real git commit dates of each file — not today's date.
-  Stamping everything with "now" on every deploy trains crawlers to distrust the
-  signal, which is worse than omitting it.
+  Was a hand-written static list (2026-09-01). Converted to a template the same
+  week because a hand-maintained sitemap is a guaranteed future bug: every new
+  guide would need remembering, and the one that gets forgotten is invisible to
+  search with no error anywhere to notice.
 
-  priority/changefreq are omitted on purpose: Google has stated it ignores both,
-  and inventing values only creates something else to keep in sync.
+  Static pages are listed explicitly with real lastmod dates (they change rarely
+  and their git dates are meaningful). Guides come from the collection, so a new
+  article appears here automatically the moment it is committed.
+
+  checkout-complete.html is deliberately absent: it carries its own
+  <meta name="robots" content="noindex"> and is useless in search results. It is
+  left OUT of the sitemap rather than Disallow'd in robots.txt, so a crawler that
+  does reach it can still read that directive.
+
+  priority/changefreq omitted throughout: Google has stated it ignores both.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -27,4 +41,16 @@
     <loc>https://navisualguide.com/terms.html</loc>
     <lastmod>2026-08-02</lastmod>
   </url>
+{%- if site.guides.size > 0 %}
+  <url>
+    <loc>{{ '/guides/' | absolute_url }}</loc>
+  </url>
+{%- endif %}
+{%- assign sorted = site.guides | sort: 'date' | reverse -%}
+{%- for g in sorted %}
+  <url>
+    <loc>{{ g.url | absolute_url }}</loc>
+    <lastmod>{{ g.last_modified | default: g.date | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+{%- endfor %}
 </urlset>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{ page.title }} — Navisual</title>
+  <meta name="description" content="{{ page.description }}" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical is generated, never hand-typed: a wrong/copy-pasted canonical is
+       worse than none (it can deindex the page by pointing at another URL). -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:site_name" content="Navisual" />
+  <meta property="og:image" content="{{ '/social-preview.png' | absolute_url }}" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Navisual — The AI guides, you decide." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ '/social-preview.png' | absolute_url }}" />
+
+  <link rel="stylesheet" href="/style.css" />
+
+  {%- comment -%}
+    Structured data. Emits HowTo when the front matter supplies `steps:`, else
+    TechArticle. HowTo is the valuable one: it is how an AI answer engine reads
+    the page as a PROCEDURE it can cite step-by-step rather than as prose, which
+    is the whole GEO bet (see marketing-plan.md D1c).
+
+    The steps live in front matter rather than being scraped out of the rendered
+    body on purpose — parsing prose back into structured steps is fragile, and a
+    schema that silently drifts from the visible content is a penalty risk.
+    Yes, it means writing the step names twice; that is the cost of the schema
+    being reliably true.
+
+    Deliberately absent: aggregateRating/review. No real reviews exist, and
+    inventing them is dishonest and a known Google structured-data penalty.
+  {%- endcomment -%}
+  {%- if page.steps -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": {{ page.title | jsonify }},
+    "description": {{ page.description | jsonify }},
+    "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+    {%- if page.last_modified %}
+    "dateModified": "{{ page.last_modified | date: '%Y-%m-%d' }}",
+    {%- endif %}
+    "image": {{ '/social-preview.png' | absolute_url | jsonify }},
+    "author": { "@type": "Person", "name": "Jin Fu" },
+    {%- if page.app %}
+    "tool": [{ "@type": "HowToTool", "name": {{ page.app | jsonify }} }],
+    {%- endif %}
+    "step": [
+      {%- for s in page.steps %}
+      {
+        "@type": "HowToStep",
+        "position": {{ forloop.index }},
+        "name": {{ s.name | jsonify }}
+        {%- if s.text %},
+        "text": {{ s.text | jsonify }}
+        {%- endif %}
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+  {%- else -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | jsonify }},
+    "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+    "image": {{ '/social-preview.png' | absolute_url | jsonify }},
+    "author": { "@type": "Person", "name": "Jin Fu" },
+    "publisher": { "@type": "Organization", "name": "Navisual" },
+    "mainEntityOfPage": {{ page.url | absolute_url | jsonify }}
+  }
+  </script>
+  {%- endif -%}
+</head>
+<body>
+  <main>
+    <a class="legal-back" href="/guides/">← All guides</a>
+    <h1>{{ page.title }}</h1>
+
+    {%- if page.app or page.os %}
+    <p class="guide-meta">
+      {%- if page.app %}<strong>{{ page.app }}</strong>{% endif %}
+      {%- if page.app and page.os %} · {% endif %}
+      {%- if page.os %}{{ page.os }}{% endif %}
+    </p>
+    {%- endif %}
+
+    {{ content }}
+
+    <!-- Every guide ends with the product, but as a relevant next step rather
+         than an ad: the reader just followed a click-path that was hard to find,
+         which is exactly the problem the app solves. -->
+    <hr />
+    <p class="guide-cta">
+      Steps like these are easier when something points at the actual control on
+      <em>your</em> screen. <a href="/">Navisual</a> reads what's in front of you and
+      shows you where to click — it never clicks for you.
+    </p>
+  </main>
+
+  <footer>
+    <a href="/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/guides/">Guides</a>
+    <span class="sep">·</span>
+    <a href="/docs.html">Guide</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">Privacy</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">Terms</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-Apache-2.0</span>
+  </footer>
+</body>
+</html>
