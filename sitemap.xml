@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Indexable pages only. checkout-complete.html is deliberately absent: it is a
+  post-payment landing page carrying its own <meta name="robots" content="noindex">.
+
+  lastmod values are the real git commit dates of each file — not today's date.
+  Stamping everything with "now" on every deploy trains crawlers to distrust the
+  signal, which is worse than omitting it.
+
+  priority/changefreq are omitted on purpose: Google has stated it ignores both,
+  and inventing values only creates something else to keep in sync.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://navisualguide.com/</loc>
+    <lastmod>2026-08-09</lastmod>
+  </url>
+  <url>
+    <loc>https://navisualguide.com/docs.html</loc>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://navisualguide.com/privacy.html</loc>
+    <lastmod>2026-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://navisualguide.com/terms.html</loc>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+</urlset>

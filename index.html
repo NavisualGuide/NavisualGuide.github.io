@@ -8,6 +8,10 @@
   <meta property="og:title" content="Navisual — Step-by-step guidance for any task, in any app" />
   <meta property="og:description" content="Navisual understands what you see on the screen, works out what to do, and shows you where — one step at a time, in any Windows app. The AI guides, you decide." />
   <meta property="og:type" content="website" />
+  <!-- Canonical: / and /index.html both resolve on GitHub Pages, so without this
+       they can be treated as two competing duplicates and split ranking signals.
+       The trailing-slash root form is the canonical one (matches og:url + sitemap). -->
+  <link rel="canonical" href="https://navisualguide.com/" />
   <meta property="og:url" content="https://navisualguide.com" />
   <meta property="og:site_name" content="Navisual" />
   <!-- og:image MUST be an absolute URL — scrapers do not resolve relative paths. -->
@@ -18,6 +22,49 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://navisualguide.com/social-preview.png" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured data (schema.org / JSON-LD).
+       This is what lets a machine read the page as a PRODUCT rather than as prose:
+       a free Windows app, what it does, where to get it. Two audiences:
+         - classic search, for rich results
+         - AI answer engines (ChatGPT/Copilot/Perplexity), which use it to
+           understand and cite the app. This is the main "GEO" lever on the site.
+       Deliberately NOT claimed: aggregateRating / review counts. Inventing those
+       is both dishonest and a known cause of Google structured-data penalties.
+       offers.price is "0" because the app is genuinely free to download; the coin
+       top-ups are in-app purchases, not a purchase price for the software. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Navisual",
+    "url": "https://navisualguide.com/",
+    "description": "Navisual understands what's on your screen, works out what to do, and shows you where — step by step, in any Windows app. The AI guides, you decide: it never clicks, types, or takes control.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Windows 10, Windows 11",
+    "softwareVersion": "0.7.15",
+    "downloadUrl": "https://github.com/NavisualGuide/navisual/releases/latest/download/Navisual-Setup.exe",
+    "softwareHelp": "https://navisualguide.com/docs.html",
+    "image": "https://navisualguide.com/social-preview.png",
+    "author": {
+      "@type": "Person",
+      "name": "Jin Fu"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free to download, including 30 free requests with no sign-up. Optional coin top-ups from $5 for continued use."
+    },
+    "featureList": [
+      "Shows where to click, step by step, in any Windows application",
+      "Reads the screen with accessibility APIs and OCR — points at the real on-screen element",
+      "Never clicks, types, or takes control — the user performs every action",
+      "Works in Word, Excel, PowerPoint, browsers, Blender, Photoshop and more",
+      "Spoken instructions and an on-screen pointer overlay"
+    ]
+  }
+  </script>
 </head>
 <body>
   <main>

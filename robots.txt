@@ -1,0 +1,12 @@
+# navisualguide.com
+# Everything here is public marketing/legal content — crawl it all.
+# checkout-complete.html carries its own <meta name="robots" content="noindex">
+# (it is a post-payment landing page, useless in search results); it is left out
+# of sitemap.xml rather than Disallow'd here, so a crawler that does reach it can
+# still read that noindex directive. Disallowing it would block the crawl and the
+# directive would never be seen.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://navisualguide.com/sitemap.xml
