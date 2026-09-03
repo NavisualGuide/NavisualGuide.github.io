@@ -251,17 +251,37 @@
           Untick it any time to turn it off.</li>
       </ul>
       <p>
-        <strong>Where Navisual struggles:</strong> apps that paint their own interface with no
-        accessibility information and no add-on — SolidWorks’ ribbon is the clearest example — and
-        very small text, which on-screen text recognition can miss. In those cases you’ll still get
-        correct written instructions; you may not get the arrow.
+        <strong>Apps that paint their own interface</strong> — SolidWorks’ command ribbon, the
+        Photoshop and GIMP tool boxes, 3D viewports, most games — publish nothing for Navisual to
+        read locally. <strong>This does not mean Navisual can’t guide you in them.</strong> When
+        there’s nothing to read, the AI falls back on looking at the screenshot the way you do, and
+        points using what it sees. On a capable model that works well, including on interfaces it
+        has never encountered.
+      </p>
+      <p>
+        What changes is <em>how</em> it points: the highlight tends to be a region around the
+        control rather than a tight outline of it. And it depends much more on the model than
+        anywhere else in the app — reading an unfamiliar interface visually is a genuinely harder
+        job than reading a label. <strong>If an app like this isn’t giving you pointers, raise the
+        quality tier in Settings → Provider</strong> (or use your own key with a current
+        vision-capable model). That single change matters more here than any other setting.
+      </p>
+      <p>
+        Note that the parts of these apps you most often need help with — menus, preferences,
+        dialogs, property panels — are usually <em>not</em> self-painted, and behave normally. It is
+        common for the same app to be exact in its menus and approximate on its canvas.
+      </p>
+      <p>
+        <strong>Very small text</strong> is the other hard case: on-screen text recognition has a
+        size floor, so tightly-packed interface labels can be missed. You still get the written
+        instruction either way.
       </p>
 
       <h2 id="trouble">8. Troubleshooting</h2>
       <table class="legal-table">
         <tr><th>Symptom</th><th>What to do</th></tr>
         <tr><td>My first click on the app does nothing</td><td>You clicked Navisual’s panel just before, so Windows spent that click re-focusing the app. Use <kbd>Ctrl</kbd>+<kbd>~</kbd> instead of clicking → Next.</td></tr>
-        <tr><td>No pointer, ever, in one app</td><td>That app likely paints its own interface (3D viewport, canvas, game). Follow the written instruction; see §7.</td></tr>
+        <tr><td>No pointer, ever, in one app</td><td>That app likely paints its own interface (3D viewport, canvas, game), so pointing falls to the AI’s own reading of the screen. Raise the quality tier in Settings → Provider — it makes more difference here than anywhere else. See §7.</td></tr>
         <tr><td>It’s guiding the wrong app</td><td>Click the header chip and pin the window you actually mean.</td></tr>
         <tr><td>Requests time out</td><td>Usually a slow free model under load. Try again, or switch provider in Settings.</td></tr>
         <tr><td>“Free requests used up”</td><td>Top up with coins, add your own API key, or run Ollama locally — all in Settings → Provider.</td></tr>
