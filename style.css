@@ -543,7 +543,7 @@ footer a:hover {
 
 /* ── Legal pages (privacy / terms) ── */
 
-.legal {
+.legal, .prose {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
@@ -561,7 +561,7 @@ footer a:hover {
 
 .legal-back:hover { color: var(--text); }
 
-.legal h1 {
+.legal h1, .prose h1 {
   font-size: clamp(28px, 6vw, 40px);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -574,7 +574,7 @@ footer a:hover {
   margin-bottom: 32px;
 }
 
-.legal h2 {
+.legal h2, .prose h2 {
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
@@ -583,32 +583,34 @@ footer a:hover {
 }
 
 .legal p,
-.legal li {
+.legal li,
+.prose p,
+.prose li {
   font-size: 14.5px;
   color: var(--text-muted);
   line-height: 1.75;
 }
 
-.legal p { margin-bottom: 14px; }
+.legal p, .prose p { margin-bottom: 14px; }
 
-.legal ul {
+.legal ul, .prose ul {
   margin: 0 0 14px;
   padding-left: 22px;
 }
 
-.legal li { margin-bottom: 8px; }
+.legal li, .prose li { margin-bottom: 8px; }
 
-.legal strong { color: var(--text); font-weight: 600; }
+.legal strong, .prose strong { color: var(--text); font-weight: 600; }
 
-.legal a {
+.legal a, .prose a {
   color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.legal a:hover { color: var(--accent); }
+.legal a:hover, .prose a:hover { color: var(--accent); }
 
-.legal code {
+.legal code, .prose code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12.5px;
   background: rgba(255, 255, 255, 0.05);
@@ -681,7 +683,7 @@ footer a:hover {
   border-bottom-color: var(--accent);
 }
 
-.legal kbd {
+.legal kbd, .prose kbd {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 11.5px;
   background: rgba(255, 255, 255, 0.07);
@@ -837,4 +839,32 @@ ol .guide-figure {
   padding: 1px 5px;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* Guides use the shared .prose reading container (720px, left-aligned). But a
+   UI screenshot inside a 720px column renders a 1400px capture at ~50%, which
+   makes the dialog text unreadable — defeating the point of including it.
+   So figures alone break out wider than the measure, staying centred on it.
+   Text keeps its comfortable line length; images get room to be legible. */
+.prose .guide-figure {
+  width: min(94vw, 1000px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Ordered/unordered lists nest figures too — keep those inside the measure so
+   a step's screenshot stays visually attached to the step it belongs to. */
+.prose li .guide-figure {
+  width: 100%;
+  margin-left: 0;
+  transform: none;
+}
+
+@media (max-width: 760px) {
+  /* On a phone the breakout is pointless — the viewport IS the constraint. */
+  .prose .guide-figure {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
 }

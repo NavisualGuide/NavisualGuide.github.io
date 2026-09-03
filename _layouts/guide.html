@@ -143,7 +143,15 @@
   {%- endunless -%}
 </head>
 <body>
+  {%- comment -%}
+    The .prose wrapper is REQUIRED, not cosmetic. `main` is a centring flex
+    column (it exists for the homepage hero), so content placed directly in it
+    inherits `align-items: center` and stretches the full viewport width —
+    producing centred body text at ~200 characters per line. `.prose` restores
+    a 720px left-aligned measure, sharing the reading typography with `.legal`.
+  {%- endcomment -%}
   <main>
+    <div class="prose">
     <a class="legal-back" href="/guides/">← All guides</a>
 
     {%- comment -%}
@@ -181,6 +189,7 @@
       <em>your</em> screen. <a href="/">Navisual</a> reads what's in front of you and
       shows you where to click — it never clicks for you.
     </p>
+    </div>
   </main>
 
   <footer>

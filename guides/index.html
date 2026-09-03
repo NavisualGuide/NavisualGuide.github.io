@@ -23,6 +23,9 @@ title: Guides
 </head>
 <body>
   <main>
+    <!-- .prose wrapper required — see the note in _layouts/guide.html. Without
+         it, `main`'s centring flex layout stretches text to the full viewport. -->
+    <div class="prose">
     <a class="legal-back" href="/">← Back to navisualguide.com</a>
     <h1>Guides</h1>
     <p>
@@ -50,6 +53,7 @@ title: Guides
     {% else %}
     <p><em>First guide coming shortly.</em></p>
     {% endif %}
+    </div>
   </main>
 
   <footer>
