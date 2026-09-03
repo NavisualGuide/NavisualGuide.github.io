@@ -52,8 +52,29 @@
     {%- if page.last_modified %}
     "dateModified": "{{ page.last_modified | date: '%Y-%m-%d' }}",
     {%- endif %}
-    "image": {{ '/social-preview.png' | absolute_url | jsonify }},
+    "image": {{ page.hero_image | default: '/social-preview.png' | absolute_url | jsonify }},
     "author": { "@type": "Person", "name": "Jin Fu" },
+    {%- comment -%}
+      Optional VideoObject. A screen recording of a click-path is the single most
+      useful artefact for this kind of guide, and Google surfaces video results
+      separately — so a guide with one competes in a second, far emptier lane.
+      thumbnail + uploadDate are REQUIRED by the spec; a VideoObject missing them
+      is invalid and silently ignored, so both are enforced by the `if` below
+      rather than emitted half-complete.
+    {%- endcomment -%}
+    {%- if page.video and page.video.src and page.video.thumbnail %}
+    "video": {
+      "@type": "VideoObject",
+      "name": {{ page.video.name | default: page.title | jsonify }},
+      "description": {{ page.video.description | default: page.description | jsonify }},
+      "thumbnailUrl": {{ page.video.thumbnail | absolute_url | jsonify }},
+      "uploadDate": "{{ page.video.upload_date | default: page.date | date: '%Y-%m-%d' }}",
+      "contentUrl": {{ page.video.src | absolute_url | jsonify }}
+      {%- if page.video.duration %},
+      "duration": {{ page.video.duration | jsonify }}
+      {%- endif %}
+    },
+    {%- endif %}
     {%- if page.app %}
     "tool": [{ "@type": "HowToTool", "name": {{ page.app | jsonify }} }],
     {%- endif %}
@@ -65,6 +86,16 @@
         "name": {{ s.name | jsonify }}
         {%- if s.text %},
         "text": {{ s.text | jsonify }}
+        {%- endif %}
+        {%- comment -%}
+          Per-step image. Worth supplying wherever a screenshot exists: a HowToStep
+          with an image is what lets a search or answer engine show the actual
+          dialog alongside the instruction, and UI screenshots pull real traffic
+          from image search — a channel that matters disproportionately for
+          "what does this screen look like" queries.
+        {%- endcomment -%}
+        {%- if s.image %},
+        "image": {{ s.image | absolute_url | jsonify }}
         {%- endif %}
       }{% unless forloop.last %},{% endunless %}
       {%- endfor %}

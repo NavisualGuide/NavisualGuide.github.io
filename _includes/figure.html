@@ -1,0 +1,32 @@
+{%- comment -%}
+  Screenshot figure.
+
+    {% include figure.html
+       src="/images/guides/<slug>/01-thing.png"
+       alt="Word Options with Copilot selected in the left-hand list"
+       caption="Optional caption."
+       width="770" height="622" %}
+
+  `alt` is required in practice: a missing one is invisible in review but breaks
+  screen readers and forfeits image-search traffic, which is a real channel for
+  "what does this screen actually look like" queries. It is not hard-enforced
+  here because Jekyll on GitHub Pages has no build-time assert filter available
+  (no custom plugins), so instead a missing alt renders a loud visible marker
+  that cannot be missed when previewing the page.
+
+  width/height are optional but worth passing — they let the browser reserve
+  space before the image loads, so the page does not jump as screenshots arrive.
+{%- endcomment -%}
+<figure class="guide-figure">
+  <img src="{{ include.src }}"
+       alt="{{ include.alt }}"
+       {% if include.width %}width="{{ include.width }}"{% endif %}
+       {% if include.height %}height="{{ include.height }}"{% endif %}
+       loading="lazy"
+       decoding="async" />
+  {%- if include.alt == nil or include.alt == "" %}
+  <figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>
+  {%- elsif include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

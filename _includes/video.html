@@ -1,0 +1,41 @@
+{%- comment -%}
+  Short screen-recording clip.
+
+    {% include video.html
+       src="/images/guides/<slug>/walkthrough.mp4"
+       poster="/images/guides/<slug>/walkthrough-poster.png"
+       caption="The whole path, start to finish."
+       width="1280" height="720" %}
+
+  Self-hosted <video> rather than a YouTube embed, on purpose:
+    - no third-party tracking on a site whose product sells on privacy
+    - no CSP/consent complications
+    - the page stays fast; an embed pulls in a large player bundle
+  The trade-off is bandwidth and no YouTube discovery — worth revisiting if a
+  clip ever gets large or if YouTube search becomes a channel (marketing-plan
+  D1 ranks short-form video highly, and that is a separate distribution bet).
+
+  Silent by design: these are UI walkthroughs with no narration, so `muted` +
+  `playsinline` let them behave predictably and autoplay-safely if ever needed.
+  `preload="none"` keeps the clip off the critical path — it downloads only when
+  the reader chooses to play it, which matters when it sits below the fold.
+
+  For VideoObject structured data, ALSO add a `video:` block to the article's
+  front matter (see _layouts/guide.html) — this include only renders the player.
+{%- endcomment -%}
+<figure class="guide-figure">
+  <video controls
+         preload="none"
+         muted
+         playsinline
+         {% if include.poster %}poster="{{ include.poster }}"{% endif %}
+         {% if include.width %}width="{{ include.width }}"{% endif %}
+         {% if include.height %}height="{{ include.height }}"{% endif %}>
+    <source src="{{ include.src }}" type="video/mp4" />
+    Your browser can't play this clip.
+    <a href="{{ include.src }}">Download it instead</a>.
+  </video>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

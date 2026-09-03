@@ -779,3 +779,40 @@ footer a:hover {
 }
 
 .guide-cta a { color: var(--accent); }
+
+/* ── Guide media: screenshots and short clips ─────────────────────────────────
+   Added 2026-09-03. UI walkthroughs are close to useless without pictures — the
+   whole premise of a guide is "here is what your screen should look like".
+
+   max-width:100% + height:auto is load-bearing, not decoration: these are
+   ~800px screenshots and without it they blow out the layout on a phone, where
+   a good share of this traffic will land. */
+
+.guide-figure {
+  margin: 28px 0;
+}
+
+.guide-figure img,
+.guide-figure video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.guide-figure figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Screenshots nested inside a numbered step indent with the step text rather
+   than breaking out to the full column width. */
+.guide-steps .guide-figure,
+ol .guide-figure {
+  margin: 16px 0 20px;
+}
