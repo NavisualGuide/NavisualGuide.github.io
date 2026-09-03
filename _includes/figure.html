@@ -17,13 +17,27 @@
   width/height are optional but worth passing — they let the browser reserve
   space before the image loads, so the page does not jump as screenshots arrive.
 {%- endcomment -%}
+{%- comment -%}
+  The image links to itself, opening the full-resolution file in a new tab.
+  This is what lets the inline size stay modest: a reader who needs to read the
+  dialog text can get the real pixels on demand, instead of the page having to
+  render every screenshot large enough for the worst case. It matters most on a
+  phone, where the figure is capped at viewport width no matter what.
+
+  A plain link rather than a JS lightbox — no script, no dependency, works with
+  JS disabled, and the browser's own image viewer already does pan and zoom
+  better than a hand-rolled modal would.
+{%- endcomment -%}
 <figure class="guide-figure">
-  <img src="{{ include.src }}"
-       alt="{{ include.alt }}"
-       {% if include.width %}width="{{ include.width }}"{% endif %}
-       {% if include.height %}height="{{ include.height }}"{% endif %}
-       loading="lazy"
-       decoding="async" />
+  <a href="{{ include.src }}" target="_blank" rel="noopener"
+     title="Open the full-size screenshot in a new tab">
+    <img src="{{ include.src }}"
+         alt="{{ include.alt }}"
+         {% if include.width %}width="{{ include.width }}"{% endif %}
+         {% if include.height %}height="{{ include.height }}"{% endif %}
+         loading="lazy"
+         decoding="async" />
+  </a>
   {%- if include.alt == nil or include.alt == "" %}
   <figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>
   {%- elsif include.caption %}

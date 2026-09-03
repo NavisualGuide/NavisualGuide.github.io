@@ -794,6 +794,47 @@ footer a:hover {
   margin: 28px 0;
 }
 
+/* The figure's <a> wraps the image only — strip the text-link treatment it
+   would otherwise inherit (colour, underline) so it reads as an image, not a
+   link. The zoom cursor is the whole affordance: no caption text needed. */
+.guide-figure a {
+  display: block;
+  position: relative;
+  border: 0;
+  text-decoration: none;
+  cursor: zoom-in;
+}
+
+/* Persistent, not hover-only. A zoom cursor is a fine affordance on a desktop
+   and no affordance at all on a phone — which is precisely where the image is
+   smallest and enlarging matters most. So the badge is always drawn. */
+.guide-figure a::after {
+  content: "⤢";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 6px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0.75;
+  transition: opacity 0.15s ease, background 0.15s ease;
+  pointer-events: none;
+}
+
+.guide-figure a:hover::after,
+.guide-figure a:focus-visible::after {
+  opacity: 1;
+  background: var(--accent);
+}
+
 .guide-figure img,
 .guide-figure video {
   display: block;
@@ -803,6 +844,12 @@ footer a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  transition: border-color 0.15s ease;
+}
+
+.guide-figure a:hover img,
+.guide-figure a:focus-visible img {
+  border-color: var(--accent);
 }
 
 .guide-figure figcaption {
@@ -845,9 +892,16 @@ ol .guide-figure {
    UI screenshot inside a 720px column renders a 1400px capture at ~50%, which
    makes the dialog text unreadable — defeating the point of including it.
    So figures alone break out wider than the measure, staying centred on it.
-   Text keeps its comfortable line length; images get room to be legible. */
+   Text keeps its comfortable line length; images get room to be legible.
+
+   The breakout is deliberately modest (+25% over the measure, not +40%): a
+   figure that overhangs too far reads as a layout error rather than an
+   intentional step-out. It does not have to carry the full burden of
+   legibility on its own, because the image links to its full-resolution self —
+   the inline size only has to be good enough to follow along, not to read
+   every label. */
 .prose .guide-figure {
-  width: min(94vw, 1000px);
+  width: min(94vw, 900px);
   margin-left: 50%;
   transform: translateX(-50%);
 }
