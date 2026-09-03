@@ -41,12 +41,18 @@ sitemap: false
     <loc>https://navisualguide.com/terms.html</loc>
     <lastmod>2026-08-02</lastmod>
   </url>
-{%- if site.guides.size > 0 %}
+{%- comment -%}
+  Drafts are excluded. The /guides/ index itself only appears once at least one
+  PUBLISHED guide exists — advertising an empty listing page to crawlers is
+  worse than not listing it.
+{%- endcomment -%}
+{%- assign published = site.guides | where_exp: "g", "g.draft != true" -%}
+{%- if published.size > 0 %}
   <url>
     <loc>{{ '/guides/' | absolute_url }}</loc>
   </url>
 {%- endif %}
-{%- assign sorted = site.guides | sort: 'date' | reverse -%}
+{%- assign sorted = published | sort: 'date' | reverse -%}
 {%- for g in sorted %}
   <url>
     <loc>{{ g.url | absolute_url }}</loc>

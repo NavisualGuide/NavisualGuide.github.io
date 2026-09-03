@@ -4,9 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ page.title }} — Navisual</title>
+  <title>{% if page.draft %}[DRAFT] {% endif %}{{ page.title }} — Navisual</title>
   <meta name="description" content="{{ page.description }}" />
+  {%- comment -%}
+    `draft: true` exists so an unfinished article can be PUSHED and previewed at
+    its real URL — with the real layout, CTA, figures and CSS — without any local
+    Jekyll toolchain. A Markdown previewer cannot render any of that, since the
+    CTA and includes live in this layout rather than in the article.
+
+    A draft is hidden three ways, because any one alone is insufficient:
+      - noindex,nofollow here  -> search engines will not index it
+      - excluded from /guides/ -> readers cannot stumble on it
+      - excluded from sitemap  -> not actively advertised for crawling
+    The URL still works if you know it, which is the whole point.
+  {%- endcomment -%}
+  {%- if page.draft %}
+  <meta name="robots" content="noindex, nofollow" />
+  {%- else %}
   <meta name="robots" content="index, follow" />
+  {%- endif %}
 
   <!-- Canonical is generated, never hand-typed: a wrong/copy-pasted canonical is
        worse than none (it can deindex the page by pointing at another URL). -->
@@ -41,6 +57,13 @@
     Deliberately absent: aggregateRating/review. No real reviews exist, and
     inventing them is dishonest and a known Google structured-data penalty.
   {%- endcomment -%}
+  {%- comment -%}
+    Structured data is suppressed entirely for drafts. noindex alone is not
+    enough here: schema can be picked up by crawlers and answer engines that
+    do not honour it consistently, and half-finished HowTo steps are worse
+    than none — they can be cited as if they were the real instructions.
+  {%- endcomment -%}
+  {%- unless page.draft -%}
   {%- if page.steps -%}
   <script type="application/ld+json">
   {
@@ -117,10 +140,26 @@
   }
   </script>
   {%- endif -%}
+  {%- endunless -%}
 </head>
 <body>
   <main>
     <a class="legal-back" href="/guides/">← All guides</a>
+
+    {%- comment -%}
+      Loud on purpose. A silent draft is the failure mode worth designing
+      against: an article left at `draft: true` looks finished, is linked from
+      nowhere, and quietly never gets indexed — so it would appear to have been
+      published while earning nothing. This makes that state impossible to miss.
+    {%- endcomment -%}
+    {%- if page.draft %}
+    <p class="guide-draft-banner">
+      <strong>Draft — not published.</strong> This page is set <code>draft: true</code>:
+      it carries <code>noindex</code>, is hidden from the guides list, and is left out
+      of the sitemap. Set <code>draft: false</code> in the front matter to publish it.
+    </p>
+    {%- endif %}
+
     <h1>{{ page.title }}</h1>
 
     {%- if page.app or page.os %}

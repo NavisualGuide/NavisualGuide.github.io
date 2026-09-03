@@ -816,3 +816,25 @@ footer a:hover {
 ol .guide-figure {
   margin: 16px 0 20px;
 }
+
+/* Draft banner — deliberately loud. An article left at draft:true looks
+   finished but is noindex'd and unlisted, so it would appear published while
+   earning nothing. This makes that state impossible to overlook. */
+.guide-draft-banner {
+  margin: 0 0 24px;
+  padding: 12px 14px;
+  border: 1px solid var(--accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: rgba(255, 107, 53, 0.08);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.guide-draft-banner code {
+  font-size: 12.5px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}

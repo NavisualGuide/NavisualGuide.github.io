@@ -30,7 +30,13 @@ title: Guides
       instructions you find online describe a dialog that isn't on your screen.
     </p>
 
-    {% assign sorted = site.guides | sort: 'date' | reverse %}
+    {%- comment -%}
+      Drafts are filtered out here as well as being noindex'd. A reader following
+      a link from the listing is a different exposure route from a search engine,
+      and hiding it in only one of the two would leave the other open.
+    {%- endcomment -%}
+    {% assign published = site.guides | where_exp: "g", "g.draft != true" %}
+    {% assign sorted = published | sort: 'date' | reverse %}
     {% if sorted.size > 0 %}
     <ul class="guide-list">
       {% for g in sorted %}
