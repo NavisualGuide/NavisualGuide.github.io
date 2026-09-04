@@ -16,31 +16,33 @@
 
   width/height are optional but worth passing — they let the browser reserve
   space before the image loads, so the page does not jump as screenshots arrive.
-{%- endcomment -%}
-{%- comment -%}
-  The image links to itself, opening the full-resolution file in a new tab.
-  This is what lets the inline size stay modest: a reader who needs to read the
+
+  The image links to itself, opening the full-resolution file in a new tab. That
+  is what lets the inline size stay modest: a reader who needs to read the
   dialog text can get the real pixels on demand, instead of the page having to
   render every screenshot large enough for the worst case. It matters most on a
-  phone, where the figure is capped at viewport width no matter what.
+  phone, where the figure is capped at viewport width no matter what. A plain
+  link rather than a JS lightbox — no script, works with JS disabled, and the
+  browser's own image viewer already pans and zooms better than a hand-rolled
+  modal would.
 
-  A plain link rather than a JS lightbox — no script, no dependency, works with
-  JS disabled, and the browser's own image viewer already does pan and zoom
-  better than a hand-rolled modal would.
+  ---------------------------------------------------------------------------
+  THE OUTPUT BELOW IS DELIBERATELY ONE UNBROKEN LINE. Do not reformat it.
+
+  A figure that illustrates a numbered step has to live INSIDE that step's list
+  item: an HTML block sitting at column 0 between two list items terminates the
+  <ol>, so the next item opens a fresh list and the numbering restarts at 1.
+  (That shipped once — steps 3 and 4 rendered as 1 and 2.)
+
+  Indenting the `{% include %}` call is not enough on its own, and fails in a
+  way that looks like it worked. Liquid substitutes the include's output at the
+  call site, so only the FIRST line inherits the indent; every following line
+  still begins at column 0. Kramdown then ends the list item at the first such
+  line and prints the trailing `</figure>` as literal text. (That shipped too.)
+
+  Emitting a single line makes the indent apply to the whole block, so the
+  figure genuinely nests. Hence the whitespace-control tags and the absence of
+  newlines — this is load-bearing, not a formatting accident.
 {%- endcomment -%}
-<figure class="guide-figure">
-  <a href="{{ include.src }}" target="_blank" rel="noopener"
-     title="Open the full-size screenshot in a new tab">
-    <img src="{{ include.src }}"
-         alt="{{ include.alt }}"
-         {% if include.width %}width="{{ include.width }}"{% endif %}
-         {% if include.height %}height="{{ include.height }}"{% endif %}
-         loading="lazy"
-         decoding="async" />
-  </a>
-  {%- if include.alt == nil or include.alt == "" %}
-  <figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>
-  {%- elsif include.caption %}
-  <figcaption>{{ include.caption }}</figcaption>
-  {%- endif %}
-</figure>
+{%- assign has_alt = false -%}{%- if include.alt and include.alt != "" -%}{%- assign has_alt = true -%}{%- endif -%}
+<figure class="guide-figure"><a href="{{ include.src }}" target="_blank" rel="noopener" title="Open the full-size screenshot in a new tab"><img src="{{ include.src }}" alt="{{ include.alt }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} loading="lazy" decoding="async" /></a>{% unless has_alt %}<figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>{% endunless %}{% if has_alt and include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}</figure>
