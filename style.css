@@ -749,23 +749,27 @@ footer a:hover {
   margin: 28px 0 0;
 }
 
-/* Each row is a thumbnail beside its blurb. The thumbnail carries the whole
-   point of the collection: it shows Navisual pointing at a real control, which
-   a title and a blurb cannot do. Rows without a hero_image simply have no
-   thumbnail and the text takes the full width. */
+/* Each entry is a card: a wide image, then the title and blurb.
+
+   A small side-by-side thumbnail was tried first and abandoned. These are
+   full-desktop screenshots roughly 1400px wide; at the ~190px a list row allows
+   that is a 7x reduction, and the dialog, the highlight and the panel all
+   dissolve into an unreadable smudge. It read as decoration, which is the
+   opposite of the point — the picture IS the argument here, so it has to be
+   big enough to show Navisual pointing at something.
+
+   Full column width is about 2x reduction instead. Individual labels are still
+   too small to read, but the things that matter carry: a real application, an
+   orange highlight on one control, and the Navisual panel beside it. */
 .guide-list li {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  padding: 18px 0;
+  padding: 0 0 26px;
+  margin-bottom: 26px;
   border-bottom: 1px solid var(--border);
 }
 
-.guide-entry { flex: 1; min-width: 0; }
-
 .guide-thumb {
-  flex: 0 0 190px;
   display: block;
+  margin-bottom: 14px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -776,23 +780,17 @@ footer a:hover {
 .guide-thumb img {
   display: block;
   width: 100%;
-  /* Screenshots are wide (~1.5:1) but crop well: the interesting half is the
-     dialog and the panel, both near the top. A fixed 16:10 box keeps every row
-     the same height however the source images differ. */
-  aspect-ratio: 16 / 10;
+  /* Cropped to a letterbox rather than shown whole. The full 1.53:1 frame would
+     be ~470px tall per entry and the listing would become a scroll. The top 40%
+     is where the action is: the open dialog, the highlighted control, and the
+     top of the Navisual panel. */
+  aspect-ratio: 5 / 2;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
-.guide-list li:hover .guide-thumb img { transform: scale(1.03); }
-
-@media (max-width: 620px) {
-  /* Side by side leaves neither the picture nor the blurb enough room on a
-     phone, so stack and let the thumbnail run full width. */
-  .guide-list li { flex-direction: column; gap: 12px; }
-  .guide-thumb { flex: none; width: 100%; }
-}
+.guide-list li:hover .guide-thumb img { transform: scale(1.02); }
 
 .guide-list li:last-child { border-bottom: none; }
 
