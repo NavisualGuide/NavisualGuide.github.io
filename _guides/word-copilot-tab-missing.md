@@ -8,7 +8,7 @@ os: "Windows 10 / 11"
 # Set to false to publish. While true: noindex, hidden from /guides/, and left
 # out of the sitemap, so this can be pushed and previewed at its real URL, with
 # the real layout and CTA, without being discoverable.
-draft: true
+draft: false
 
 steps:
   - name: "Check whether you have the Copilot entry at all"
