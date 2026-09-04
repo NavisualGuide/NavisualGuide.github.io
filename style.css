@@ -749,6 +749,13 @@ footer a:hover {
   margin: 28px 0 0;
 }
 
+/* The bare `.guide-list` padding above loses. `.prose ul` scores 0,1,1 against
+   its 0,1,0, so the 22px bullet indent meant for prose lists applied here too
+   and pushed every card 22px right of the paragraphs above it — a visible
+   ragged edge on a page whose whole job is looking composed. This selector
+   scores 0,2,0 and takes it back. */
+.prose .guide-list { padding-left: 0; }
+
 /* Each entry is a card: a wide image, then the title and blurb.
 
    A small side-by-side thumbnail was tried first and abandoned. These are
