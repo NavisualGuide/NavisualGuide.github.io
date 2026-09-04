@@ -91,16 +91,20 @@ title: How-tos
         leaving a broken frame.
       {%- endcomment -%}
       <li>
+        <a class="guide-link" href="{{ g.url }}">{{ g.title }}</a>
+        {% if g.app %}<span class="guide-app">{{ g.app }}</span>{% endif %}
+        {%- comment -%}
+          The image sits under the title, above the blurb: name the thing, show
+          it, then explain it. It repeats the title's destination, so it is
+          taken out of the tab order and hidden from screen readers rather than
+          making every entry announce itself twice.
+        {%- endcomment -%}
         {%- if g.hero_image %}
         <a class="guide-thumb" href="{{ g.url }}" tabindex="-1" aria-hidden="true">
           <img src="{{ g.hero_image }}" alt="" loading="lazy" decoding="async" />
         </a>
         {%- endif %}
-        <div class="guide-entry">
-          <a href="{{ g.url }}">{{ g.title }}</a>
-          {% if g.app %}<span class="guide-app">{{ g.app }}</span>{% endif %}
-          {% if g.description %}<p>{{ g.description }}</p>{% endif %}
-        </div>
+        {% if g.description %}<p>{{ g.description }}</p>{% endif %}
       </li>
       {% endfor %}
     </ul>

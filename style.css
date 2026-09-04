@@ -776,7 +776,9 @@ footer a:hover {
 
 .guide-thumb {
   display: block;
-  margin-bottom: 14px;
+  /* Sits between the title and the blurb, so it needs breathing room on both
+     sides rather than only below. */
+  margin: 12px 0 12px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -801,14 +803,19 @@ footer a:hover {
 
 .guide-list li:last-child { border-bottom: none; }
 
-.guide-list a {
+/* Scoped to the title link specifically. `.guide-list a` also matched the
+   thumbnail anchor, handing text styling to an element that contains only an
+   image. Harmless but misleading to read. */
+.guide-link {
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
   text-decoration: none;
 }
 
-.guide-list a:hover { color: var(--accent); }
+/* Hovering anywhere on the card highlights the title, so the image, the title
+   and the blurb read as one target rather than three separate ones. */
+.guide-list li:hover .guide-link { color: var(--accent); }
 
 .guide-app {
   display: inline-block;
