@@ -549,6 +549,13 @@ footer a:hover {
   margin: 0 auto;
   padding: 64px 8px 80px;
   text-align: left;
+  /* Safety net for narrow screens. Nothing in today's copy needs it — the
+     longest unbreakable token in the first article is 23 characters — but a
+     single long URL, file path or registry key in a future guide would push the
+     page wider than a phone viewport and start a horizontal scroll across the
+     WHOLE document, which reads as a broken site rather than one long word.
+     Cheaper to prevent than to notice. */
+  overflow-wrap: break-word;
 }
 
 .legal-back {
@@ -914,10 +921,13 @@ ol .guide-figure {
    Indenting the include into the step is the fix, and it is also the honest
    structure, since each screenshot illustrates one specific step.
 
-   But nesting must not cost the width. The breakout centres on the <li> rather
-   than on .prose, so it sits ~15px right of true centre — imperceptible against
-   the ~90px overhang, and far cheaper than hard-coding the list indent to
-   correct it. */
+   But nesting must not cost the width, so these break out identically to
+   top-level figures. Measured on the rendered page at a 1416px viewport:
+   prose 720px, figure 900px at left 258 / right 1158 — centre 708, which is
+   exactly the viewport centre. It lands dead-centre because the list's own
+   indent comes from the marker rather than from padding on the <li>, so the
+   item's content box is the full measure and centring on it is the same as
+   centring on .prose. */
 .prose li .guide-figure {
   width: min(94vw, 900px);
   margin-left: 50%;
