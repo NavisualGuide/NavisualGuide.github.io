@@ -1,5 +1,5 @@
 ---
-title: "The Copilot tab isn't in your Word Options — what to do instead"
+title: "Enabling/Disabling Copilot isn't in your Word Options — what to do instead"
 description: "Most answers say File ▸ Options ▸ Copilot. That tab is missing in many builds of Word. Here is the path that works instead, and how to tell which case you are in."
 date: 2026-09-02
 app: "Microsoft Word"
@@ -35,7 +35,7 @@ Here is how to tell which situation you are in, and what actually works in each.
 ## First: check, because you may actually have it
 
 The **Copilot** entry does exist in current Microsoft 365 builds — it sits in the Word Options
-list **between Proofing and Save**, which is an easy place to skim past when you are scanning for
+list **between Proofing** and **Save**, which is an easy place to skim past when you are scanning for
 it near the top or bottom.
 
 So before assuming yours is missing, look there specifically. If you find it, this is a
@@ -62,8 +62,7 @@ Two things worth knowing, because they change the answer:
 
 1. **Check whether you have the Copilot entry at all.**
    Open Word, choose **File**, then **Options**. In the category list on the left, look
-   **between Proofing and Save** — the order runs General, Display, Proofing, **Copilot**, Save,
-   Typography, Language, Accessibility, Advanced.
+   **between Proofing and Save** 
 
    If it is there, do step 2. If it is not, skip to step 3.
 
@@ -113,7 +112,7 @@ If you see several, **"Turn on experiences that analyze your content"** is the o
 Copilot. Copilot works by reading your document, so it belongs to the analyze-your-content
 category, not the download-online-content one.
 
-**A real trade-off, stated honestly:** this is not a Copilot switch. It governs a whole category of
+**A trade-off:** this is not a Copilot switch. It governs a whole category of
 features, and Microsoft says so directly in the dialog itself:
 
 > If you turn this off, some experiences won't be available to you.
