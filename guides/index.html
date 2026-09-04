@@ -8,8 +8,26 @@ title: How-tos
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How-tos — Navisual</title>
-  <meta name="description" content="Step-by-step walkthroughs for the settings and click-paths that are genuinely hard to find — the ones where published instructions don't match what's on your screen." />
+  <meta name="description" content="Walkthroughs for Windows settings and click-paths that are genuinely hard to find — the ones where the published instructions don't match your screen." />
+  {%- comment -%}
+    Indexability tracks the same condition sitemap.xml uses: this page is only
+    worth a crawler's attention once at least one guide is actually published.
+
+    It matters more now than it did, because the footer on every page links
+    here. Sitewide internal links to an indexable page reading "first how-to
+    coming shortly" is the textbook thin-content signal — and it would have been
+    invisible, since the sitemap already withholds the URL, so nothing would
+    have flagged the disagreement between the two mechanisms.
+
+    noindex,FOLLOW rather than nofollow: once guides exist they are linked from
+    here, and there is no reason to dam link equity on the way to them.
+  {%- endcomment -%}
+  {%- assign published_guides = site.guides | where_exp: "g", "g.draft != true" -%}
+  {%- if published_guides.size > 0 %}
   <meta name="robots" content="index, follow" />
+  {%- else %}
+  <meta name="robots" content="noindex, follow" />
+  {%- endif %}
   <link rel="canonical" href="https://navisualguide.com/guides/" />
   <meta property="og:title" content="How-tos — Navisual" />
   <meta property="og:description" content="Step-by-step walkthroughs for the settings and click-paths that are genuinely hard to find." />

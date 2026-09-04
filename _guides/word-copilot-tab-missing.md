@@ -1,6 +1,6 @@
 ---
 title: "The Copilot tab isn't in your Word Options — what to do instead"
-description: "Most guides tell you to open File ▸ Options ▸ Copilot. That tab doesn't exist in every build of Word. Here's the path that works when it's missing, and how to tell which situation you're in."
+description: "Most answers say File ▸ Options ▸ Copilot. That tab is missing in many builds of Word. Here is the path that works instead, and how to tell which case you are in."
 date: 2026-09-02
 app: "Microsoft Word"
 os: "Windows 10 / 11"
