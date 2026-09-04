@@ -803,10 +803,23 @@ footer a:hover {
 
 .guide-list li:last-child { border-bottom: none; }
 
-/* Scoped to the title link specifically. `.guide-list a` also matched the
-   thumbnail anchor, handing text styling to an element that contains only an
-   image. Harmless but misleading to read. */
-.guide-link {
+/* NOTE THE `.prose` PREFIX — it is required, not decorative.
+
+   `.legal a, .prose a` (line ~612) underlines every link in the reading column
+   and scores 0,1,1. A bare `.guide-link` scores 0,1,0 and loses to it no matter
+   where it sits in the file, so the card titles came out underlined. The old
+   `.guide-list a` selector only ever won because it TIED at 0,1,1 and appeared
+   later, which is a coincidence rather than a design.
+
+   Third time this stylesheet's `.prose <element>` rules have quietly outranked
+   a single-class selector, after the mobile figure override and the card
+   indent. When adding anything inside `.prose`, match its specificity or beat
+   it; do not rely on source order.
+
+   Scoped to the title rather than to every anchor in the list, because the
+   thumbnail is an anchor too and text styling means nothing to an element
+   containing only an image. */
+.prose .guide-link {
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
@@ -815,7 +828,12 @@ footer a:hover {
 
 /* Hovering anywhere on the card highlights the title, so the image, the title
    and the blurb read as one target rather than three separate ones. */
-.guide-list li:hover .guide-link { color: var(--accent); }
+.prose .guide-list li:hover .guide-link { color: var(--accent); }
+
+/* The thumbnail anchor inherits the same prose underline. It wraps a block
+   image so nothing usually shows, but leaving it to chance invites a stray
+   line under the card on some future font or zoom level. */
+.prose .guide-thumb { text-decoration: none; }
 
 .guide-app {
   display: inline-block;
