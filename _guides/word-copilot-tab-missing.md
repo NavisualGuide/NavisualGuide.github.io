@@ -74,7 +74,7 @@ Two things worth knowing, because they change the answer:
 
    You are done. The rest of this page is for people without that entry.
 
-{% include figure.html
+   {% include figure.html
    src="/images/guides/word-copilot-tab-missing/01-word-options-copilot.png"
    alt="The Word Options window with Copilot selected in the left-hand category list, sitting between Proofing and Save. The right-hand pane reads 'Options for working with Copilot in Word' and shows a single ticked checkbox labeled Enable Copilot. On the right, the Navisual panel lists the route it planned for this task."
    caption="Copilot sits between Proofing and Save — easy to miss if you are scanning the top and bottom of the list. The pane holds a single “Enable Copilot” checkbox. The highlight and the panel on the right are Navisual pointing the way."
@@ -96,7 +96,7 @@ Two things worth knowing, because they change the answer:
    Do not confuse it with the checkbox just below, *"Turn on experiences that download online
    content"* — that one governs templates and online images, not Copilot.
 
-{% include figure.html
+   {% include figure.html
    src="/images/guides/word-copilot-tab-missing/02-privacy-settings-analyze-content.png"
    alt="Word's Privacy Settings window showing the Connected experiences section. The checkbox 'Turn on experiences that analyze your content' is ticked and highlighted, with a note below reading 'If you turn this off, some experiences won't be available to you.' A separate checkbox for 'Turn on experiences that download online content' appears underneath. On the right, the Navisual panel lists the planned route for this task."
    caption="The checkbox you want is the first one, under “Experiences that analyze your content” — not the “download online content” one below it. The panel on the right is Navisual walking this exact path; the highlight is where it pointed."

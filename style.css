@@ -906,17 +906,31 @@ ol .guide-figure {
   transform: translateX(-50%);
 }
 
-/* Ordered/unordered lists nest figures too — keep those inside the measure so
-   a step's screenshot stays visually attached to the step it belongs to. */
+/* Figures inside a numbered step break out exactly like top-level ones.
+
+   They have to LIVE inside the <li> — a figure at column 0 between two list
+   items terminates the <ol>, so the following item starts a new list and the
+   numbering restarts at 1 (this shipped: steps 3 and 4 rendered as 1 and 2).
+   Indenting the include into the step is the fix, and it is also the honest
+   structure, since each screenshot illustrates one specific step.
+
+   But nesting must not cost the width. The breakout centres on the <li> rather
+   than on .prose, so it sits ~15px right of true centre — imperceptible against
+   the ~90px overhang, and far cheaper than hard-coding the list indent to
+   correct it. */
 .prose li .guide-figure {
-  width: 100%;
-  margin-left: 0;
-  transform: none;
+  width: min(94vw, 900px);
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 760px) {
-  /* On a phone the breakout is pointless — the viewport IS the constraint. */
-  .prose .guide-figure {
+  /* On a phone the breakout is pointless — the viewport IS the constraint.
+     `.prose li .guide-figure` must be listed explicitly: it scores 0,2,1 and
+     would otherwise outrank a bare `.prose .guide-figure` (0,2,0) here and keep
+     breaking out of a viewport that has nothing to break out into. */
+  .prose .guide-figure,
+  .prose li .guide-figure {
     width: 100%;
     margin-left: 0;
     transform: none;
