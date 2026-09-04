@@ -749,9 +749,49 @@ footer a:hover {
   margin: 28px 0 0;
 }
 
+/* Each row is a thumbnail beside its blurb. The thumbnail carries the whole
+   point of the collection: it shows Navisual pointing at a real control, which
+   a title and a blurb cannot do. Rows without a hero_image simply have no
+   thumbnail and the text takes the full width. */
 .guide-list li {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
   padding: 18px 0;
   border-bottom: 1px solid var(--border);
+}
+
+.guide-entry { flex: 1; min-width: 0; }
+
+.guide-thumb {
+  flex: 0 0 190px;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  line-height: 0;
+}
+
+.guide-thumb img {
+  display: block;
+  width: 100%;
+  /* Screenshots are wide (~1.5:1) but crop well: the interesting half is the
+     dialog and the panel, both near the top. A fixed 16:10 box keeps every row
+     the same height however the source images differ. */
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.2s ease;
+}
+
+.guide-list li:hover .guide-thumb img { transform: scale(1.03); }
+
+@media (max-width: 620px) {
+  /* Side by side leaves neither the picture nor the blurb enough room on a
+     phone, so stack and let the thumbnail run full width. */
+  .guide-list li { flex-direction: column; gap: 12px; }
+  .guide-thumb { flex: none; width: 100%; }
 }
 
 .guide-list li:last-child { border-bottom: none; }

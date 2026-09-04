@@ -8,7 +8,7 @@ title: How-tos
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How-tos — Navisual</title>
-  <meta name="description" content="Walkthroughs for Windows settings and click-paths that are hard to find. The ones where published instructions do not match what is on your screen." />
+  <meta name="description" content="Real Windows tasks walked through with Navisual. Screenshots show it reading the screen and pointing at the control you need." />
   {%- comment -%}
     Indexability tracks the same condition sitemap.xml uses: this page is only
     worth a crawler's attention once at least one guide is actually published.
@@ -29,8 +29,8 @@ title: How-tos
   <meta name="robots" content="noindex, follow" />
   {%- endif %}
   <link rel="canonical" href="https://navisualguide.com/guides/" />
-  <meta property="og:title" content="How-tos — Navisual" />
-  <meta property="og:description" content="Walkthroughs for Windows settings and click-paths that are hard to find." />
+  <meta property="og:title" content="How-tos - Navisual in action" />
+  <meta property="og:description" content="Real Windows tasks walked through with Navisual, showing it point at the control you need." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://navisualguide.com/guides/" />
   <meta property="og:site_name" content="Navisual" />
@@ -46,9 +46,28 @@ title: How-tos
     <div class="prose">
     <a class="legal-back" href="/">← Back to navisualguide.com</a>
     <h1>How-tos</h1>
+    {%- comment -%}
+      This is a Navisual showcase collection, not a tips blog. The framing must
+      say so. An earlier version sold it as "walkthroughs for settings that are
+      buried", which describes the articles' subject matter and leaves out the
+      entire reason they exist.
+
+      The balance to hold: each article still has to be the best plain answer to
+      its question, or it will not rank and nobody will arrive to be shown
+      anything. So the showcase lives in the screenshots and the closing note,
+      never in place of the answer. This paragraph says that out loud rather
+      than pretending the pages are neutral.
+    {%- endcomment -%}
     <p>
-      Walkthroughs for settings that are buried. The cases where the instructions you
-      find online describe a dialog that is not on your screen.
+      Real tasks, walked through with Navisual.
+    </p>
+    <p>
+      Each page answers one question that is hard to find a straight answer to. The
+      screenshots show Navisual reading the screen and pointing at the control you need.
+    </p>
+    <p>
+      You can follow them as plain instructions. The difference is in the pictures. A
+      written guide describes a screen. Navisual reads yours.
     </p>
 
     {%- comment -%}
@@ -61,10 +80,27 @@ title: How-tos
     {% if sorted.size > 0 %}
     <ul class="guide-list">
       {% for g in sorted %}
+      {%- comment -%}
+        The thumbnail is the showcase. A list of titles and blurbs describes a
+        set of articles; a screenshot of Navisual pointing at a real control
+        shows what they are for, before anyone clicks anything.
+
+        It uses hero_image, which already exists to feed the schema.org HowTo
+        image, so an article gets a thumbnail for free by being well-formed. An
+        article without one degrades to the old text-only row rather than
+        leaving a broken frame.
+      {%- endcomment -%}
       <li>
-        <a href="{{ g.url }}">{{ g.title }}</a>
-        {% if g.app %}<span class="guide-app">{{ g.app }}</span>{% endif %}
-        {% if g.description %}<p>{{ g.description }}</p>{% endif %}
+        {%- if g.hero_image %}
+        <a class="guide-thumb" href="{{ g.url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ g.hero_image }}" alt="" loading="lazy" decoding="async" />
+        </a>
+        {%- endif %}
+        <div class="guide-entry">
+          <a href="{{ g.url }}">{{ g.title }}</a>
+          {% if g.app %}<span class="guide-app">{{ g.app }}</span>{% endif %}
+          {% if g.description %}<p>{{ g.description }}</p>{% endif %}
+        </div>
       </li>
       {% endfor %}
     </ul>
