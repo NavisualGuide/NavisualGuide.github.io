@@ -4,15 +4,119 @@
   padding: 0;
 }
 
+/* ── Inter, self-hosted ────────────────────────────────────────────────────
+   Same font, same files, same OFL licence the app bundles (fonts/LICENSE-Inter.txt),
+   so the site and the product render identically rather than merely similarly.
+
+   SELF-HOSTED, not Google Fonts, and that is a deliberate choice: a webfont link
+   sends every visitor's IP and user-agent to a third party, which for a product
+   whose whole pitch is "we only send your active window, to the provider you
+   chose" would be a new data flow to disclose on the privacy page. ~47 KB buys
+   the way out of that conversation entirely.
+
+   Each face is unicode-range scoped exactly as fontsource ships it, so a reader
+   of the English pages downloads only the latin subset and never touches
+   latin-ext. Variable weight 100-900 in one file per subset: every weight the
+   site uses costs nothing extra. `font-display: swap` keeps first paint readable
+   on a slow connection -- the fallback stack below is metric-similar enough that
+   the swap is not a jarring reflow. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(fonts/inter-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(fonts/inter-latin-ext-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(fonts/inter-latin-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(fonts/inter-latin-ext-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
 :root {
-  --bg: #0d0d0d;
-  --surface: #161618;
-  --border: rgba(255, 255, 255, 0.07);
-  --text: #f0f0f2;
-  --text-muted: #888890;
+  /* ── The app's tokens, verbatim ────────────────────────────────────────────
+     Lifted from src/App.svelte's :root so the site and the product are the same
+     surface, not two things that look alike. Anything changed here should be
+     changed there, and vice versa. */
+
+  /* Surfaces, darkest to lightest. */
+  --surface-0: #0a0a0b;
+  --surface-1: #141416;
+  --surface-2: #1c1c20;
+  --surface-3: #26262b;
+  --surface-4: #2f2f35;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Three text weights, not two: --text-secondary carries body copy at a
+     comfortable contrast, --text-tertiary is for genuinely incidental text.
+     The old site collapsed both into one #888890, which read as muted-body and
+     too-loud-caption at the same time. */
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #6b6b73;
+
   --accent: #ff6b35;
-  --accent-hover: #ff8555;
-  --radius: 10px;
+  --accent-400: #ff8555;
+  --accent-500: #ff6b35;
+  --accent-600: #e55520;
+  --accent-soft: rgba(255, 107, 53, 0.14);
+  --accent-soft-strong: rgba(255, 107, 53, 0.24);
+
+  /* Text ON an accent fill. #ff6b35 is a LIGHT colour -- relative luminance 0.32
+     -- so white on it is 2.8:1, under every WCAG bar including the 3:1 floor for
+     large text. This site's Download button was exactly that, and its sub-label
+     then dimmed itself to 0.8 opacity on top. Near-black is 6.6:1 on the same
+     fill and leaves the brand orange untouched. Reported on the app by a
+     colour-weak user, 2026-09-07; the site had the identical defect. */
+  --on-accent: #18110d;
+  --on-accent-dim: rgba(24, 17, 13, 0.72);
+
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #0ea5e9;
+
+  /* Radius scale. Cards use --r-md, page-level containers --r-lg, every
+     standalone control is a pill. One value per role, so nothing is 10px
+     "because that looked about right". */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* ── Legacy aliases ────────────────────────────────────────────────────────
+     The names the site's rules were written against. Kept so this token swap is
+     one edit rather than four hundred, and so a page added later that reaches
+     for --text still gets the right colour. New rules should use the names
+     above. */
+  --bg: var(--surface-0);
+  --surface: var(--surface-2);
+  --text: var(--text-primary);
+  --text-muted: var(--text-secondary);
+  --accent-hover: var(--accent-400);
+  --radius: var(--r-md);
 }
 
 html, body {
@@ -22,7 +126,11 @@ html, body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  /* Inter first. The old stack led with -apple-system (Mac-only) and fell to
+     "Segoe UI", so every Windows visitor -- the entire audience of a
+     Windows-only app -- saw Segoe UI while the app they were reading about
+     shipped Inter. The same omission was found in the app itself at v0.7.20. */
+  font-family: 'Inter Variable', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -53,10 +161,10 @@ main {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(255, 107, 53, 0.1);
-  border: 1px solid rgba(255, 107, 53, 0.25);
-  border-radius: 100px;
+  color: var(--accent-400);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft-strong);
+  border-radius: var(--r-pill);
   padding: 4px 14px;
   margin-bottom: 32px;
 }
@@ -94,12 +202,13 @@ main {
   flex-direction: column;
   align-items: center;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
   padding: 14px 36px 12px;
-  border-radius: var(--radius);
+  /* A standalone control is a pill. */
+  border-radius: var(--r-pill);
   transition: background 0.15s, transform 0.1s;
   line-height: 1.3;
 }
@@ -112,7 +221,9 @@ main {
 .cta-sub {
   font-size: 11px;
   font-weight: 400;
-  opacity: 0.8;
+  /* An explicit dim colour rather than opacity: opacity would fade the text
+     INTO the orange behind it, which is how the 2.8:1 became worse still. */
+  color: var(--on-accent-dim);
   margin-top: 2px;
 }
 
@@ -154,21 +265,21 @@ main {
 
 /* ── Feature cards ── */
 
+/* Cards float on surface tone at --r-md, with no borders and no hairline grid
+   between them -- the app's redesign retired both. The old 1px-gap-over-a-border
+   trick welded the cards into one slab, which reads as a table, not as cards. */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
+  gap: 12px;
   width: 100%;
   max-width: 800px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
   margin-bottom: 100px;
 }
 
 .feature {
-  background: var(--surface);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
   padding: 32px 28px;
 }
 
@@ -197,7 +308,7 @@ main {
   width: 100%;
   max-width: 860px;
   margin: 0 auto 80px;
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
@@ -231,15 +342,12 @@ main {
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+  gap: 12px;
 }
 
 .step {
-  background: var(--surface);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
   padding: 28px 24px;
   text-align: left;
 }
@@ -251,9 +359,9 @@ main {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255, 107, 53, 0.15);
-  border: 1px solid rgba(255, 107, 53, 0.3);
-  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft-strong);
+  color: var(--accent-400);
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 14px;
@@ -313,17 +421,97 @@ main {
   font-size: 13px;
   font-weight: 500;
   color: var(--text);
-  background: var(--surface);
+  background: var(--surface-3);
   border: 1px solid var(--border);
-  border-radius: 100px;
+  border-radius: var(--r-pill);
   padding: 6px 16px;
 }
 
 .provider-chip.managed {
-  border-color: rgba(255, 107, 53, 0.3);
-  background: rgba(255, 107, 53, 0.06);
-  color: var(--accent);
+  border-color: var(--accent-soft-strong);
+  background: var(--accent-soft);
+  color: var(--accent-400);
 }
+
+/* ── Enterprise & Team ── */
+
+.enterprise {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 8px;
+}
+
+/* A card on surface tone, like every other card on the site and in the app --
+   no border, no accent stripe, --r-md. Centre-aligned because it is one short
+   ask, not a column of content. */
+.enterprise-card {
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.enterprise-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.enterprise-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 460px;
+  margin: 0 auto 20px;
+}
+
+.enterprise-card p a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.enterprise-card p a:hover { color: var(--text-primary); }
+
+/* The app's .btn-ghost: a grey pill. Deliberately NOT the orange .cta -- there
+   is one primary action on this page and it is Download. An enterprise visitor
+   is looking for this section; an individual visitor should not be pulled into
+   it by colour. */
+.btn-secondary {
+  display: inline-block;
+  background: var(--surface-4);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-secondary:hover {
+  background: var(--surface-3);
+  border-color: var(--accent);
+}
+
+/* The address in plain text as well as behind the button: a mailto: link is
+   useless to anyone reading on a machine with no mail client configured, and
+   this is the one audience most likely to be on a locked-down desktop. */
+.enterprise-mail {
+  margin: 14px auto 0 !important;
+  font-size: 13px;
+}
+
+.enterprise-mail a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+}
+
+.enterprise-mail a:hover { color: var(--accent-400); }
 
 .chip-note {
   font-size: 11px;
@@ -910,6 +1098,9 @@ footer a:hover {
 .guide-figure a:focus-visible::after {
   opacity: 1;
   background: var(--accent);
+  /* The badge is white on a black scrim at rest, but accent on hover -- where
+     white would be 2.8:1. Same fill, same rule as every other accent surface. */
+  color: var(--on-accent);
 }
 
 .guide-figure img,
@@ -952,7 +1143,7 @@ ol .guide-figure {
   border: 1px solid var(--accent);
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  background: rgba(255, 107, 53, 0.08);
+  background: var(--accent-soft);
   font-size: 13.5px;
   line-height: 1.55;
   color: var(--text);
