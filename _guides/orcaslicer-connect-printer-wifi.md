@@ -157,6 +157,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    alt="The OrcaSlicer Device tab showing the fluidd web interface: a Thermals panel with live chamber heater, extruder and heater bed temperatures, a temperature graph, a list of three recent gcode jobs with print durations, and tool jog controls."
    caption="The Device tab doing its job: thermals updating live, recent prints listed, jog controls ready."
    width="1188" height="794" %}
+{: start="4"}
 
 ## If the Device tab still shows 404
 
