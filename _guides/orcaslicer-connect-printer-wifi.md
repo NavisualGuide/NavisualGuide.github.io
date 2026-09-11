@@ -6,7 +6,7 @@ app: "OrcaSlicer 2.4.2"
 os: "Windows 10 / 11"
 
 # Feeds the "image" of the schema.org HowTo, which is what a rich result shows.
-hero_image: /images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.png
+hero_image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
 
 # Set to false to publish. While true: noindex, hidden from /guides/, and left
 # out of the sitemap, so this can be pushed and previewed at its real URL, with
@@ -16,23 +16,24 @@ draft: true
 steps:
   - name: "Download the Windows installer"
     text: "OrcaSlicer is distributed on GitHub. Open the releases page, take the newest entry marked Official Release, scroll to Assets at the bottom, and download OrcaSlicer_Windows_Installer_..._x64.exe. Note x64, not arm64."
+    image: /images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg
   - name: "Pick your printer in the setup wizard"
     text: "Run the installer and work through the first-run wizard. On the Printer Selection page use the search icon in the top left rather than scrolling, tick your model, and click Next. This sets your bed size, nozzle diameter and print profiles."
-    image: /images/guides/orcaslicer-connect-printer-wifi/01-printer-selection.png
+    image: /images/guides/orcaslicer-connect-printer-wifi/02-printer-selection.png
   - name: "Click Next through the remaining wizard pages"
     text: "Tick the filament types you own, leave Stealth Mode off, and leave the Bambu Network plug-in unticked unless you have a Bambu Lab printer. Click Finish, then New Project to open the workspace."
   - name: "Open the connection settings from the Wi-Fi icon"
     text: "In the left rail of the main window, click the small Wi-Fi icon next to the Printer header. This opens the Physical Printer dialog. It is not on the Device tab and not in the File menu."
-    image: /images/guides/orcaslicer-connect-printer-wifi/02-printer-wifi-icon.png
+    image: /images/guides/orcaslicer-connect-printer-wifi/03-printer-wifi-icon.png
   - name: "Scan the network and select your printer"
     text: "Set Host Type and Printer Agent to CrealityPrint, then click Browse next to Hostname, IP or URL. Click the row for your printer in the results and click Use Selected. Note the IP address; you need it in the next step."
-    image: /images/guides/orcaslicer-connect-printer-wifi/03-detect-creality-printer.png
+    image: /images/guides/orcaslicer-connect-printer-wifi/04-detect-creality-printer.png
   - name: "Fill in Device UI with the printer's web interface"
     text: "Back in the Physical Printer dialog, enter your printer's own web interface into the Device UI field: http:// followed by the same IP address and port 4408. Leave API Key and HTTPS CA File empty. Click OK."
-    image: /images/guides/orcaslicer-connect-printer-wifi/04-device-ui-field.png
+    image: /images/guides/orcaslicer-connect-printer-wifi/05-device-ui-field.png
   - name: "Check the Device tab"
     text: "Open the Device tab along the top. With Device UI set, OrcaSlicer loads the printer's own interface inside the tab, showing live bed and nozzle temperatures, job history and jog controls."
-    image: /images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.png
+    image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
 ---
 
 OrcaSlicer turns a 3D model into the G-code your printer runs. Installing it is a download and a
@@ -44,6 +45,16 @@ to work — you can slice, you can print — but the **Device** tab shows a blan
 forever. It is step 6 below.
 
 Two parts: install, then connect. If OrcaSlicer is already set up, skip to part two.
+
+Every screenshot below is a real frame from one session, recorded while someone actually did this
+with **Navisual** — an assistant that watches the screen and marks the control you need next. The
+orange marks are Navisual pointing; the strip along the bottom is the instruction it spoke.
+
+{% include figure.html
+src="/images/guides/orcaslicer-connect-printer-wifi/00-session-start.jpg"
+alt="A Chrome new-tab page with the address bar ringed in orange, a caption strip along the bottom of the screen reading 'Click the address bar at the top, paste the URL, and press Enter to go to the OrcaSlicer releases page', and the Navisual panel docked down the right-hand side showing the typed question 'how to install and setup Orca slicer for my 3D printer?'."
+caption="The session begins. The question is typed into the panel on the right; the ring on the address bar and the caption along the bottom are the answer, drawn straight onto the screen. The URL was already on the clipboard, so this step is paste-and-Enter."
+width="1920" height="1080" %}
 
 ## Before you start
 
@@ -67,6 +78,12 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    debug build. You want `OrcaSlicer_Windows_Installer_..._x64.exe`, about 131 MB. Note **x64**, not
    **arm64**, unless you are on an ARM machine.
 
+   {% include figure.html
+   src="/images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg"
+   alt="The GitHub releases page for OrcaSlicer v2.4.2, scrolled to the Assets section listing twelve downloads. OrcaSlicer_Windows_Installer_V2.4.2_x64.exe is ringed in orange. The Navisual panel is docked down the right-hand side of the screen, showing the typed question and the steps completed so far."
+   caption="Twelve near-identical filenames, one right answer. The panel on the right is Navisual, keeping the conversation and the plan; the orange mark is it pointing at the x64 installer."
+   width="1920" height="1080" %}
+
 2. **Pick your printer in the setup wizard.**
    Run the installer, click through the licence and install location, then work through the
    first-run wizard. Only one page changes an outcome: **Printer Selection**.
@@ -79,7 +96,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    every print afterwards is wrong.
 
    {% include figure.html
-   src="/images/guides/orcaslicer-connect-printer-wifi/01-printer-selection.png"
+   src="/images/guides/orcaslicer-connect-printer-wifi/02-printer-selection.png"
    alt="The OrcaSlicer Setup Wizard on the Printer Selection page, showing a grid of printer cards grouped by vendor with CoLiDo at the top. The search icon sits at the top left of the dialog. The Next button at the bottom right is ringed in orange by Navisual."
    caption="Printer Selection opens on whichever vendor is first alphabetically. Use the search icon at the top left rather than scrolling. The orange mark is Navisual pointing at Next."
    width="1188" height="795" %}
@@ -93,6 +110,18 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    Click **Finish**, then **New Project** to land in the workspace, with your printer, nozzle and
    filament down the left and a build plate sized to your machine.
 
+## The question changed here
+
+Worth noting, because it is what the rest of this page came out of. At this point the session
+stopped being about installing anything. Instead of moving to the next step, the user typed a new
+question into the panel:
+
+> how to connect to my 3D printer using wifi? It is a Creality K2+ and it is turned on.
+
+Navisual kept the screen it was already looking at, rewrote its plan from *Install and setup Orca
+Slicer* to *Connect Creality K2+ 3D printer to OrcaSlicer over Wi-Fi*, and carried on from the same
+window. Everything below came out of that one sentence.
+
 ## Part two: connect over Wi-Fi
 
 {: start="4"}
@@ -103,7 +132,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    heading.
 
    {% include figure.html
-   src="/images/guides/orcaslicer-connect-printer-wifi/02-printer-wifi-icon.png"
+   src="/images/guides/orcaslicer-connect-printer-wifi/03-printer-wifi-icon.png"
    alt="The OrcaSlicer main window with the left rail showing a Creality K2 Plus printer profile. A small Wi-Fi icon sits to the right of the Printer heading, ringed in orange by Navisual."
    caption="The Wi-Fi glyph beside the Printer header. Easy to miss at this size, and the only route into the Physical Printer dialog."
    width="1188" height="795" %}
@@ -119,7 +148,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    **Write the IP down.** Step 6 needs it, and this dialog is the easiest place to read it.
 
    {% include figure.html
-   src="/images/guides/orcaslicer-connect-printer-wifi/03-detect-creality-printer.png"
+   src="/images/guides/orcaslicer-connect-printer-wifi/04-detect-creality-printer.png"
    alt="The Detect Creality K-series printer dialog listing one result: model K2 Plus, hostname K2-2E8A, IP 192.168.0.88. The row is ringed in orange by Navisual, with the green Use Selected button below the list."
    caption="One printer found, with its model, hostname and IP. Selecting the row fills the address into the dialog behind it."
    width="1188" height="795" %}
@@ -140,7 +169,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    editing if you run more than one machine. Then click **OK**.
 
    {% include figure.html
-   src="/images/guides/orcaslicer-connect-printer-wifi/04-device-ui-field.png"
+   src="/images/guides/orcaslicer-connect-printer-wifi/05-device-ui-field.png"
    alt="The Physical Printer dialog with Host Type and Printer Agent both set to CrealityPrint, the Hostname field showing http://192.168, and the Device UI field filled in with 192.168.0.88:4408."
    caption="Device UI, filled in with the printer's own web interface on port 4408. This one field is the difference between a working Device tab and a permanent 404."
    width="683" height="474" %}
@@ -154,7 +183,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
    writing G-code to a card.
 
    {% include figure.html
-   src="/images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.png"
+   src="/images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png"
    alt="The OrcaSlicer Device tab showing the fluidd web interface: a Thermals panel with live chamber heater, extruder and heater bed temperatures, a temperature graph, a list of three recent gcode jobs with print durations, and tool jog controls."
    caption="The Device tab doing its job: thermals updating live, recent prints listed, jog controls ready."
    width="1188" height="794" %}
@@ -162,7 +191,7 @@ Two parts: install, then connect. If OrcaSlicer is already set up, skip to part 
 ## If the Device tab still shows 404
 
 {% include figure.html
-src="/images/guides/orcaslicer-connect-printer-wifi/06-device-tab-404.png"
+src="/images/guides/orcaslicer-connect-printer-wifi/07-device-tab-404.png"
 alt="The OrcaSlicer Device tab showing a blank white page with the heading 404 Not Found."
 caption="What an empty Device UI field looks like. The connection is fine; the tab is loading a URL that was never supplied."
 width="1188" height="795" %}
@@ -197,6 +226,25 @@ In order:
 The field also reads as optional. It sits between *Hostname, IP or URL* and *API Key / Password*,
 both of which genuinely are optional on a local network, and it has no asterisk, no placeholder and
 no tooltip.
+
+## How this guide was made
+
+Nothing here was written from memory or rebuilt from a manual. Somebody sat down at a Windows
+machine and asked one question — *"how to install and setup Orca slicer for my 3D printer?"* — and
+Navisual guided them through it one control at a time, drawing a mark on screen and speaking each
+instruction. The screenshots above are the frames it captured.
+
+- **The session** ran 20 steps across 18 exchanges, in one sitting, from an empty browser tab to a
+  live printer dashboard.
+- **16 of 20 controls** were pinpointed on screen. Two steps were scrolling or summaries with
+  nothing to point at; one fell back to the model's own visual estimate, which was correct.
+- **It changed course twice** — once when the question changed mid-task, once when a step led to a
+  404 and had to be worked back from. Both are in this guide rather than tidied out of it.
+- **Edited:** screenshots are cropped to the application window except the two that show the
+  Navisual panel; the desktop behind it is the author's and is nobody else's business. Repeated
+  clicks were merged and the no-decision wizard pages compressed into one step.
+- **Not edited:** every orange mark is where Navisual actually drew it, including the one on a
+  button it could not name.
 
 ---
 

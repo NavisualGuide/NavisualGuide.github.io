@@ -1156,22 +1156,36 @@ ol .guide-figure {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Guides use the shared .prose reading container (720px, left-aligned). But a
-   UI screenshot inside a 720px column renders a 1400px capture at ~50%, which
-   makes the dialog text unreadable — defeating the point of including it.
-   So figures alone break out wider than the measure, staying centred on it.
-   Text keeps its comfortable line length; images get room to be legible.
+/* Quoted material: a line from a dialog, or something the reader actually said.
+   Added 2026-09-11 — the first guide already contained a blockquote that had
+   been rendering with nothing but the browser default indent. */
+.prose blockquote {
+  margin: 18px 0;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
 
-   The breakout is deliberately modest (+25% over the measure, not +40%): a
-   figure that overhangs too far reads as a layout error rather than an
-   intentional step-out. It does not have to carry the full burden of
-   legibility on its own, because the image links to its full-resolution self —
-   the inline size only has to be good enough to follow along, not to read
-   every label. */
+.prose blockquote p:last-child { margin-bottom: 0; }
+
+/* Figures share the text measure exactly — no breakout.
+   Revised 2026-09-11. These used to step out to 900px over the 720px measure so
+   a 1400px capture rendered larger, and legibility is a real concern. But the
+   overhang is visible on every screen wide enough to show it: the column
+   narrows and widens as you scroll, and a reader reads that as a layout fault
+   rather than an intentional emphasis. Matching widths reads as one column.
+
+   What makes this affordable is already here: every figure links to its
+   full-resolution self with a persistent zoom badge, so the inline size only
+   has to be good enough to follow along — the old comment said as much while
+   arguing the other way. Screenshots are also now cropped to the application
+   window before upload rather than being whole-monitor captures, so the inline
+   render is a much smaller downscale than the 1400px case that prompted the
+   breakout. */
 .prose .guide-figure {
-  width: min(94vw, 900px);
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  margin-left: 0;
+  transform: none;
 }
 
 /* Figures inside a numbered step break out exactly like top-level ones.
@@ -1182,28 +1196,14 @@ ol .guide-figure {
    Indenting the include into the step is the fix, and it is also the honest
    structure, since each screenshot illustrates one specific step.
 
-   But nesting must not cost the width, so these break out identically to
-   top-level figures. Measured on the rendered page at a 1416px viewport:
-   prose 720px, figure 900px at left 258 / right 1158 — centre 708, which is
-   exactly the viewport centre. It lands dead-centre because the list's own
-   indent comes from the marker rather than from padding on the <li>, so the
-   item's content box is the full measure and centring on it is the same as
-   centring on .prose. */
+   They now match the width of the step text they sit under, like every other
+   figure — see the note above. A nested figure is already inset by the list
+   marker, so aligning to the item's content box keeps it flush with the
+   sentence it illustrates rather than with the page. */
 .prose li .guide-figure {
-  width: min(94vw, 900px);
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  margin-left: 0;
+  transform: none;
 }
 
-@media (max-width: 760px) {
-  /* On a phone the breakout is pointless — the viewport IS the constraint.
-     `.prose li .guide-figure` must be listed explicitly: it scores 0,2,1 and
-     would otherwise outrank a bare `.prose .guide-figure` (0,2,0) here and keep
-     breaking out of a viewport that has nothing to break out into. */
-  .prose .guide-figure,
-  .prose li .guide-figure {
-    width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
-}
+
