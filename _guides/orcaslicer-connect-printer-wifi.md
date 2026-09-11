@@ -1,6 +1,6 @@
 ---
-title: "OrcaSlicer's Device tab shows 404? Connect a Creality printer over Wi-Fi properly"
-description: "Adding the printer's IP gets you a connection but a blank Device tab. The field almost every guide skips is Device UI, and it needs the printer's own web interface on port 4408."
+title: "Setup OrcaSlicer with your 3D printer over Wi-Fi"
+description: "Download, install and connect, in one pass — including the field almost every guide skips, which is why the Device tab shows 404 even when printing works."
 date: 2026-09-11
 app: "OrcaSlicer 2.4.2"
 os: "Windows 10 / 11"
@@ -14,9 +14,13 @@ hero_image: /images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.
 draft: true
 
 steps:
-  - name: "Install OrcaSlicer and pick your printer in the setup wizard"
-    text: "Download the Windows x64 installer from the OrcaSlicer releases page on GitHub, run it, and work through the first-run wizard. On the Printer Selection page use the search icon in the top left rather than scrolling, tick your model, and click Next."
+  - name: "Download the Windows installer"
+    text: "OrcaSlicer is distributed on GitHub. Open the releases page, take the newest entry marked Official Release, scroll to Assets at the bottom, and download OrcaSlicer_Windows_Installer_..._x64.exe. Note x64, not arm64."
+  - name: "Pick your printer in the setup wizard"
+    text: "Run the installer and work through the first-run wizard. On the Printer Selection page use the search icon in the top left rather than scrolling, tick your model, and click Next. This sets your bed size, nozzle diameter and print profiles."
     image: /images/guides/orcaslicer-connect-printer-wifi/01-printer-selection.png
+  - name: "Click Next through the remaining wizard pages"
+    text: "Tick the filament types you own, leave Stealth Mode off, and leave the Bambu Network plug-in unticked unless you have a Bambu Lab printer. Click Finish, then New Project to open the workspace."
   - name: "Open the connection settings from the Wi-Fi icon"
     text: "In the left rail of the main window, click the small Wi-Fi icon next to the Printer header. This opens the Physical Printer dialog. It is not on the Device tab and not in the File menu."
     image: /images/guides/orcaslicer-connect-printer-wifi/02-printer-wifi-icon.png
@@ -31,44 +35,48 @@ steps:
     image: /images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.png
 ---
 
-You added your printer to OrcaSlicer. **Browse** found it, you clicked **Use Selected**, you clicked
-**OK**. The connection works — you can send prints. Then you opened the **Device** tab expecting
-temperatures and a webcam, and got a blank page reading **404 Not Found**.
+OrcaSlicer turns a 3D model into the G-code your printer runs. Installing it is a download and a
+short wizard. The part that trips people up is the last mile — telling the slicer where the printer
+lives on your network, so you can send a print without carrying a microSD card across the room.
 
-Nothing is broken, and you did not miss a firmware update. There is a second field in that dialog
-that almost every guide skips, because filling in the IP address alone is enough to *print* and the
-Device tab fails silently and separately.
+There is also a field in that dialog that almost every guide skips. Miss it and everything appears
+to work — you can slice, you can print — but the **Device** tab shows a blank **404 Not Found**
+forever. It is step 6 below.
 
-This page covers the whole path — install, connect, and the field that makes the Device tab work.
-If you are already connected and only want the 404 fixed, skip to step 4.
+Two parts: install, then connect. If OrcaSlicer is already set up, skip to part two.
 
 ## Before you start
 
-- **The printer must be on the same network as the PC.** Not just "on Wi-Fi". If the scan in step 3
+- **Windows 10 or 11**, about 400 MB free.
+- **The printer must be on the same network as the PC.** Not just "on Wi-Fi". If the scan in step 5
   comes back empty, the usual cause is the printer on a 2.4 GHz guest SSID and the PC on the 5 GHz
   main one. Same router, different networks, no discovery.
-- **Know your printer's IP.** Step 3 finds it for you, but write it down when it appears — step 4
-  asks for it again and that dialog is the easiest place to read it.
 - **This page was checked on a Creality K2 Plus.** Port 4408 is the Creality K-series web interface.
-  On other hardware the field is still the answer; the port may not be. See the last section.
+  On other hardware the *field* is still the answer; the port may not be. See the troubleshooting
+  section.
 
-## Steps
+## Part one: install
 
-1. **Install OrcaSlicer and pick your printer.**
-   OrcaSlicer is on GitHub, not in an app store. Open the
-   [releases page](https://github.com/SoftFever/OrcaSlicer/releases), take the newest entry marked
-   **Official Release**, scroll to **Assets** at the bottom, and download
-   `OrcaSlicer_Windows_Installer_..._x64.exe`. Note **x64**, not **arm64**.
+1. **Download the Windows installer.**
+   OrcaSlicer lives on GitHub, not in an app store. Open the
+   [releases page](https://github.com/SoftFever/OrcaSlicer/releases) and take the newest entry
+   marked **Official Release** — skip anything labelled *Nightly*, *Beta* or *Alpha*.
 
-   Run it and work through the first-run wizard. Only one page deserves attention: **Printer
-   Selection**. The list is long, grouped by vendor, and opens on whoever is first alphabetically —
-   nowhere near you. Use the **search icon in the top left** instead of scrolling, tick your model,
-   and click **Next**.
+   Release notes come first; the downloads are at the bottom under **Assets**. There are a dozen
+   files and most are not for you — Linux flatpaks, an AppImage, a macOS `.dmg`, portable zips, a
+   debug build. You want `OrcaSlicer_Windows_Installer_..._x64.exe`, about 131 MB. Note **x64**, not
+   **arm64**, unless you are on an ARM machine.
 
-   This page sets your bed size, nozzle diameter and print profiles. Get it wrong and every print
-   afterwards is wrong. The remaining pages — filaments, Stealth Mode, the Bambu Network plug-in —
-   need no decision on a first install. Tick the filaments you own and click **Next** to the end.
-   The Bambu plug-in is for Bambu Lab printers only.
+2. **Pick your printer in the setup wizard.**
+   Run the installer, click through the licence and install location, then work through the
+   first-run wizard. Only one page changes an outcome: **Printer Selection**.
+
+   The list is long, grouped by vendor, and opens on whoever is first alphabetically — nowhere near
+   you. Use the **search icon in the top left** rather than scrolling, tick the box on your
+   printer's card, and click **Next**.
+
+   This is what fills in your bed size, nozzle diameter and print profiles. Get it wrong here and
+   every print afterwards is wrong.
 
    {% include figure.html
    src="/images/guides/orcaslicer-connect-printer-wifi/01-printer-selection.png"
@@ -76,12 +84,22 @@ If you are already connected and only want the 404 fixed, skip to step 4.
    caption="Printer Selection opens on whichever vendor is first alphabetically. Use the search icon at the top left rather than scrolling. The orange mark is Navisual pointing at Next."
    width="1188" height="795" %}
 
-2. **Open the connection settings from the Wi-Fi icon.**
-   In the main window, look at the left rail. The **Printer** header has a small **Wi-Fi icon**
-   beside it. That is the entry point.
+3. **Click Next through the rest.**
+   Nothing else needs a decision on a first install. Tick the filament types you actually own — PLA
+   is enough to start, and you can add more later from the Filament dropdown. Leave **Stealth Mode**
+   off; it only stops OrcaSlicer's own network calls and does not affect talking to your printer.
+   Leave **Install Bambu Network plug-in** unticked unless you have a Bambu Lab machine.
 
-   This is the first place people get stuck. It is not on the **Device** tab, which is what the name
-   suggests, and it is not in the **File** menu. It is a glyph a few pixels wide next to a heading.
+   Click **Finish**, then **New Project** to land in the workspace, with your printer, nozzle and
+   filament down the left and a build plate sized to your machine.
+
+## Part two: connect over Wi-Fi
+
+4. **Open the connection settings from the Wi-Fi icon.**
+   In the left rail, the **Printer** header has a small **Wi-Fi icon** beside it. That is the entry
+   point, and the first place people get stuck: it is not on the **Device** tab, which is what the
+   name suggests, and it is not in the **File** menu. It is a glyph a few pixels wide next to a
+   heading.
 
    {% include figure.html
    src="/images/guides/orcaslicer-connect-printer-wifi/02-printer-wifi-icon.png"
@@ -89,15 +107,15 @@ If you are already connected and only want the 404 fixed, skip to step 4.
    caption="The Wi-Fi glyph beside the Printer header. Easy to miss at this size, and the only route into the Physical Printer dialog."
    width="1188" height="795" %}
 
-3. **Scan the network and select your printer.**
+5. **Scan the network and select your printer.**
    The **Physical Printer** dialog opens. For a Creality K-series, set both **Host Type** and
    **Printer Agent** to `CrealityPrint`.
 
    You can type the IP by hand if you know it, but **Browse…** next to *Hostname, IP or URL* scans
-   the local network and finds it for you — no trip to the printer's touchscreen. Click the row for
-   your printer, then the green **Use Selected** button below the list.
+   the local network and finds it — no trip to the printer's touchscreen. Click the row for your
+   printer, then the green **Use Selected** button below the list.
 
-   **Write the IP down.** Step 4 needs it, and this dialog is the easiest place to read it.
+   **Write the IP down.** Step 6 needs it, and this dialog is the easiest place to read it.
 
    {% include figure.html
    src="/images/guides/orcaslicer-connect-printer-wifi/03-detect-creality-printer.png"
@@ -105,7 +123,7 @@ If you are already connected and only want the 404 fixed, skip to step 4.
    caption="One printer found, with its model, hostname and IP. Selecting the row fills the address into the dialog behind it."
    width="1188" height="795" %}
 
-4. **Fill in Device UI — this is the step that fixes the 404.**
+6. **Fill in Device UI — the step that prevents the 404.**
    Back in the Physical Printer dialog, *Hostname, IP or URL* is now filled in and it is tempting to
    press **OK**. Do one more thing first.
 
@@ -117,8 +135,8 @@ If you are already connected and only want the 404 fixed, skip to step 4.
    ```
 
    Substitute your own address. *API Key / Password* and *HTTPS CA File* stay empty on a standard
-   Creality setup. The **Save Machine as** name at the top is what this connection is called in your
-   printer list — worth editing if you run more than one machine. Then click **OK**.
+   Creality setup. **Save Machine as** at the top names this connection in your printer list — worth
+   editing if you run more than one machine. Then click **OK**.
 
    {% include figure.html
    src="/images/guides/orcaslicer-connect-printer-wifi/04-device-ui-field.png"
@@ -126,10 +144,13 @@ If you are already connected and only want the 404 fixed, skip to step 4.
    caption="Device UI, filled in with the printer's own web interface on port 4408. This one field is the difference between a working Device tab and a permanent 404."
    width="683" height="474" %}
 
-5. **Check the Device tab.**
-   Open **Device** along the top. OrcaSlicer now loads the printer's own interface inside the tab —
-   on a Creality K-series that is **fluidd**: live bed, nozzle and chamber temperatures, the last
-   few jobs with their durations, axis jog controls, and a console. Without leaving the slicer.
+7. **Check the Device tab.**
+   Open **Device** along the top. OrcaSlicer loads the printer's own interface inside the tab — on a
+   Creality K-series that is **fluidd**: live bed, nozzle and chamber temperatures, recent jobs with
+   their durations, axis jog controls and a console, without leaving the slicer.
+
+   Slicing a model now gives you a **Print** button that sends the job over the network instead of
+   writing G-code to a card.
 
    {% include figure.html
    src="/images/guides/orcaslicer-connect-printer-wifi/05-device-tab-fluidd.png"
@@ -145,43 +166,39 @@ alt="The OrcaSlicer Device tab showing a blank white page with the heading 404 N
 caption="What an empty Device UI field looks like. The connection is fine; the tab is loading a URL that was never supplied."
 width="1188" height="795" %}
 
-Work through these in order:
+In order:
 
-- **Check the port.** `4408` is the Creality K-series web interface (fluidd). Other hardware differs
-  — a Klipper machine running Mainsail or fluidd directly is usually `80` or `81`, and some builds
-  use `7125` for the Moonraker API rather than the UI. The quickest test is to open the same URL in
-  a browser on the same PC. If the browser shows the interface, that exact URL belongs in **Device
+- **Check the port.** `4408` is the Creality K-series web interface. Other hardware differs — a
+  Klipper machine running Mainsail or fluidd directly is usually `80` or `81`, and some builds use
+  `7125` for the Moonraker API rather than the UI. The quickest test is to open the same URL in a
+  browser on the same PC: if the browser shows the interface, that exact URL belongs in **Device
   UI**; if the browser 404s too, the port is wrong and OrcaSlicer is only relaying the printer's
   answer.
 - **Include the scheme.** `http://` at the front. A bare `192.168.0.88:4408` is not a URL and the
   embedded browser will not guess.
-- **Do not put the Device UI address in the Hostname field.** They are different fields for
-  different jobs: *Hostname, IP or URL* is where prints are sent, *Device UI* is what the tab
-  displays. Filling one with the other breaks whichever you overwrote.
-- **Reopen the dialog and confirm it saved.** Clicking the red X rather than **OK** discards the
-  edit, and the tab keeps showing 404 with no sign the field was ever touched.
+- **Do not put the Device UI address in the Hostname field.** Different fields, different jobs:
+  *Hostname, IP or URL* is where prints are sent, *Device UI* is what the tab displays.
+- **Confirm it saved.** Closing the dialog with the red X rather than **OK** discards the edit, and
+  the tab keeps showing 404 with no sign the field was ever touched.
 
 ## Why this is hard to find
 
-Three things make this a bad search:
-
 1. **The connection works without it.** Fill in the IP and you can slice and send a print. Nothing
-   warns you that a second field exists, so guides that end at "Use Selected, OK, done" are not
-   wrong — they are answering a different question.
+   warns you a second field exists, so guides that end at "Use Selected, OK, done" are not wrong —
+   they are answering a different question.
 2. **The failure is silent and in the wrong place.** The field you skipped is in the *Physical
-   Printer* dialog; the symptom appears on a *Device* tab that looks like a separate feature. There
-   is nothing linking the two on screen.
+   Printer* dialog; the symptom appears on a *Device* tab that looks like a separate feature.
+   Nothing on screen links the two.
 3. **The port is hardware-specific and undocumented in the app.** OrcaSlicer asks for a URL and
    offers no hint what yours is. 4408 comes from Creality's firmware, not from anything in the
    dialog.
 
-The field is also easy to read as optional. It sits between *Hostname, IP or URL* and *API Key /
-Password*, both of which genuinely are optional on a local network, and it has no asterisk, no
-placeholder and no tooltip.
+The field also reads as optional. It sits between *Hostname, IP or URL* and *API Key / Password*,
+both of which genuinely are optional on a local network, and it has no asterisk, no placeholder and
+no tooltip.
 
 ---
 
 *Checked on OrcaSlicer 2.4.2 with a Creality K2 Plus on Windows 11 in September 2026. Every
 screenshot is a real frame from one session, and the orange marks are Navisual pointing at the
-control named in the step beside them. The dashed variant appears where it could not pin a control
-down exactly and drew the model's estimate instead.*
+control named in the step beside them.*
