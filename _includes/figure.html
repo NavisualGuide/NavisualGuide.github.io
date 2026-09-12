@@ -17,14 +17,23 @@
   width/height are optional but worth passing — they let the browser reserve
   space before the image loads, so the page does not jump as screenshots arrive.
 
-  The image links to itself, opening the full-resolution file in a new tab. That
-  is what lets the inline size stay modest: a reader who needs to read the
-  dialog text can get the real pixels on demand, instead of the page having to
-  render every screenshot large enough for the worst case. It matters most on a
-  phone, where the figure is capped at viewport width no matter what. A plain
-  link rather than a JS lightbox — no script, works with JS disabled, and the
-  browser's own image viewer already pans and zooms better than a hand-rolled
-  modal would.
+  Clicking a figure opens it full-screen ON THIS PAGE. That is what lets the
+  inline size stay modest: a reader who needs to read the dialog text can get
+  the real pixels on demand, instead of the page having to render every
+  screenshot large enough for the worst case.
+
+  It used to open the file in a NEW TAB. Same benefit, but it took the reader
+  out of the article to get it, and coming back meant finding the tab again --
+  on a phone, a whole tab switcher. Reported 2026-09-11.
+
+  Still no JavaScript. The overlay is a `:target` — the thumbnail is a link to
+  `#fig-<slug>`, and CSS shows the overlay only while the URL points at it. So
+  it works with JS disabled, the Back button closes it (the open is a real
+  history entry, which is what a reader's thumb expects), and the close link
+  points at the figure's own id rather than at `#`, so dismissing it returns you
+  to the picture you were looking at instead of the top of the page.
+
+  The id is derived from the src, which is unique per figure within a page.
 
   ---------------------------------------------------------------------------
   THE OUTPUT BELOW IS DELIBERATELY ONE UNBROKEN LINE. Do not reformat it.
@@ -44,5 +53,5 @@
   figure genuinely nests. Hence the whitespace-control tags and the absence of
   newlines — this is load-bearing, not a formatting accident.
 {%- endcomment -%}
-{%- assign has_alt = false -%}{%- if include.alt and include.alt != "" -%}{%- assign has_alt = true -%}{%- endif -%}
-<figure class="guide-figure"><a href="{{ include.src }}" target="_blank" rel="noopener" title="Open the full-size screenshot in a new tab"><img src="{{ include.src }}" alt="{{ include.alt }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} loading="lazy" decoding="async" /></a>{% unless has_alt %}<figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>{% endunless %}{% if has_alt and include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}</figure>
+{%- assign has_alt = false -%}{%- if include.alt and include.alt != "" -%}{%- assign has_alt = true -%}{%- endif -%}{%- assign fid = include.src | split: "/" | last | split: "." | first | slugify -%}
+<figure class="guide-figure" id="fig-{{ fid }}"><a class="guide-zoom" href="#fig-{{ fid }}-full" title="View this screenshot full size"><img src="{{ include.src }}" alt="{{ include.alt }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} loading="lazy" decoding="async" /></a>{% unless has_alt %}<figcaption style="color:#ff6b35"><strong>⚠ MISSING ALT TEXT</strong> — add <code>alt=</code> to this figure include before publishing.</figcaption>{% endunless %}{% if has_alt and include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}<span class="guide-lightbox" id="fig-{{ fid }}-full"><a class="guide-lightbox-close" href="#fig-{{ fid }}" aria-label="Close the full-size screenshot"></a><img src="{{ include.src }}" alt="{{ include.alt }}" loading="lazy" decoding="async" /></span></figure>
