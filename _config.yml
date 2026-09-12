@@ -4,15 +4,10 @@
 # .nojekyll file). This config does not switch it on — it only gives the /guides
 # content a layout, and makes sitemap.xml generate itself.
 #
-# The five hand-written pages (index/docs/privacy/terms/checkout-complete) now
-# carry EMPTY front matter, added 2026-09-11 so that Liquid runs on them and the
-# shared analytics include resolves. They still get no layout -- `defaults:`
-# below scopes only to `type: guides` -- so Jekyll renders each file's own
-# complete HTML document unchanged. They contain no Liquid of their own (checked:
-# zero `{{` or `{%` in all five), so there is nothing for the templating to
-# misread. An earlier note here warned that front matter without a layout would
-# make them "render as bare content"; that is not how Jekyll behaves, and these
-# pages ARE the content.
+# The five hand-written pages (index/docs/privacy/terms/checkout-complete) carry
+# NO front matter, so Jekyll copies them through byte-for-byte and they are
+# unaffected by anything here. Do not add front matter to them without also
+# giving them a layout, or they will render as bare content.
 
 title: Navisual
 description: >-
@@ -42,13 +37,6 @@ exclude:
   - LICENSE
   - .github/
   - GUIDE-TEMPLATE.md
-
-# Google Analytics 4 measurement id (G-XXXXXXXXXX). EMPTY = no analytics at all:
-# _includes/analytics.html emits nothing, so no script, no cookie, no request.
-# Filling this in is the switch that turns tracking on for the whole site --
-# and privacy.html section 5 must gain a row when it does, because that table
-# lists every third party that receives anything.
-google_analytics: ""
 
 # Markdown: GFM via kramdown (GitHub Pages' only supported processor).
 markdown: kramdown
