@@ -12,10 +12,8 @@ total_time: PT15M
 # Feeds the "image" of the schema.org HowTo, which is what a rich result shows.
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
 
-# Set to false to publish. While true: noindex, hidden from /guides/, and left
-# out of the sitemap, so this can be pushed and previewed at its real URL, with
-# the real layout and CTA, without being discoverable.
-draft: true
+# Reviewed and published 2026-09-11.
+draft: false
 
 steps:
   - name: "Download the Windows installer"
