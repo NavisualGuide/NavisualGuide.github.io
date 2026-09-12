@@ -3,7 +3,7 @@
   Pre-publish checks for guide articles in _guides/.
 
 .DESCRIPTION
-  Every check here exists because the failure it catches is SILENT — the site
+  Every check here exists because the failure it catches is SILENT -- the site
   builds, the page renders, and the damage is only visible if you happen to look
   at the right part of the right page. Two of them have already shipped broken
   once.
@@ -91,26 +91,65 @@ foreach ($file in $files) {
   if ($split -eq 0) { Say OK "figure includes do not split the numbered list" } else { $err += $split }
 
   # --- CHECK 2: body step numbers are sequential ---------------------------
-  $stepsStart = -1; $stepsEnd = $body.Count
-  for ($i = 0; $i -lt $body.Count; $i++) { if ($body[$i] -match '^##\s+Steps\s*$') { $stepsStart = $i; break } }
+  # Procedure steps live under '## Steps', or under '## Part ...' when an article
+  # groups them (install / connect). Collect from every such section and treat
+  # them as ONE sequence, because that is what the reader and the HowTo schema
+  # both see. Other numbered lists -- 'Why this is hard to find' and friends --
+  # are deliberately NOT collected: their headings do not match, which is what
+  # keeps a three-item aside from being counted as three steps.
+  $procHeads = @()
+  for ($i = 0; $i -lt $body.Count; $i++) {
+    if ($body[$i] -match '^##\s+(Steps|Part\b.*)\s*$') { $procHeads += $i }
+  }
   $bodySteps = @()
-  if ($stepsStart -ge 0) {
-    for ($i = $stepsStart + 1; $i -lt $body.Count; $i++) {
-      if ($body[$i] -match '^##\s') { $stepsEnd = $i; break }
-      if ($body[$i] -match '^(\d+)\.\s') { $bodySteps += [int]$Matches[1] }
+  $sectionRuns = @()   # one entry per procedural section that holds numbered items
+  foreach ($h in $procHeads) {
+    $run = @()
+    for ($i = $h + 1; $i -lt $body.Count; $i++) {
+      if ($body[$i] -match '^##\s') { break }
+      if ($body[$i] -match '^(\d+)\.\s') { $run += [int]$Matches[1] }
     }
-    $expected = 1..$bodySteps.Count
+    if ($run.Count -gt 0) {
+      $bodySteps += $run
+      $sectionRuns += [pscustomobject]@{ Head = $h; First = $run[0]; Count = $run.Count }
+    }
+  }
+  if ($procHeads.Count -eq 0) {
+    Say INFO "no '## Steps' or '## Part ...' section (fine for a non-procedural article)"
+  } elseif ($bodySteps.Count -eq 0) {
+    Say WARN "a procedural section exists but contains no numbered items"; $warn++
+  } else {
     $mismatch = $false
     for ($i = 0; $i -lt $bodySteps.Count; $i++) { if ($bodySteps[$i] -ne ($i+1)) { $mismatch = $true } }
-    if ($bodySteps.Count -eq 0) {
-      Say WARN "a '## Steps' section exists but contains no numbered items"; $warn++
-    } elseif ($mismatch) {
-      Say ERR "step numbers are not sequential: $($bodySteps -join ', ')"; $err++
+    if ($mismatch) {
+      Say ERR "step numbers are not continuous across the procedure: $($bodySteps -join ', ')"; $err++
     } else {
-      Say OK "$($bodySteps.Count) steps, numbered 1..$($bodySteps.Count)"
+      $where = if ($sectionRuns.Count -gt 1) { " across $($sectionRuns.Count) sections" } else { "" }
+      Say OK "$($bodySteps.Count) steps, numbered 1..$($bodySteps.Count)$where"
     }
-  } else {
-    Say INFO "no '## Steps' section (fine for a non-procedural article)"
+
+    # --- CHECK 2b: a continued list needs an explicit start ----------------
+    # A '## Part two' heading TERMINATES the <ol>, so kramdown opens a fresh list
+    # at 1 no matter what number the Markdown says. The page then shows 1,2,3 /
+    # 1,2,3,4 while the schema says 1..7 -- visible numbering disagreeing with
+    # structured data, which is a penalty risk rather than a cosmetic one. It
+    # shipped once. The fix is a block IAL immediately BEFORE the continued list;
+    # placed after, it applies forward to the next heading instead (that shipped
+    # too, as <h2 start="4">).
+    foreach ($run in $sectionRuns) {
+      if ($run.First -eq 1) { continue }
+      $ial = $false
+      for ($i = $run.Head + 1; $i -lt $body.Count; $i++) {
+        if ($body[$i] -match '^\d+\.\s') { break }
+        if ($body[$i] -match '^\{:\s*start=') { $ial = $true; break }
+      }
+      if ($ial) {
+        Say OK "continued list at step $($run.First) carries an explicit start"
+      } else {
+        Say ERR "the list starting at step $($run.First) follows a heading with no '{: start=\"$($run.First)\"}' before it -> kramdown will renumber it from 1"
+        $err++
+      }
+    }
   }
 
   # --- CHECK 3: front-matter steps match the visible steps -----------------

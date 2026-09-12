@@ -1,6 +1,6 @@
 ---
 title: "No Copilot tab in Word Options? How to turn it on or off"
-description: "Most answers say File ▸ Options ▸ Copilot. That tab is missing in many builds of Word. Here is the path that works instead, and how to tell which case you are in."
+description: "Most answers say File ▸ Options ▸ Copilot, but that tab is missing in many builds of Word. Here is the path that works instead, and how to tell which you have."
 date: 2026-09-02
 app: "Microsoft Word"
 os: "Windows 10 / 11"
