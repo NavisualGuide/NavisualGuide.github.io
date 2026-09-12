@@ -931,10 +931,21 @@ footer a:hover {
   margin: -8px 0 28px;
 }
 
+/* The listing is a set of OBJECTS, not more prose.
+   Revised 2026-09-11. Each entry used to be a bold line, an image and a muted
+   paragraph sitting in the same visual plane as the three intro paragraphs
+   above them -- same background, same measure, same text colour -- so the page
+   read as one continuous document and nothing announced itself as a thing to
+   open. Reported as "the article should look different to the page intro".
+   Cards do that work: a surface, an edge and padding say "separate object"
+   before a word is read. */
 .guide-list {
   list-style: none;
   padding: 0;
-  margin: 28px 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* The bare `.guide-list` padding above loses. `.prose ul` scores 0,1,1 against
@@ -957,16 +968,27 @@ footer a:hover {
    too small to read, but the things that matter carry: a real application, an
    orange highlight on one control, and the Navisual panel beside it. */
 .guide-list li {
-  padding: 0 0 26px;
-  margin-bottom: 26px;
-  border-bottom: 1px solid var(--border);
+  margin: 0;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+/* The whole card is one target -- image, title and blurb -- so the whole card
+   responds. The edge brightens rather than the fill flooding with accent: at
+   this size a tinted card reads as "selected", which it is not. */
+.guide-list li:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-3);
 }
 
 .guide-thumb {
   display: block;
   /* Sits between the title and the blurb, so it needs breathing room on both
      sides rather than only below. */
-  margin: 12px 0 12px;
+  margin: 12px 0 14px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -989,8 +1011,6 @@ footer a:hover {
 
 .guide-list li:hover .guide-thumb img { transform: scale(1.02); }
 
-.guide-list li:last-child { border-bottom: none; }
-
 /* NOTE THE `.prose` PREFIX — it is required, not decorative.
 
    `.legal a, .prose a` (line ~612) underlines every link in the reading column
@@ -1008,8 +1028,10 @@ footer a:hover {
    thumbnail is an anchor too and text styling means nothing to an element
    containing only an image. */
 .prose .guide-link {
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
   color: var(--text);
   text-decoration: none;
 }
@@ -1023,18 +1045,51 @@ footer a:hover {
    line under the card on some future font or zoom level. */
 .prose .guide-thumb { text-decoration: none; }
 
+/* A chip, not a trailing word. It names the application the guide is about,
+   which is the first thing a reader scans for, and loose grey text beside a
+   title reads as part of the title. */
 .guide-app {
   display: inline-block;
-  margin-left: 8px;
-  font-size: 12px;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-1);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   color: var(--text-muted);
+  vertical-align: 2px;
+  white-space: nowrap;
 }
 
+/* Smaller and tighter than .prose p (14.5px/1.75). The blurb has to read as a
+   caption belonging to the card, not as another paragraph of the page. */
 .guide-list p {
-  margin: 6px 0 0;
-  font-size: 14px;
+  margin: 0;
+  font-size: 13.5px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+/* Marks where the page stops introducing itself and starts listing. */
+.guide-list-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 34px 0 16px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.guide-list-head::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 
 /* Closing note on every article. Deliberately quiet — it follows a real answer,

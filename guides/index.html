@@ -78,6 +78,13 @@ title: How-tos
     {% assign published = site.guides | where_exp: "g", "g.draft != true" %}
     {% assign sorted = published | sort: 'date' | reverse %}
     {% if sorted.size > 0 %}
+    {%- comment -%}
+      An explicit break between the page introducing itself and the page
+      listing. Without it the first card follows the last intro paragraph with
+      nothing but whitespace between them, which is most of why the two read as
+      the same kind of thing.
+    {%- endcomment -%}
+    <p class="guide-list-head">{{ sorted.size }} how-to{% if sorted.size != 1 %}s{% endif %}</p>
     <ul class="guide-list">
       {% for g in sorted %}
       {%- comment -%}
