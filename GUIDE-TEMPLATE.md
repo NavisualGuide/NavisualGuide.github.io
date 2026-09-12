@@ -19,9 +19,21 @@ date: 2026-09-02
 app: "Microsoft Word"
 os: "Windows 11"
 
-# `steps:` is OPTIONAL but it is the point of the exercise — supplying it makes the
-# layout emit HowTo structured data instead of plain TechArticle, which is what lets
-# an AI answer engine cite this as a procedure rather than prose.
+# `steps:` makes the layout emit HowTo structured data instead of plain
+# TechArticle.
+#
+# CORRECTED 2026-09-12. This used to call it "the point of the exercise" and say
+# it earns a rich result. It does not, and has not since September 2023, when
+# Google removed HowTo rich results from desktop and mobile and withdrew the
+# documentation. The Rich Results Test reports "No items detected" on our guides
+# for that reason -- expected, not a fault, and no penalty either.
+#
+# What it is still worth: the markup is valid, costs nothing, and describes the
+# page as a procedure for anything that reads structured data rather than prose
+# (Bing, answer engines). Treat that as PLAUSIBLE rather than measured -- we have
+# no evidence of how much any of them weight it. The steps are also the most
+# quotable thing on the page, so writing them self-contained pays off in the
+# prose regardless of whether a machine reads the markup.
 #
 # Keep these in sync with the numbered steps in the body. They are written twice on
 # purpose: scraping steps back out of rendered prose is fragile, and structured data
