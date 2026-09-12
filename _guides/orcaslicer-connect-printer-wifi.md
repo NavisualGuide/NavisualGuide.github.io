@@ -5,6 +5,10 @@ date: 2026-09-11
 app: "OrcaSlicer 2.4.2"
 os: "Windows 10 / 11"
 
+# Recognised HowTo property; an answer engine reporting "about 15 minutes" is
+# more useful than one reporting nothing. ISO 8601 duration.
+total_time: PT15M
+
 # Feeds the "image" of the schema.org HowTo, which is what a rich result shows.
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
 
@@ -15,24 +19,24 @@ draft: true
 
 steps:
   - name: "Download the Windows installer"
-    text: "OrcaSlicer is distributed on GitHub. Open the releases page, take the newest entry marked Official Release, scroll to Assets at the bottom, and download OrcaSlicer_Windows_Installer_..._x64.exe. Note x64, not arm64."
+    text: "OrcaSlicer is distributed on GitHub, not through an app store. Go to https://github.com/SoftFever/OrcaSlicer/releases and take the newest entry marked Official Release. Scroll to the Assets section at the bottom and download the file named OrcaSlicer_Windows_Installer_V<version>_x64.exe -- x64, not arm64, unless your PC has an ARM processor."
     image: /images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg
   - name: "Pick your printer in the setup wizard"
-    text: "Run the installer and work through the first-run wizard. On the Printer Selection page use the search icon in the top left rather than scrolling, tick your model, and click Next. This sets your bed size, nozzle diameter and print profiles."
+    text: "Run the OrcaSlicer installer and work through the first-run wizard. On its Printer Selection page use the search icon in the top left rather than scrolling, tick your model, and click Next. This sets your bed size, nozzle diameter and print profiles."
     image: /images/guides/orcaslicer-connect-printer-wifi/02-printer-selection.png
   - name: "Click Next through the remaining wizard pages"
-    text: "Tick the filament types you own, leave Stealth Mode off, and leave the Bambu Network plug-in unticked unless you have a Bambu Lab printer. Click Finish, then New Project to open the workspace."
+    text: "On the remaining pages of the OrcaSlicer setup wizard, tick the filament types you own, leave Stealth Mode off, and leave the Bambu Network plug-in unticked unless you have a Bambu Lab printer. Click Finish, then New Project to open the workspace."
   - name: "Open the connection settings from the Wi-Fi icon"
-    text: "In the left rail of the main window, click the small Wi-Fi icon next to the Printer header. This opens the Physical Printer dialog. It is not on the Device tab and not in the File menu."
+    text: "In OrcaSlicer's main window, look at the left rail and click the small Wi-Fi icon beside the Printer header. That opens the Physical Printer dialog. The connection settings are not on the Device tab and not in the File menu."
     image: /images/guides/orcaslicer-connect-printer-wifi/03-printer-wifi-icon.png
   - name: "Scan the network and select your printer"
-    text: "Set Host Type and Printer Agent to CrealityPrint, then click Browse next to Hostname, IP or URL. Click the row for your printer in the results and click Use Selected. Note the IP address; you need it in the next step."
+    text: "In OrcaSlicer's Physical Printer dialog, set both Host Type and Printer Agent to CrealityPrint, then click Browse next to Hostname, IP or URL to scan the local network. Click the row for your printer and click Use Selected. Write down the IP address shown -- the next step needs it."
     image: /images/guides/orcaslicer-connect-printer-wifi/04-detect-creality-printer.png
   - name: "Fill in Device UI with the printer's web interface"
-    text: "Back in the Physical Printer dialog, enter your printer's own web interface into the Device UI field: http:// followed by the same IP address and port 4408. Leave API Key and HTTPS CA File empty. Click OK."
+    text: "In OrcaSlicer's Physical Printer dialog, fill in the Device UI field with your printer's own web interface: http:// followed by the printer's IP address and port 4408, for example http://192.168.0.88:4408/. This is the field that decides whether the Device tab works; left empty it shows 404 Not Found permanently. Leave API Key / Password and HTTPS CA File empty on a standard Creality setup, then click OK."
     image: /images/guides/orcaslicer-connect-printer-wifi/05-device-ui-field.png
   - name: "Check the Device tab"
-    text: "Open the Device tab along the top. With Device UI set, OrcaSlicer loads the printer's own interface inside the tab, showing live bed and nozzle temperatures, job history and jog controls."
+    text: "Open the Device tab along the top of OrcaSlicer. With Device UI filled in, OrcaSlicer loads the printer's own web interface inside that tab -- on a Creality K-series that is fluidd, showing live bed, nozzle and chamber temperatures, recent print jobs, and axis jog controls."
     image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
 ---
 
@@ -42,7 +46,13 @@ lives on your network, so you can send a print without carrying a microSD card a
 
 There is also a field in that dialog that almost every guide skips. Miss it and everything appears
 to work — you can slice, you can print — but the **Device** tab shows a blank **404 Not Found**
-forever. It is step 6 below.
+forever.
+
+**The short version.** Connect the printer with **Browse…** in the *Physical Printer* dialog, then —
+before clicking OK — fill the **Device UI** field with your printer's own web interface:
+`http://<printer-ip>:4408/` on a Creality K-series. That single field is what the Device tab loads,
+and leaving it blank is why the tab returns 404 even though printing works. The long version, with
+every screen, is below.
 
 Two parts: install, then connect. If OrcaSlicer is already set up, skip to part two.
 

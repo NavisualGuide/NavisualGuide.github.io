@@ -33,12 +33,28 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
   <meta property="og:site_name" content="Navisual" />
+  {%- comment -%}
+    The share card uses `hero_image` when the guide has one, for exactly the reason
+    stated where that field is documented below: a brand card tells a searcher
+    nothing about the task. That reasoning was applied to the structured data and
+    not here, so the schema carried the screenshot while every shared link and
+    every answer-engine preview fell back to the generic card.
+
+    width/height are emitted ONLY for the known 1280x640 fallback. A hero image is
+    whatever shape the screenshot is, and declaring the wrong dimensions makes a
+    renderer mis-crop -- worse than declaring none, which is legal.
+  {%- endcomment -%}
+  {%- if page.hero_image %}
+  <meta property="og:image" content="{{ page.hero_image | absolute_url }}" />
+  <meta property="og:image:alt" content="{{ page.title }}" />
+  {%- else %}
   <meta property="og:image" content="{{ '/social-preview.png' | absolute_url }}" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta property="og:image:alt" content="Navisual — The AI guides, you decide." />
+  {%- endif %}
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="{{ '/social-preview.png' | absolute_url }}" />
+  <meta name="twitter:image" content="{{ page.hero_image | default: '/social-preview.png' | absolute_url }}" />
 
   <link rel="stylesheet" href="/style.css" />
 
@@ -101,6 +117,11 @@
     {%- if page.app %}
     "tool": [{ "@type": "HowToTool", "name": {{ page.app | jsonify }} }],
     {%- endif %}
+    {%- if page.total_time %}
+    "totalTime": {{ page.total_time | jsonify }},
+    {%- endif %}
+    "publisher": { "@type": "Organization", "name": "Navisual", "url": {{ '/' | absolute_url | jsonify }} },
+    "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
     "step": [
       {%- for s in page.steps %}
       {
