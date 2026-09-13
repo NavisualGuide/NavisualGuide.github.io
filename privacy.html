@@ -225,6 +225,13 @@
           anti-abuse: it lets us notice one network minting many fresh free allowances, and refuse
           them. It is not used to locate you, is never attached to your requests or to what is on
           your screen, and is not linked to your account record.</li>
+        <li><strong>Request records</strong> (<strong>managed tier only</strong>) — one short
+          operational row per managed request: which provider and model answered, whether a
+          fallback was used, how long it took, the outcome (served, provider error, quota
+          reached, refused), and your anonymous user id and device hash. It is how we notice a
+          provider failing or requests being refused for the wrong reason. <strong>No
+          screenshots, no request text, and no instruction</strong> — the detail it keeps is
+          status codes. Deleted after <strong>90 days</strong>.</li>
         <li><strong>Step outcomes and feedback</strong> (<strong>any provider</strong>, including
           your own API key or a local model) — <strong>each time you advance a step</strong>
           (→ Next, or an Autopilot advance), and whenever you tap a “wrong” reason or send
@@ -273,10 +280,14 @@
         may retain them:</strong> the <em>free</em> tier’s models may keep your request and use it
         to train their AI (see §2), while the <em>paid</em> tier’s providers, under their current
         paid-API policies, state they do not use it for training (their policy, which they may
-        change). Your account record and any feedback rows
-        persist until you ask us to delete them. Local files live on your machine until you
-        uninstall or delete them. To request deletion of your managed-tier account data, contact
-        us (§11).
+        change). <strong>Request records are deleted after 90 days.</strong> Your account record
+        and any feedback rows persist until you ask us to delete them — deleting your account
+        removes the account record, and detaches your id from any feedback or request records
+        that remain, so what is left is no longer linked to you. The device row behind the free
+        limit (§4) is keyed to a machine rather than an account, so it is not reached by account
+        deletion; ask us (§11) if you want it cleared too. Local files live on your machine until
+        you uninstall or delete them. To request deletion of your managed-tier account data,
+        contact us (§11).
       </p>
 
       <h2>9. Your rights</h2>
