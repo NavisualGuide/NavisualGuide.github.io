@@ -216,7 +216,14 @@
           Windows machine identifier with managed-tier requests, and we store that hash alongside a
           request count <strong>only</strong> to enforce the free limit. The hash cannot be reversed
           to identify your machine or you; paid requests bill by coins and ignore it, and
-          bring-your-own-key or local (Ollama) providers never receive it.</li>
+          bring-your-own-key or local providers never receive it.
+          <br><br>
+          Alongside it we record <strong>the IP address that device was first seen from</strong>.
+          It is written once, when a device is new to us, and never updated afterwards — it
+          answers “where did this device first appear”, not “where is it now”. Its only use is
+          anti-abuse: it lets us notice one network minting many fresh free allowances, and refuse
+          them. It is not used to locate you, is never attached to your requests or to what is on
+          your screen, and is not linked to your account record.</li>
         <li><strong>Step outcomes and feedback</strong> — <strong>each time you advance a step</strong>
           (→ Next, or an Autopilot advance), and whenever you tap a “wrong” reason or send
           feedback, we store one short row: the outcome category, the instruction the AI gave and
