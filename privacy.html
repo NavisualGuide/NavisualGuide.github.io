@@ -205,7 +205,8 @@
         your settings and any API keys you enter, your sign-in token, conversation/session files,
         and (only if you turn on debug logging) diagnostic logs. These never leave your machine
         unless you send them to us.</p>
-      <p><strong>On our servers (Supabase)</strong>, only for the managed tier:</p>
+      <p><strong>On our servers (Supabase)</strong> — the first two apply to the
+        <strong>managed tier only</strong>; the third applies whichever provider you use:</p>
       <ul>
         <li><strong>Account record</strong> — an anonymous user id, your request count, coin
           balance, tier, and (after a purchase) your Stripe customer id. The free tier uses
@@ -224,7 +225,8 @@
           anti-abuse: it lets us notice one network minting many fresh free allowances, and refuse
           them. It is not used to locate you, is never attached to your requests or to what is on
           your screen, and is not linked to your account record.</li>
-        <li><strong>Step outcomes and feedback</strong> — <strong>each time you advance a step</strong>
+        <li><strong>Step outcomes and feedback</strong> (<strong>any provider</strong>, including
+          your own API key or a local model) — <strong>each time you advance a step</strong>
           (→ Next, or an Autopilot advance), and whenever you tap a “wrong” reason or send
           feedback, we store one short row: the outcome category, the instruction the AI gave and
           the on-screen target it named, the name of the app being guided, whether the pointer was
