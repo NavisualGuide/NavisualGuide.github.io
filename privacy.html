@@ -25,7 +25,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 12 September 2026</p>
+      <p class="legal-updated">Last updated: 17 September 2026</p>
 
       <!-- ==================================================================
            BEFORE YOU CHANGE ANYTHING SUBSTANTIVE HERE, READ THIS.
@@ -90,19 +90,29 @@
           what is captured and sent, and it stays that way until you choose a single window
           again. Screenshots are held
           in memory and are <strong>not written to disk unless you choose to save them</strong> —
-          for example by turning on debug captures in Developer settings, or by explicitly saving
-          a session. Anything saved that way is written only where you put it, stays on your
+          for example by turning on debug captures in Developer settings, by turning on
+          “Keep each step’s screenshot with the saved session” (off by default; it stores the
+          masked window frame beside your saved sessions), or by explicitly exporting a session.
+          Anything saved that way is written only where you put it, stays on your
           machine, and is <strong>not stored on Navisual’s servers</strong>.</li>
         <li><strong>Window title and size.</strong> The focused window’s title and its on-screen
           position/size are sent with the request to give the AI context.</li>
         <li><strong>Your request text.</strong> What you type or say, plus a short running summary
           of the task.</li>
+        <li><strong>Your saved sessions (local only).</strong> The conversation, your task, the
+          plan and what you clicked are saved on your machine so you can reopen recent sessions.
+          The most recent 20 are kept and older ones are removed automatically. You can export a
+          session as a self-contained HTML file to any folder you choose — the file includes the
+          pictures if you enabled them — and import such files back into the app. None of this
+          reaches Navisual’s servers.</li>
         <li><strong>The control you last clicked.</strong> While a guidance session is active,
           Navisual records the <em>name and type</em> of the control you click — for example
           <em>Button “Save”</em> — so the AI knows what you just did instead of having to guess it
           from pixels. This applies <strong>only to clicks inside the app you are being guided
           in</strong>; clicks anywhere else on your screen are discarded immediately and are never
-          stored or sent. Navisual records a control’s <strong>name, never its contents</strong>:
+          stored or sent. The click is also kept with your saved session on your machine, so a
+          reopened session can show what you clicked. Navisual records a control’s
+          <strong>name, never its contents</strong>:
           the text inside a box is not read, and a password field is reported only as
           “(password field)”. <strong>Navisual does not monitor your keyboard at all.</strong></li>
         <li><strong>Where your cursor is, in supported apps.</strong> In Microsoft Word, Navisual
@@ -115,9 +125,10 @@
           speech service. This is a separate data flow you can leave disabled.</li>
       </ul>
       <p>
-        Click context and cursor position both stop the moment guidance stops, are never written to
-        disk unless you turn on prompt logging in Developer settings, and are not collected while
-        capture is paused with the Pause hotkey.
+        Cursor position stops the moment guidance stops and is never written to disk unless you
+        turn on prompt logging in Developer settings. Click context is kept with your saved
+        sessions (the most recent 20, on your machine). Neither is collected while capture is
+        paused with the Pause hotkey.
       </p>
       <p>
         Element coordinates are matched <strong>locally</strong> on your machine (Windows UI
