@@ -1,0 +1,84 @@
+# Push new and changed pages to Bing instead of waiting to be crawled.
+#
+# Why: on 2026-09-19 Bing was found serving a sitemap it last read on
+# 2026-09-02 -- the day BEFORE the first guide was published. Two live
+# articles had never been seen. Nothing was broken; Bing just had not come
+# back. Re-submitting by hand fixes it once; this stops it recurring.
+#
+# Trigger is `page_build`, which fires AFTER GitHub Pages finishes deploying,
+# so the URLs we announce are already serving the new content. Triggering on
+# `push` would announce pages that are still building.
+#
+# Google does not participate in IndexNow. This is Bing, Yandex, Seznam and
+# Naver -- and Bing is what feeds Copilot.
+#
+# Jekyll does not publish this file: _config.yml excludes .github/.
+
+name: IndexNow
+
+on:
+  page_build:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap URLs to IndexNow
+        env:
+          SITE_HOST: navisualguide.com
+          INDEXNOW_KEY: a51b36ed613e4e2babe7dc20900c0b08
+        run: |
+          set -euo pipefail
+
+          KEY_URL="https://${SITE_HOST}/${INDEXNOW_KEY}.txt"
+
+          # The key is public by design -- IndexNow proves ownership by having
+          # the site serve it. Verify it is actually being served, because a
+          # missing key file returns a bare 403 from the API with no hint as to
+          # which half is wrong.
+          served="$(curl -sS --fail --max-time 20 "$KEY_URL" | tr -d '[:space:]')"
+          if [ "$served" != "$INDEXNOW_KEY" ]; then
+            echo "::error::key file at $KEY_URL serves '$served', expected '$INDEXNOW_KEY'"
+            exit 1
+          fi
+          echo "key file verified"
+
+          # Read the LIVE sitemap, not the repo copy: it reflects what is
+          # actually deployed right now.
+          urls="$(curl -sS --fail --max-time 20 "https://${SITE_HOST}/sitemap.xml" \
+                  | grep -o '<loc>[^<]*</loc>' \
+                  | sed -e 's|<loc>||' -e 's|</loc>||')"
+
+          if [ -z "$urls" ]; then
+            echo "::error::no URLs found in sitemap"
+            exit 1
+          fi
+
+          count=$(printf '%s\n' "$urls" | wc -l)
+          echo "submitting $count URL(s):"
+          printf '  %s\n' $urls
+
+          url_json="$(printf '%s\n' "$urls" | sed 's/.*/"&"/' | paste -sd, -)"
+          body="{\"host\":\"${SITE_HOST}\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"${KEY_URL}\",\"urlList\":[${url_json}]}"
+
+          code="$(curl -sS -o /tmp/indexnow.out -w '%{http_code}' \
+                    -X POST 'https://api.indexnow.org/indexnow' \
+                    -H 'Content-Type: application/json; charset=utf-8' \
+                    --max-time 30 -d "$body")"
+
+          echo "response: $code"
+          cat /tmp/indexnow.out || true
+
+          # 200 = accepted. 202 = accepted, key verification still pending,
+          # which is the normal answer to a first submission.
+          case "$code" in
+            200|202) echo "accepted" ;;
+            403) echo "::error::403 -- key file did not validate"; exit 1 ;;
+            422) echo "::error::422 -- a URL is off-host, or the key does not match"; exit 1 ;;
+            429) echo "::error::429 -- submitting too often"; exit 1 ;;
+            *)   echo "::error::unexpected response $code"; exit 1 ;;
+          esac
