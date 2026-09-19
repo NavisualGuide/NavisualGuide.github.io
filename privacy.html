@@ -41,8 +41,12 @@
              1. It captures the window you point it at -- or your whole screen,
                 if you pick that -- and sends the picture to the AI provider you
                 choose.                                          [this page, 1 + 2]
-             2. Screenshots are held in memory; nothing is written to disk
-                unless you save it yourself.                     [this page, 1]
+             2. Any screenshot the app saves is saved on your own computer and
+                never on our servers. (Was "held in memory; nothing written to
+                disk" until 2026-09-18 -- the promise that mattered turned out to
+                be WHERE it goes, not WHETHER it is written, and three features
+                write one: debug captures, per-step session screenshots, and
+                export.)                                         [this page, 1]
              3. The default free tier uses AI models that may train on your
                 requests, including the screenshot. Paid tiers and your own API
                 key do not; Ollama never leaves your machine.    [this page, 2 + 5]
@@ -71,7 +75,8 @@
         shows you where to click. This policy explains what data the app handles, what leaves
         your computer, and the third parties involved. The short version: <strong>your
         screenshots are processed to answer your request and are not stored on our servers</strong>,
-        and the free tier requires no account.
+        <strong>your saved sessions stay on your machine</strong>, and the free tier requires no
+        account.
       </p>
       <p>
         Navisual is operated from <strong>British Columbia, Canada</strong>. Because the AI and
@@ -84,26 +89,22 @@
       <ul>
         <li><strong>Screenshots of the window you point it at.</strong> When you ask for
           guidance, a screenshot is sent to the AI provider you’ve selected so it can identify
-          the next step. <strong>By default this is a single application window</strong> — the one
-          you are being guided through — and not your whole desktop. You can choose to share your
-          whole screen, or one monitor, from the app picker inside Navisual; if you do, that is
-          what is captured and sent, and it stays that way until you choose a single window
-          again. Screenshots are held
-          in memory and are <strong>not written to disk unless you choose to save them</strong> —
-          for example by turning on debug captures in Developer settings, by turning on
-          “Keep each step’s screenshot with the saved session” (off by default; it stores the
-          masked window frame beside your saved sessions), or by explicitly exporting a session.
-          Anything saved that way is written only where you put it, stays on your
-          machine, and is <strong>not stored on Navisual’s servers</strong>.</li>
+          the next step. This is a single application window or screen — the one
+          you are being guided through — never your whole desktop. You can choose to share a
+          whole screen instead, from the app picker inside Navisual; if you do, that is what is
+          captured and sent, and it stays that way until you choose a single window again. Any
+          screenshot Navisual saves is saved on your own computer — never uploaded, and
+          <strong>never stored on Navisual’s servers</strong>.</li>
         <li><strong>Window title and size.</strong> The focused window’s title and its on-screen
           position/size are sent with the request to give the AI context.</li>
         <li><strong>Your request text.</strong> What you type or say, plus a short running summary
           of the task.</li>
         <li><strong>Your saved sessions (local only).</strong> The conversation, your task, the
           plan and what you clicked are saved on your machine so you can reopen recent sessions.
-          The most recent 20 are kept and older ones are removed automatically. You can export a
-          session as a self-contained HTML file to any folder you choose — the file includes the
-          pictures if you enabled them — and import such files back into the app. None of this
+          The most recent are kept and older ones are removed automatically. You can export a
+          session to a file in any folder you choose — the file includes the
+          pictures if you enabled them — and import such files back into the app. Importing
+          replaces the copy already there rather than adding a second one. None of this
           reaches Navisual’s servers.</li>
         <li><strong>The control you last clicked.</strong> While a guidance session is active,
           Navisual records the <em>name and type</em> of the control you click — for example
@@ -115,10 +116,10 @@
           <strong>name, never its contents</strong>:
           the text inside a box is not read, and a password field is reported only as
           “(password field)”. <strong>Navisual does not monitor your keyboard at all.</strong></li>
-        <li><strong>Where your cursor is, in supported apps.</strong> In Microsoft Word, Navisual
+        <li><strong>Where your cursor is, in supported apps.</strong> Navisual
           reads the cursor’s page, section and line number, whether text is selected, and the style
-          and text of the paragraph you are in (long paragraphs are reported only as a character
-          count). A screenshot cannot show a text cursor, so without this the AI cannot tell where
+          and text of the paragraph you are in (long ones are shortened). Those words are
+          already in the screenshot you send. A screenshot cannot show a text cursor, so without this the AI cannot tell where
           you are in a document.</li>
         <li><strong>Voice input (optional).</strong> If you enable push-to-talk, your spoken audio
           is transcribed by the WebView2 Web Speech API, which streams it to Microsoft’s online
@@ -127,7 +128,7 @@
       <p>
         Cursor position stops the moment guidance stops and is never written to disk unless you
         turn on prompt logging in Developer settings. Click context is kept with your saved
-        sessions (the most recent 20, on your machine). Neither is collected while capture is
+        sessions (the most recent ones, on your machine). Neither is collected while capture is
         paused with the Pause hotkey.
       </p>
       <p>
@@ -213,8 +214,9 @@
 
       <h2>4. Data we store</h2>
       <p><strong>On your computer</strong> (under <code>%LOCALAPPDATA%\com.navisual.app</code>):
-        your settings and any API keys you enter, your sign-in token, conversation/session files,
-        and (only if you turn on debug logging) diagnostic logs. These never leave your machine
+        your settings and any API keys you enter, your sign-in token, conversation/session files
+        (including each step’s screenshot, if you turn that on), and (only if you turn on debug
+        logging) diagnostic logs. These never leave your machine
         unless you send them to us.</p>
       <p><strong>On our servers (Supabase)</strong> — the first two apply to the
         <strong>managed tier only</strong>; the third applies whichever provider you use:</p>
