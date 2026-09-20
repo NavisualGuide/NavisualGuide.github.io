@@ -262,11 +262,17 @@
           <strong>The task you typed is your own words, so read this bit.</strong> It is stored as
           you wrote it, trimmed to 500 characters, which means anything you put in the box goes
           with it — a file name, a link, a customer's name. Don't type something into Navisual
-          you would not want us to hold. This applies on <strong>every</strong> provider, including
-          your own API key and a local model such as Ollama: the guidance never reaches our servers
-          in those cases, but this one row still does. You can switch it off in
+          you would not want us to hold. You can switch it off in
           <em>Settings ▸ Screen Guide ▸ What you type</em>, and everything else in the row
           keeps working.
+          <br><br>
+          <strong>If the AI runs on your own machine or network, we never receive it — whatever
+          that setting says.</strong> Navisual looks at the address it is calling: a model on
+          <code>localhost</code>, or on a machine at a private address such as
+          <code>192.168.x.x</code>, answers you without your words ever leaving your network, so
+          there is nothing for us to be given a copy of. Using <strong>your own API key</strong>
+          with a provider like Anthropic or OpenAI is the other case — that request already
+          crosses the internet to them, so the task text is logged unless you switch it off.
           <br><br>
           <em>Changed 2026-09-19.</em> This policy previously said the request you typed was never
           sent and that the field for it was deliberately left empty. That was true until this
