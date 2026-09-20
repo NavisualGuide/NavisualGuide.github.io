@@ -25,7 +25,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 18 September 2026</p>
+      <p class="legal-updated">Last updated: 19 September 2026</p>
 
       <!-- ==================================================================
            BEFORE YOU CHANGE ANYTHING SUBSTANTIVE HERE, READ THIS.
@@ -108,8 +108,8 @@
           plan and what you clicked are saved on your machine so you can reopen recent sessions.
           The most recent are kept and older ones are removed automatically. You can export a
           session to a file in any folder you choose — the file includes the
-          pictures if you enabled them — and import such files back into the app. Importing
-          replaces the copy already there rather than adding a second one. None of this
+          pictures if you enabled them — and open such a file again later. Opening one shows
+          it; it rejoins the recent list only if you carry on working in it. None of this
           reaches Navisual’s servers.</li>
         <li><strong>The control you last clicked.</strong> While a guidance session is active,
           Navisual records the <em>name and type</em> of the control you click — for example
@@ -253,11 +253,27 @@
         <li><strong>Step outcomes and feedback</strong> (<strong>any provider</strong>, including
           your own API key or a local model) — <strong>each time you advance a step</strong>
           (→ Next, or an Autopilot advance), and whenever you tap a “wrong” reason or send
-          feedback, we store one short row: the outcome category, the instruction the AI gave and
-          the on-screen target it named, the name of the app being guided, whether the pointer was
-          placed, the provider/model, and any note you type. It is what tells us how often the
-          guidance is right. <strong>No screenshots, and never the request you typed</strong> —
-          the field for it is deliberately left empty.</li>
+          feedback, we store one short row: the outcome category, <strong>the task you
+          typed</strong>, the instruction the AI gave and the on-screen target it named, the name
+          of the app being guided, whether the pointer was placed, the provider/model, and any
+          note you type. It is what tells us how often the guidance is right, and what people
+          actually use Navisual for. <strong>No screenshots — ever.</strong>
+          <br><br>
+          <strong>The task you typed is your own words, so read this bit.</strong> It is stored as
+          you wrote it, trimmed to 500 characters, which means anything you put in the box goes
+          with it — a file name, a link, a customer's name. Don't type something into Navisual
+          you would not want us to hold. This applies on <strong>every</strong> provider, including
+          your own API key and a local model such as Ollama: the guidance never reaches our servers
+          in those cases, but this one row still does. You can switch it off in
+          <em>Settings ▸ Screen Guide ▸ What you type</em>, and everything else in the row
+          keeps working.
+          <br><br>
+          <em>Changed 2026-09-19.</em> This policy previously said the request you typed was never
+          sent and that the field for it was deliberately left empty. That was true until this
+          date. It changed because we could not see what people were using Navisual for, and the
+          alternative on the table — sending a category we derived from your words while still
+          claiming not to send your words — was a distinction we did not want to defend. Rows
+          written before this date do not contain it.</li>
       </ul>
 
       <h2>5. Third-party processors</h2>
