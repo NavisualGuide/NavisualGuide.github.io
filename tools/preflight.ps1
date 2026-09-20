@@ -204,6 +204,26 @@ foreach ($file in $files) {
     if ($bad -eq 0) { Say OK "$($figs.Count) figure(s): alt text present, image files exist" } else { $err += $bad }
   }
 
+  # --- CHECK 5b: the hero image needs alt text too --------------------------
+  # The /guides/ listing shows hero_image as each entry's thumbnail. It was
+  # shipped with alt="" on the reasoning that it duplicates the title link --
+  # true for screen readers, which skip it via aria-hidden, but crawlers and
+  # image search read alt and these are real screenshots, not decoration. It
+  # was the single warning in Bing's 7-page Site Scan on 2026-09-19.
+  # $fm is an ARRAY of lines; join it or (?m)^ anchors match nothing useful.
+  $fmText = ($fm -join "`n")
+  $heroM  = [regex]::Match($fmText, '(?m)^hero_image:\s*(\S+)')
+  $halt   = [regex]::Match($fmText, '(?m)^hero_alt:\s*"?([^"\r\n]*)"?')
+  if (-not $heroM.Success) {
+    Say WARN "no hero_image -> the listing entry has no thumbnail and the share card falls back to the brand image"; $warn++
+  } elseif (-not $halt.Success -or $halt.Groups[1].Value.Trim().Length -eq 0) {
+    Say ERR "hero_image has no hero_alt -> the /guides/ thumbnail ships with empty alt text"; $err++
+  } else {
+    $hdisk = Join-Path $repo ($heroM.Groups[1].Value -replace '^/','' -replace '/','\')
+    if (-not (Test-Path $hdisk)) { Say ERR "hero_image not found on disk: $($heroM.Groups[1].Value)"; $err++ }
+    else { Say OK "hero_image present with alt text" }
+  }
+
   # --- CHECK 6: metadata lengths -------------------------------------------
   $titleM = ($fm | Where-Object { $_ -match '^title:\s*' }) -replace '^title:\s*','' -replace '^"','' -replace '"$',''
   $descM  = ($fm | Where-Object { $_ -match '^description:\s*' }) -replace '^description:\s*','' -replace '^"','' -replace '"$',''

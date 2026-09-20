@@ -9,6 +9,7 @@ os: "Windows 10 / 11"
 # Without it the layout falls back to the generic social-preview card, and a
 # brand card tells a searcher nothing about the task.
 hero_image: /images/guides/word-copilot-tab-missing/01-word-options-copilot.png
+hero_alt: "Microsoft Word Options dialog with Copilot selected in the left-hand list"
 
 # Set to false to publish. While true: noindex, hidden from /guides/, and left
 # out of the sitemap, so this can be pushed and previewed at its real URL, with

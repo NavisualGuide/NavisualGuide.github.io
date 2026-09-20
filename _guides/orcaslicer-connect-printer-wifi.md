@@ -11,6 +11,7 @@ total_time: PT15M
 
 # Feeds the "image" of the schema.org HowTo, which is what a rich result shows.
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/06-device-tab-fluidd.png
+hero_alt: "OrcaSlicer Device tab showing the printer's Fluidd web interface over Wi-Fi"
 
 # Reviewed and published 2026-09-11.
 draft: false

@@ -105,10 +105,16 @@ title: How-tos
           it, then explain it. It repeats the title's destination, so it is
           taken out of the tab order and hidden from screen readers rather than
           making every entry announce itself twice.
+
+          It still carries real alt text. aria-hidden already stops screen
+          readers announcing it, so the alt costs nothing there -- but crawlers
+          and image search DO read it, and these are each guide's hero
+          screenshot, not decoration. alt="" was the old choice and it was the
+          only warning on the whole site in Bing's 7-page scan (2026-09-19).
         {%- endcomment -%}
         {%- if g.hero_image %}
         <a class="guide-thumb" href="{{ g.url }}" tabindex="-1" aria-hidden="true">
-          <img src="{{ g.hero_image }}" alt="" loading="lazy" decoding="async" />
+          <img src="{{ g.hero_image }}" alt="{{ g.hero_alt }}" loading="lazy" decoding="async" />
         </a>
         {%- endif %}
         {% if g.description %}<p>{{ g.description }}</p>{% endif %}
