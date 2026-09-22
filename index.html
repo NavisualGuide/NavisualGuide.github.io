@@ -34,37 +34,55 @@
        offers.price is "0" because the app is genuinely free to download; the coin
        top-ups are in-app purchases, not a purchase price for the software. -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Navisual",
-    "url": "https://navisualguide.com/",
-    "description": "Navisual understands what's on your screen, works out what to do, and shows you where — step by step, in any Windows app. The AI guides, you decide: it never clicks, types, or takes control.",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Windows 10, Windows 11",
-    "softwareVersion": "0.7.21",
-    "downloadUrl": "https://github.com/NavisualGuide/navisual/releases/latest/download/Navisual-Setup.exe",
-    "softwareHelp": "https://navisualguide.com/docs.html",
-    "image": "https://navisualguide.com/social-preview.png",
-    "author": {
-      "@type": "Person",
-      "name": "Jin Fu"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Free to download, including 30 free requests with no sign-up. Optional coin top-ups from $5 for continued use."
-    },
-    "featureList": [
-      "Shows where to click, step by step, in any Windows application",
-      "Reads the screen with accessibility APIs and OCR — points at the real on-screen element",
-      "Never clicks, types, or takes control — the user performs every action",
-      "Works in Word, Excel, PowerPoint, browsers, Blender, Photoshop and more",
-      "Spoken instructions and an on-screen pointer overlay"
-    ]
-  }
-  </script>
+    {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Navisual",
+          "url": "https://navisualguide.com/",
+          "description": "Navisual is a screen assistant for Windows: it understands what is on your screen, plans a step-by-step route to what you asked for, and shows you where to click and what to type. It never clicks or types for you — Navisual does not operate your computer, you perform every action yourself. The AI guides, you decide.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Windows 10, Windows 11",
+          "softwareVersion": "0.7.28",
+          "downloadUrl": "https://github.com/NavisualGuide/navisual/releases/latest/download/Navisual-Setup.exe",
+          "softwareHelp": "https://navisualguide.com/docs.html",
+          "image": "https://navisualguide.com/social-preview.png",
+          "author": {
+                "@type": "Person",
+                "name": "Jin Fu"
+          },
+          "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Free to download, including 30 free requests with no sign-up. Optional coin top-ups from $5 for continued use."
+          },
+          "featureList": [
+                "Understands your screen — reads the active window with Windows accessibility APIs and OCR, so it sees what you see",
+                "Plans a step-by-step route to what you asked for, and adapts when the screen changes",
+                "Shows you where to click and what to type — an on-screen pointer on the real control, with a caption and spoken instruction",
+                "Never clicks, types, or takes control. Navisual does not operate your computer; you perform every action yourself",
+                "Points at the real on-screen element rather than guessing pixel coordinates, so it stays correct after you move or resize a window",
+                "Tested in Microsoft Word, Excel, PowerPoint and Outlook; Chrome and Edge; File Explorer and Windows Settings; Blender, Krita, VS Code, VLC, LibreOffice and OneNote",
+                "Guides through menus and dialogs even in apps whose toolbar icons carry no readable label, such as Photoshop and SolidWorks",
+                "Works with the built-in free tier, your own API key, or a local model via Ollama"
+          ],
+          "applicationSubCategory": "Screen assistant / guided software navigation",
+          "keywords": [
+                "screen assistant",
+                "AI screen assistant",
+                "on-screen guidance",
+                "step-by-step software guidance",
+                "shows you where to click",
+                "visual guide",
+                "software navigation",
+                "computer navigation help",
+                "Windows app help",
+                "guided walkthrough",
+                "human-in-the-loop AI",
+                "AI that does not take control"
+          ]
+    }
+    </script>
 </head>
 <body>
   <main>
