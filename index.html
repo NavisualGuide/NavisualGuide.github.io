@@ -62,8 +62,8 @@
                 "Shows you where to click and what to type — an on-screen pointer on the real control, with a caption and spoken instruction",
                 "Never clicks, types, or takes control. Navisual does not operate your computer; you perform every action yourself",
                 "Points at the real on-screen element rather than guessing pixel coordinates, so it stays correct after you move or resize a window",
-                "Tested in Microsoft Word, Excel, PowerPoint and Outlook; Chrome and Edge; File Explorer and Windows Settings; Blender, Krita, VS Code, VLC, LibreOffice and OneNote",
-                "Guides through menus and dialogs even in apps whose toolbar icons carry no readable label, such as Photoshop and SolidWorks",
+                "Works with any app — Tested in Microsoft Word, Excel, PowerPoint and Outlook; Chrome and Edge; File Explorer and Windows Settings; Blender, Krita, VS Code, VLC, LibreOffice, OneNote and more",
+                "Locates controls even where an app exposes no accessible names — Photoshop, Krita and SolidWorks included — by combining the AI's own visual grounding with local verification",
                 "Works with the built-in free tier, your own API key, or a local model via Ollama"
           ],
           "applicationSubCategory": "Screen assistant / guided software navigation",
@@ -148,7 +148,7 @@
           <span class="case-icon">🎨</span>
           <h3 class="case-title">Learning new software</h3>
           <p class="case-prompt">"How do I add a bevel to this cube in Blender?"</p>
-          <p class="case-desc">Points at the right tool and narrates the shortcut — learn by doing, not by reading a manual. An optional Blender add-on makes the pointing exact.</p>
+          <p class="case-desc">Points at the right tool and narrates the shortcut — learn by doing, not by reading a manual. Optional add-ons for some apps (Blender today, more coming) make the pointing exact.</p>
         </div>
         <div class="case">
           <span class="case-icon">🙌</span>
@@ -163,10 +163,7 @@
         Outlook</strong> and <strong>OneNote</strong>; <strong>Chrome</strong> and
         <strong>Edge</strong>; <strong>File Explorer</strong> and <strong>Windows Settings</strong>;
         <strong>Blender</strong>, <strong>Krita</strong>, <strong>VS Code</strong>,
-        <strong>VLC</strong> and <strong>LibreOffice</strong>. In apps whose toolbar icons carry no
-        readable label — <strong>Photoshop</strong>, <strong>SolidWorks</strong> — Navisual
-        guides you through the menus and dialogs, which is where most settings actually live.
-        More optimization is on the way.
+        <strong>VLC</strong>, <strong>Photoshop</strong>, <strong>SolidWorks</strong>, and <strong>LibreOffice</strong>. More optimization is on the way.
       </p>
     </section>
 
@@ -180,11 +177,11 @@
         </div>
         <div class="step">
           <span class="step-num">2</span>
-          <p>Navisual takes a quick look at your active window, asks the AI for the next step, and points at the exact button to click.</p>
+          <p>Navisual takes a quick look at your active window, plans the next steps, and points at the exact button to click.</p>
         </div>
         <div class="step">
           <span class="step-num">3</span>
-          <p>Follow the pointer and audio narration. Press <kbd>Ctrl+`</kbd> when done to advance to the next step.</p>
+          <p>Follow the pointer and text/audio narration. Press <kbd>Ctrl+`</kbd> when done to advance to the next step.</p>
         </div>
       </div>
     </section>
@@ -230,9 +227,9 @@
     <section class="privacy-section">
       <h2>Privacy</h2>
       <p>
-        Navisual sends only your <strong>active window</strong> — never your full desktop —
-        and only to the AI provider you choose. Screenshots stay in memory and
-        <strong>aren't written to disk unless you choose to save them</strong>.
+        Navisual sends only your <strong>active window, or a single screen</strong> if you
+        pick one — and only to the AI provider you choose. Screenshots stay on your computer and
+        <strong>aren't stored on Navisual's servers</strong>.
       </p>
       <p>
         The free tier is free because its AI provider may retain and train on your requests;
@@ -246,7 +243,7 @@
       <h2>Frequently asked</h2>
       <details>
         <summary>What does Navisual do, and who is it for?</summary>
-        <p>It watches your active window and gives you real-time, step-by-step guidance for whatever task you describe — pointing at the exact button or menu to click next, with audio narration. It's for anyone stuck on a task in an unfamiliar app: learning new software, walking a family member through a setup wizard, or just not remembering where a setting lives. Think of it as someone experienced sitting next to you and pointing — except you're always the one clicking.</p>
+        <p>It understands your question and your active window and gives you real-time, step-by-step guidance for whatever task you describe — pointing at the exact button or menu to click next, with audio narration. It's for anyone stuck on a task in an unfamiliar app: learning new software, walking a family member through a setup wizard, or just not remembering where a setting lives. Think of it as someone experienced sitting next to you and pointing — except you're always the one clicking.</p>
       </details>
       <details>
         <summary>Does the AI control my mouse?</summary>
@@ -258,7 +255,7 @@
       </details>
       <details>
         <summary>What data leaves my machine?</summary>
-        <p>A screenshot of your <strong>active window</strong> (not the full desktop) plus your conversation text, sent to whichever AI provider you choose. Element matching runs locally. Note: the <strong>free</strong> tier's AI models may retain and train on those requests (screenshot included); paid tiers don't under their providers' current policies, and Ollama keeps everything local — see the <a href="/privacy.html">Privacy Policy</a>.</p>
+        <p>A screenshot of your <strong>active window</strong> — or of a single screen, if you pick one — plus your conversation text, sent to whichever AI provider you choose. Element matching runs locally. Note: the <strong>free</strong> tier's AI models may retain and train on those requests (screenshot included); paid tiers don't under their providers' current policies, and Ollama keeps everything local — see the <a href="/privacy.html">Privacy Policy</a>.</p>
       </details>
       <details>
         <summary>Can it run fully offline?</summary>
