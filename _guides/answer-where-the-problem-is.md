@@ -34,10 +34,10 @@ After the initial excitement, you notice something. Sometimes you just want to k
 is. You don't want to spend ten minutes watching, never mind the sponsor read and the reminder to
 subscribe.
 
-You are not the only one. There is a thread on Blender Artists called *"Why does everything have
-to be a video these days?"* The person who started it had found his answer in a manual in about
-eight seconds, after ten minutes of video that covered things he already knew. Twenty people
-showed up to agree.
+You are not the only one. There is a thread on Blender Artists called
+[*"Why does everything have to be a video these days?"*](https://blenderartists.org/t/why-does-everything-have-to-be-a-video-these-days/1652886)
+The person who started it had found his answer in a manual in about eight seconds, after ten
+minutes of video that covered things he already knew. Twenty people showed up to agree.
 
 The most-liked reply explains why it keeps happening: creators earn from you watching, not from
 you finding.
@@ -50,16 +50,21 @@ your behalf, books the whole trip, edits your document, makes the purchase.
 
 But is it nicer?
 
-You start to worry about what it decides on your behalf. The security firm Cyera looked at 7,246
-publicly reported AI incidents and verified 344 as enterprise-relevant. **188 of those were caused
-by an autonomous agent with no attacker anywhere in the chain.** Nobody attacked anything. An
-agent was given a task, pursued it, and broke something on the way.
+You start to worry about what it decides on your behalf. The security firm Cyera
+[looked at 7,246 publicly reported AI incidents](https://www.cyera.com/research/agent-inflicted-damage-inside-the-real-world-failures-of-enterprise-ai-systems)
+and verified 344 as enterprise-relevant. **188 of those were caused by an autonomous agent with no
+attacker anywhere in the chain.** Nobody attacked anything. An agent was given a task, pursued it,
+and broke something on the way.
 
 So the agents ask for your approval instead, and you get approval fatigue. You are clicking
 *Allow* on a stream of decisions you do not have time to judge. And when it finishes, you have the
 result but you did not learn anything. Next time, you will need it again.
 
-## The tell
+So you start to dream of a buddy. Someone you can ask at the exact moment you are stuck, without
+leaving what you are doing — who is looking at the same screen you are, and who gets straight to
+the point.
+
+## You are not imagining it
 
 Here is the part I find most telling.
 
@@ -67,15 +72,17 @@ In a thread about using Claude Code to tune a PC, the AI described its own limit
 apps like the NVIDIA Control Panel, it said, it took a screenshot of the user's screen and told
 him what to click.
 
-The most capable agent available falls back to pointing — and it does it badly. One static
-screenshot, prose instead of a pointer, no idea whether you are even looking at the right window.
+So the most capable agent available already falls back to being that buddy. It just does it
+badly — one static screenshot, prose instead of a pointer, and no idea whether you are even
+looking at the right window. The thing you were dreaming of is the thing the agent does when it
+runs out of road.
 
-## Now it is possible to do that properly
+## So we built one properly
 
-Navisual is the buddy you ask while you are working. Ask your question without leaving what you
-are doing. It understands the question better because it is looking at exactly what you are
-looking at. It works out a plan, then walks you through each step with a pointer on the actual
-button and narration in text and speech. You can talk back to it, correct it, ask why. It gets
+Navisual is that buddy. Ask your question without leaving what you are doing. It understands the
+question better because it is looking at exactly what you are looking at. It works out a plan,
+then walks you through each step with a pointer on the actual button and narration in text and
+speech. You can talk back to it, correct it, ask why. It gets
 you straight to the point, in a way you can see.
 
 And it never clicks for you. You do every step yourself, which is the reason you still remember
