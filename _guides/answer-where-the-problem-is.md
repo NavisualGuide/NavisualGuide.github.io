@@ -34,9 +34,9 @@ After the initial excitement, you notice something. Sometimes you just want to k
 is. You don't want to spend ten minutes watching, never mind the sponsor read and the reminder to
 subscribe.
 
-You are not the only one. There is a thread on Blender Artists called
+You are not the only one. Forum threads like this one keep appearing:
 [*"Why does everything have to be a video these days?"*](https://blenderartists.org/t/why-does-everything-have-to-be-a-video-these-days/1652886)
-The person who started it had found his answer in a manual in about eight seconds, after ten
+The person who started it found his answer in a text manual in about eight seconds, after ten
 minutes of video that covered things he already knew. Twenty people showed up to agree.
 
 The most-liked reply explains why it keeps happening: creators earn from you watching, not from
@@ -64,20 +64,7 @@ So you start to dream of a buddy. Someone you can ask at the exact moment you ar
 leaving what you are doing — who is looking at the same screen you are, and who gets straight to
 the point.
 
-## You are not imagining it
-
-Here is the part I find most telling.
-
-In a thread about using Claude Code to tune a PC, the AI described its own limits. For GUI-only
-apps like the NVIDIA Control Panel, it said, it took a screenshot of the user's screen and told
-him what to click.
-
-So the most capable agent available already falls back to being that buddy. It just does it
-badly — one static screenshot, prose instead of a pointer, and no idea whether you are even
-looking at the right window. The thing you were dreaming of is the thing the agent does when it
-runs out of road.
-
-## So we built one properly
+## You are not imagining it - we built one properly
 
 Navisual is that buddy. Ask your question without leaving what you are doing. It understands the
 question better because it is looking at exactly what you are looking at. It works out a plan,
@@ -105,7 +92,7 @@ Here is what that looks like in practice.
    alt="Word's Privacy Settings window with the Connected experiences checkbox highlighted, and the Navisual panel on the right listing the planned route for the task"
    caption="The plan stays visible on the right, so you can see where the next few steps are going." %}
 
-## Two real ones
+## Real ones
 
 Both of these started as someone stuck in front of a screen, asking Navisual. They are written up
 step by step:
