@@ -10,7 +10,7 @@ author: "Jin Fu"
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/00-session-start.jpg
 hero_alt: "Navisual pointing at a Chrome address bar, ringed in orange, with a caption strip along the bottom of the screen giving the instruction"
 
-draft: true
+draft: false
 ---
 
 You have a question. Nobody around you knows the answer. What can you do?
@@ -51,8 +51,9 @@ your behalf, books the whole trip, edits your document, makes the purchase.
 But is it nicer?
 
 You start to worry about what it decides on your behalf. The security firm Cyera
-[looked at 7,246 publicly reported AI incidents](https://www.cyera.com/research/agent-inflicted-damage-inside-the-real-world-failures-of-enterprise-ai-systems)
-and verified 344 as enterprise-relevant. **188 of those were caused by an autonomous agent with no
+[went through 7,246 publicly reported AI incidents](https://www.cyera.com/research/agent-inflicted-damage-inside-the-real-world-failures-of-enterprise-ai-systems)
+— drawn from the AI Incident Database and OECD trackers — and verified 344 as
+enterprise-relevant. **188 of those were caused by an autonomous agent with no
 attacker anywhere in the chain.** Nobody attacked anything. An agent was given a task, pursued it,
 and broke something on the way.
 
