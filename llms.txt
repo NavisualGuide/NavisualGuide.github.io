@@ -56,8 +56,8 @@ text is not logged at all.
 - [Home](https://navisualguide.com/): what it is, how it works, download
 - [User manual](https://navisualguide.com/docs.html): getting started, hotkeys, targeting,
   troubleshooting, per-app support
-- [Guides](https://navisualguide.com/guides/): step-by-step how-tos produced from real
-  Navisual sessions
+- [Blog](https://navisualguide.com/guides/): step-by-step how-tos produced from real
+  Navisual sessions, plus the occasional piece on why finding an answer is still this hard
 - [Privacy policy](https://navisualguide.com/privacy.html): what is captured, what leaves
   your computer, what is stored and for how long
 - [Source](https://github.com/NavisualGuide/navisual): FSL-1.1-Apache-2.0, source-available

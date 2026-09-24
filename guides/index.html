@@ -14,7 +14,7 @@ title: Blog
     worth a crawler's attention once at least one guide is actually published.
 
     It matters more now than it did, because the footer on every page links
-    here. Sitewide internal links to an indexable page reading "first how-to
+    here. Sitewide internal links to an indexable page reading "first post
     coming shortly" is the textbook thin-content signal — and it would have been
     invisible, since the sitemap already withholds the URL, so nothing would
     have flagged the disagreement between the two mechanisms.
@@ -85,7 +85,7 @@ title: Blog
       nothing but whitespace between them, which is most of why the two read as
       the same kind of thing.
     {%- endcomment -%}
-    <p class="guide-list-head">{{ sorted.size }} how-to{% if sorted.size != 1 %}s{% endif %}</p>
+    <p class="guide-list-head">{{ sorted.size }} post{% if sorted.size != 1 %}s{% endif %}</p>
     <ul class="guide-list">
       {% for g in sorted %}
       {%- comment -%}
@@ -123,7 +123,7 @@ title: Blog
       {% endfor %}
     </ul>
     {% else %}
-    <p><em>First how-to coming shortly.</em></p>
+    <p><em>First post coming shortly.</em></p>
     {% endif %}
     </div>
   </main>
