@@ -201,14 +201,25 @@
 
     {{ content }}
 
-    <!-- Every guide ends with the product, but as a relevant next step rather
-         than an ad: the reader just followed a click-path that was hard to find,
-         which is exactly the problem the app solves. -->
+    <!-- Every page ends with the product, but as a relevant next step rather
+         than an ad: a how-to reader just followed a click-path that was hard to
+         find, which is exactly the problem the app solves.
+
+         Branched on `page.steps` since 2026-09-30. "Steps like these" was written
+         when every page here was a how-to, and it reads as a non-sequitur under an
+         essay -- the reader followed an argument, not a click-path. Same test the
+         schema block uses at the top of this file (HowTo vs TechArticle), so the
+         two cannot disagree about what kind of page this is. -->
     <hr />
     <p class="guide-cta">
+      {%- if page.steps %}
       Steps like these are easier when something points at the actual control on
       <em>your</em> screen. <a href="/">Navisual</a> reads what is in front of you and
       shows you where to click. It never clicks for you.
+      {%- else %}
+      <a href="/">Navisual</a> reads what is on <em>your</em> screen and shows you where
+      to click, one step at a time. It never clicks for you.
+      {%- endif %}
     </p>
     </div>
   </main>
