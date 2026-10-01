@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{% if page.draft %}[DRAFT] {% endif %}{{ page.title }} — Navisual</title>
+  <title>{% if page.draft %}[DRAFT] {% endif %}{{ page.title }}: Navisual</title>
   <meta name="description" content="{{ page.description }}" />
   {%- comment -%}
     `draft: true` exists so an unfinished article can be PUSHED and previewed at
@@ -51,7 +51,7 @@
   <meta property="og:image" content="{{ '/social-preview.png' | absolute_url }}" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
-  <meta property="og:image:alt" content="Navisual — The AI guides, you decide." />
+  <meta property="og:image:alt" content="Navisual: The AI guides, you decide." />
   {%- endif %}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="{{ page.hero_image | default: '/social-preview.png' | absolute_url }}" />
@@ -183,7 +183,7 @@
     {%- endcomment -%}
     {%- if page.draft %}
     <p class="guide-draft-banner">
-      <strong>Draft — not published.</strong> This page is set <code>draft: true</code>:
+      <strong>Draft, not published.</strong> This page is set <code>draft: true</code>:
       it carries <code>noindex</code>, is hidden from the guides list, and is left out
       of the sitemap. Set <code>draft: false</code> in the front matter to publish it.
     </p>
