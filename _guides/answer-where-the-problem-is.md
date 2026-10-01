@@ -5,7 +5,7 @@ date: 2026-09-23
 author: "Jin Fu"
 
 # No `steps:` here on purpose. This is an essay, not a procedure, so the layout
-# emits schema.org TechArticle rather than HowTo — and `app` / `os` are left out
+# emits schema.org TechArticle rather than HowTo, and `app` / `os` are left out
 # too, since the chip row under the title is for "which app is this about".
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/00-session-start.jpg
 hero_alt: "Navisual pointing at a Chrome address bar, ringed in orange, with a caption strip along the bottom of the screen giving the instruction"
@@ -19,13 +19,13 @@ In the good old days you found a book and studied it. Eventually you found the a
 take days.
 
 Then came the internet. You type the question into a search box and look for the right article
-with the right answer. Information at your fingertips — nice.
+with the right answer. Information at your fingertips. Nice.
 
 But you want more. You want to see what the answer looks like. So articles started carrying
-pictures, and most of us are visual learners — nicer.
+pictures, and most of us are visual learners. Nicer.
 
 And you want more again. You want to see the problem actually being solved. You want someone to
-talk through it, explain the reasoning, take questions. Here come YouTube and TikTok — even
+talk through it, explain the reasoning, take questions. Here come YouTube and TikTok. Even
 nicer.
 
 ## Just tell me the answer
@@ -45,14 +45,14 @@ you finding.
 ## So, agents
 
 Here comes the AI chatbot, and then the AI agent. No more gambling on which link might answer
-you. And even *"nicer"* — the agent can do it for you. It sees your browser, clicks and types on
+you. And even *"nicer"*: the agent can do it for you. It sees your browser, clicks and types on
 your behalf, books the whole trip, edits your document, makes the purchase.
 
 But is it nicer?
 
 You start to worry about what it decides on your behalf. The security firm Cyera
 [went through 7,246 publicly reported AI incidents](https://www.cyera.com/research/agent-inflicted-damage-inside-the-real-world-failures-of-enterprise-ai-systems)
-— drawn from the AI Incident Database and OECD trackers — and verified 344 as
+(drawn from the AI Incident Database and OECD trackers) and verified 344 as
 enterprise-relevant. **188 of those were caused by an autonomous agent with no
 attacker anywhere in the chain.** Nobody attacked anything. An agent was given a task, pursued it,
 and broke something on the way.
@@ -62,7 +62,7 @@ So the agents ask for your approval instead, and you get approval fatigue. You a
 result but you did not learn anything. Next time, you will need it again.
 
 So you start to dream of a buddy. Someone you can ask at the exact moment you are stuck, without
-leaving what you are doing — who is looking at the same screen you are, and who gets straight to
+leaving what you are doing, who is looking at the same screen you are, and who gets straight to
 the point.
 
 ## You are not imagining it - we built one properly
@@ -99,10 +99,10 @@ Both of these started as someone stuck in front of a screen, asking Navisual. Th
 step by step:
 
 **[Setup OrcaSlicer with your 3D printer over Wi-Fi](/guides/orcaslicer-connect-printer-wifi/)**
-— almost every guide online skips one field. Leave it blank and the Device tab shows a blank
+: almost every guide online skips one field. Leave it blank and the Device tab shows a blank
 404 even though printing works fine.
 
-**[No Copilot tab in Word Options?](/guides/word-copilot-tab-missing/)** — most answers say
+**[No Copilot tab in Word Options?](/guides/word-copilot-tab-missing/)**: most answers say
 File ▸ Options ▸ Copilot. That tab is missing in many builds of Word.
 
 Which is the whole idea. The answer, where the problem is.

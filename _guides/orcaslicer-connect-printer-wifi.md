@@ -1,6 +1,6 @@
 ---
 title: "Setup OrcaSlicer with your 3D printer over Wi-Fi"
-description: "Download, install and connect, in one pass — including the field almost every guide skips, which is why the Device tab shows 404 even when printing works."
+description: "Download, install and connect, in one pass, including the field almost every guide skips, which is why the Device tab shows 404 even when printing works."
 date: 2026-09-11
 app: "OrcaSlicer 2.4.2"
 os: "Windows 10 / 11"
@@ -40,15 +40,15 @@ steps:
 ---
 
 OrcaSlicer turns a 3D model into the G-code your printer runs. Installing it is a download and a
-short wizard. The part that trips people up is the last mile — telling the slicer where the printer
+short wizard. The part that trips people up is the last mile: telling the slicer where the printer
 lives on your network, so you can send a print without carrying a microSD card across the room.
 
 There is also a field in that dialog that almost every guide skips. Miss it and everything appears
-to work — you can slice, you can print — but the **Device** tab shows a blank **404 Not Found**
+to work (you can slice, you can print), but the **Device** tab shows a blank **404 Not Found**
 forever.
 
-**The short version.** Connect the printer with **Browse…** in the *Physical Printer* dialog, then —
-before clicking OK — fill the **Device UI** field with your printer's own web interface:
+**The short version.** Connect the printer with **Browse…** in the *Physical Printer* dialog, then,
+before clicking OK, fill the **Device UI** field with your printer's own web interface:
 `http://<printer-ip>:4408/` on a Creality K-series. That single field is what the Device tab loads,
 and leaving it blank is why the tab returns 404 even though printing works. The long version, with
 every screen, is below.
@@ -56,7 +56,7 @@ every screen, is below.
 Two parts: install, then connect. If OrcaSlicer is already set up, skip to part two.
 
 Every screenshot below is a real frame from one session, recorded while someone actually did this
-with **Navisual** — an assistant that watches the screen and marks the control you need next. The
+with **Navisual**, an assistant that watches the screen and marks the control you need next. The
 orange marks are Navisual pointing; the strip along the bottom is the instruction it spoke.
 
 {% include figure.html
@@ -80,10 +80,10 @@ width="1920" height="1080" %}
 1. **Download the Windows installer.**
    OrcaSlicer lives on GitHub, not in an app store. Open the
    [releases page](https://github.com/SoftFever/OrcaSlicer/releases) and take the newest entry
-   marked **Official Release** — skip anything labelled *Nightly*, *Beta* or *Alpha*.
+   marked **Official Release**. Skip anything labelled *Nightly*, *Beta* or *Alpha*.
 
    Release notes come first; the downloads are at the bottom under **Assets**. There are a dozen
-   files and most are not for you — Linux flatpaks, an AppImage, a macOS `.dmg`, portable zips, a
+   files and most are not for you: Linux flatpaks, an AppImage, a macOS `.dmg`, portable zips, a
    debug build. You want `OrcaSlicer_Windows_Installer_..._x64.exe`, about 131 MB. Note **x64**, not
    **arm64**, unless you are on an ARM machine.
 
@@ -97,7 +97,7 @@ width="1920" height="1080" %}
    Run the installer, click through the licence and install location, then work through the
    first-run wizard. Only one page changes an outcome: **Printer Selection**.
 
-   The list is long, grouped by vendor, and opens on whoever is first alphabetically — nowhere near
+   The list is long, grouped by vendor, and opens on whoever is first alphabetically, nowhere near
    you. Use the **search icon in the top left** rather than scrolling, tick the box on your
    printer's card, and click **Next**.
 
@@ -111,7 +111,7 @@ width="1920" height="1080" %}
    width="1188" height="795" %}
 
 3. **Click Next through the rest.**
-   Nothing else needs a decision on a first install. Tick the filament types you actually own — PLA
+   Nothing else needs a decision on a first install. Tick the filament types you actually own: PLA
    is enough to start, and you can add more later from the Filament dropdown. Leave **Stealth Mode**
    off; it only stops OrcaSlicer's own network calls and does not affect talking to your printer.
    Leave **Install Bambu Network plug-in** unticked unless you have a Bambu Lab machine.
@@ -151,7 +151,7 @@ window. Everything below came out of that one sentence.
    **Printer Agent** to `CrealityPrint`.
 
    You can type the IP by hand if you know it, but **Browse…** next to *Hostname, IP or URL* scans
-   the local network and finds it — no trip to the printer's touchscreen. Click the row for your
+   the local network and finds it, with no trip to the printer's touchscreen. Click the row for your
    printer, then the green **Use Selected** button below the list.
 
    **Write the IP down.** Step 6 needs it, and this dialog is the easiest place to read it.
@@ -162,19 +162,19 @@ window. Everything below came out of that one sentence.
    caption="One printer found, with its model, hostname and IP. Selecting the row fills the address into the dialog behind it."
    width="1188" height="795" %}
 
-6. **Fill in Device UI — the step that prevents the 404.**
+6. **Fill in Device UI: the step that prevents the 404.**
    Back in the Physical Printer dialog, *Hostname, IP or URL* is now filled in and it is tempting to
    press **OK**. Do one more thing first.
 
    The **Device UI** field is what the **Device** tab loads. Leave it empty and that tab shows a
-   bare 404 forever. Fill it with your printer's own web interface — the same IP, on port **4408**:
+   bare 404 forever. Fill it with your printer's own web interface: the same IP, on port **4408**:
 
    ```
    http://192.168.0.88:4408/
    ```
 
    Substitute your own address. *API Key / Password* and *HTTPS CA File* stay empty on a standard
-   Creality setup. **Save Machine as** at the top names this connection in your printer list — worth
+   Creality setup. **Save Machine as** at the top names this connection in your printer list, worth
    editing if you run more than one machine. Then click **OK**.
 
    {% include figure.html
@@ -184,7 +184,7 @@ window. Everything below came out of that one sentence.
    width="683" height="474" %}
 
 7. **Check the Device tab.**
-   Open **Device** along the top. OrcaSlicer loads the printer's own interface inside the tab — on a
+   Open **Device** along the top. OrcaSlicer loads the printer's own interface inside the tab. On a
    Creality K-series that is **fluidd**: live bed, nozzle and chamber temperatures, recent jobs with
    their durations, axis jog controls and a console, without leaving the slicer.
 
@@ -207,7 +207,7 @@ width="1188" height="795" %}
 
 In order:
 
-- **Check the port.** `4408` is the Creality K-series web interface. Other hardware differs — a
+- **Check the port.** `4408` is the Creality K-series web interface. Other hardware differs: a
   Klipper machine running Mainsail or fluidd directly is usually `80` or `81`, and some builds use
   `7125` for the Moonraker API rather than the UI. The quickest test is to open the same URL in a
   browser on the same PC: if the browser shows the interface, that exact URL belongs in **Device
@@ -223,7 +223,7 @@ In order:
 ## Why this is hard to find
 
 1. **The connection works without it.** Fill in the IP and you can slice and send a print. Nothing
-   warns you a second field exists, so guides that end at "Use Selected, OK, done" are not wrong —
+   warns you a second field exists, so guides that end at "Use Selected, OK, done" are not wrong;
    they are answering a different question.
 2. **The failure is silent and in the wrong place.** The field you skipped is in the *Physical
    Printer* dialog; the symptom appears on a *Device* tab that looks like a separate feature.
@@ -239,7 +239,7 @@ no tooltip.
 ## How this guide was made
 
 Nothing here was written from memory or rebuilt from a manual. Somebody sat down at a Windows
-machine and asked one question — *"how to install and setup Orca slicer for my 3D printer?"* — and
+machine and asked one question, *"how to install and setup Orca slicer for my 3D printer?"*, and
 Navisual guided them through it one control at a time, drawing a mark on screen and speaking each
 instruction. The screenshots above are the frames it captured.
 
@@ -247,7 +247,7 @@ instruction. The screenshots above are the frames it captured.
   live printer dashboard.
 - **16 of 20 controls** were pinpointed on screen. Two steps were scrolling or summaries with
   nothing to point at; one fell back to the model's own visual estimate, which was correct.
-- **It changed course twice** — once when the question changed mid-task, once when a step led to a
+- **It changed course twice:** once when the question changed mid-task, once when a step led to a
   404 and had to be worked back from. Both are in this guide rather than tidied out of it.
 - **Edited:** screenshots are cropped to the application window except the two that show the
   Navisual panel; the desktop behind it is the author's and is nobody else's business. Repeated
