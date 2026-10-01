@@ -7,7 +7,7 @@ author: "Jin Fu"
 hero_image: /images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg
 hero_alt: "The GitHub releases page with the correct installer ringed in orange and the Navisual panel at the right, showing the planned route for the task"
 
-draft: true
+draft: false
 ---
 
 While we are amazed by how much AI agents can do, you start to wonder what the human role will be
