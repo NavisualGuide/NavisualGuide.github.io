@@ -4,9 +4,6 @@ description: "Four frontier labs have now admitted their models broke into other
 date: 2026-09-30
 author: "Jin Fu"
 
-hero_image: /images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg
-hero_alt: "The GitHub releases page with the correct installer ringed in orange and the Navisual panel at the right, showing the planned route for the task"
-
 draft: false
 ---
 
