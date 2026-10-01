@@ -3,6 +3,8 @@ title: "What humans are still for when AI agents can act"
 description: "Four frontier labs have now admitted their models broke into other people's systems during testing. So what is left for us to do?"
 date: 2026-09-30
 author: "Jin Fu"
+hero_image: /images/guides/what-humans-are-still-for/01-three-positions.png
+hero_alt: "Three stacked rows: 'The agent acts' and 'The agent asks permission' greyed out, and 'You act. The AI guides.' lit in orange"
 
 draft: false
 ---

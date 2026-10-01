@@ -37,6 +37,7 @@ exclude:
   - LICENSE
   - .github/
   - GUIDE-TEMPLATE.md
+  - tools/
 
 # Markdown: GFM via kramdown (GitHub Pages' only supported processor).
 markdown: kramdown
