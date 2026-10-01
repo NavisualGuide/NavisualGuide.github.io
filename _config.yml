@@ -1,7 +1,7 @@
 # Jekyll config for navisualguide.com
 #
 # Jekyll was ALREADY active here (GitHub Pages runs it by default; there is no
-# .nojekyll file). This config does not switch it on — it only gives the /guides
+# .nojekyll file). This config does not switch it on; it only gives the /guides
 # content a layout, and makes sitemap.xml generate itself.
 #
 # The five hand-written pages (index/docs/privacy/terms/checkout-complete) carry
@@ -12,11 +12,11 @@
 title: Navisual
 description: >-
   Navisual understands what's on your screen, works out what to do, and shows
-  you where — step by step, in any Windows app. The AI guides, you decide.
+  you where, step by step, in any Windows app. The AI guides, you decide.
 url: https://navisualguide.com
 author: Jin Fu
 
-# /guides/<slug>/ — a directory-style permalink, chosen deliberately over
+# /guides/<slug>/ is a directory-style permalink, chosen deliberately over
 # /guides/<slug>.html because URL shape is expensive to change later (redirects
 # + lost link equity) and this one stays valid if the stack ever changes.
 collections:
