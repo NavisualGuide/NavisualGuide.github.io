@@ -8,7 +8,7 @@ author: "Jin Fu"
 # emits schema.org TechArticle rather than HowTo, and `app` / `os` are left out
 # too, since the chip row under the title is for "which app is this about".
 hero_image: /images/guides/answer-where-the-problem-is/01-each-better-than-the-last.png
-hero_alt: "A row of greyed icons, a book, a search bar, a photo, a video and a robot arm, leading to a laptop where an orange ring circles one button and a hand reaches to click it"
+hero_alt: "A row of greyed icons, a book, a search bar, a photo, a video and a robot arm, leading to a laptop where an orange ring circles one button with the mouse pointer on it, and a hand on the mouse beside the laptop"
 
 draft: false
 ---
