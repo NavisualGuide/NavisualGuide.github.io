@@ -7,8 +7,8 @@ author: "Jin Fu"
 # No `steps:` here on purpose. This is an essay, not a procedure, so the layout
 # emits schema.org TechArticle rather than HowTo, and `app` / `os` are left out
 # too, since the chip row under the title is for "which app is this about".
-hero_image: /images/guides/orcaslicer-connect-printer-wifi/00-session-start.jpg
-hero_alt: "Navisual pointing at a Chrome address bar, ringed in orange, with a caption strip along the bottom of the screen giving the instruction"
+hero_image: /images/guides/answer-where-the-problem-is/01-each-better-than-the-last.png
+hero_alt: "A row of greyed icons, a book, a search bar, a photo, a video and a robot arm, leading to a laptop where an orange ring circles one button and a hand reaches to click it"
 
 draft: false
 ---
