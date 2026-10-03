@@ -99,10 +99,10 @@ Both of these started as someone stuck in front of a screen, asking Navisual. Th
 step by step:
 
 **[Setup OrcaSlicer with your 3D printer over Wi-Fi](/guides/orcaslicer-connect-printer-wifi/)**
-: almost every guide online skips one field. Leave it blank and the Device tab shows a blank
+Almost every guide online skips one field. Leave it blank and the Device tab shows a blank
 404 even though printing works fine.
 
-**[No Copilot tab in Word Options?](/guides/word-copilot-tab-missing/)**: most answers say
-File ▸ Options ▸ Copilot. That tab is missing in many builds of Word.
+**[No Copilot tab in Word Options?](/guides/word-copilot-tab-missing/)**
+Most answers say File ▸ Options ▸ Copilot. That tab is missing in many builds of Word.
 
 Which is the whole idea. The answer, where the problem is.
