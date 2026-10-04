@@ -7,7 +7,7 @@ author: "Jin Fu"
 # No `steps:` here on purpose. This is an essay, not a procedure, so the layout
 # emits schema.org TechArticle rather than HowTo, and `app` / `os` are left out
 # too, since the chip row under the title is for "which app is this about".
-hero_image: /images/guides/answer-where-the-problem-is/01-each-better-than-the-last.png
+hero_image: /images/guides/answer-where-the-problem-is/01-each-better.png
 hero_alt: "Each better than the last: a book, a search bar, a photo, a video and a robot arm, greyed out in a row, leading to a laptop where an orange ring marks the answer on screen and the person's own hand is on the mouse"
 
 draft: false

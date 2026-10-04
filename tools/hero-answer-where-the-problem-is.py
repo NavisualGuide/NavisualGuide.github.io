@@ -13,7 +13,7 @@ fits it to the site rather than redrawing it.
   * hue: the ring comes back golden. Only SATURATED pixels are turned to the
     accent's hue, ramped by saturation, so the greys are untouched and the
     glow's soft edge goes with the ring. Source hue measured, as above.
-  * fit: the laptop's right edge lands on X1, so X's 2:1 card crop keeps the
+  * fit: the laptop's right edge lands on X1, so X's 1.91:1 card crop keeps the
     whole laptop, hand and mouse. The arm enters from the right edge, so the
     sleeve's last column is repeated out to the canvas edge rather than
     leaving it cut off in mid-air.
@@ -110,4 +110,4 @@ for x in range(X0 + art.width, W):
     img.paste(edge, (x, y))
 print(f"scale {k:.3f}, laptop ends at x={X0 + round((laptop_right - left) * k)} (safe to {X1})")
 footer(d)
-save(img, "answer-where-the-problem-is", "01-each-better-than-the-last.png")
+save(img, "answer-where-the-problem-is", "01-each-better.png")

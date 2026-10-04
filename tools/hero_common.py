@@ -7,9 +7,10 @@ TWO CROPS DECIDE THE GEOMETRY.
      screenshot, wrong for a drawing: a 2:1 hero lost its bottom 20%. So the
      canvas IS 5:2 and nothing is cropped on the listing.
 
-  2. hero_image also feeds og:image and twitter:image. X centre-crops anything
-     wider than 2:1 back to 2:1, removing 128px from each side of a 5:2 canvas.
-     So content stays between X0 and X1.
+  2. hero_image also feeds og:image and twitter:image. X's link card is
+     1.91:1, not 2:1 -- measured off a live card on 2026-10-03, which had cut
+     the E off "EACH" and the start of the footer. On a 5:2 canvas that removes
+     151px from each side. So content stays between X0 and X1.
 
 Type is the Windows Segoe UI variable font. Its named instances are "Bold Text"
 etc., not "Bold", and set_variation_by_name fails SILENTLY on a wrong name, so
@@ -20,7 +21,8 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1280, 512
-X0, X1 = 128 + 14, 1280 - 128 - 14
+CARD_CROP = (1280 - round(512 * 1.91)) // 2          # 151
+X0, X1 = CARD_CROP + 14, 1280 - CARD_CROP - 14
 
 BG = "#0a0a0b"
 SURFACE = "#141416"
