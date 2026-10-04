@@ -16,7 +16,7 @@ ROWS = [
     ("The agent asks permission",
      "Allow? Allow? Allow?", False),
     ("You act. The AI guides.",
-     "It points. You click.", True),
+     "It shows the way. Every move is yours.", True),
 ]
 
 top, row_h, gap = 88, 108, 18
