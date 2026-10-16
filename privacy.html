@@ -25,7 +25,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 19 September 2026</p>
+      <p class="legal-updated">Last updated: 16 October 2026</p>
 
       <!-- ==================================================================
            BEFORE YOU CHANGE ANYTHING SUBSTANTIVE HERE, READ THIS.
@@ -95,15 +95,28 @@
           captured and sent, and it stays that way until you choose a single window again. Any
           screenshot Navisual saves is saved on your own computer, never uploaded, and
           <strong>never stored on Navisual’s servers</strong>.</li>
-        <li><strong>Window title and size, and your Windows version.</strong> The focused
-          window’s title and its on-screen position/size are sent with the request to give the
-          AI context, together with which version of Windows you are running and its build
-          number, for example “Windows 11 (build 26200)”. Windows versions differ enough in
-          Settings and File Explorer that without it the guidance has to guess which one you
-          are looking at. No other details about your computer are sent: not your hardware, not
-          your drives or free space, not your installed software.</li>
+        <li><strong>Window titles, and your Windows version.</strong> The focused window’s
+          title is sent with the request to give the AI context. So are the titles of the windows
+          from the earlier steps of the same task, each with what you said at that step, so the AI
+          can follow a task that moves between windows or pages. Also sent: which version of
+          Windows you are running and its build number, for example “Windows 11 (build 26200)”.
+          Windows versions differ enough in Settings and File Explorer that without it the
+          guidance has to guess which one you are looking at. When a step asks you to press a
+          keyboard shortcut, Navisual checks on your computer whether another program has already
+          claimed that shortcut, and if so tells the AI only that it is taken, not which program
+          took it. No other details about your computer are sent: not your hardware, not your
+          drives or free space, not your installed software. (Earlier versions also sent the
+          window’s on-screen position and size; this one does not.)</li>
+        <li><strong>What the window’s controls say about themselves.</strong> Navisual reads the
+          names, types and states of the buttons, menus, tabs, lists and fields in the window you
+          are being guided in, from Windows’ accessibility interface (the one screen readers
+          use): for example <em>Button “Bold”, on</em>, or a drop-down showing “14”. That list
+          is sent with the request so the AI can name exactly the control to use. It never
+          includes what you type into a text box.</li>
         <li><strong>Your request text.</strong> What you type or say, plus a short running summary
-          of the task.</li>
+          of the task, and short notes the AI chose to keep from an earlier screen of the same task
+          (a code or a number that screen showed, for example). Those notes are sent again with
+          the later requests of that task, and are saved with the session on your machine.</li>
         <li><strong>Your saved sessions (local only).</strong> The conversation, your task, the
           plan and what you clicked are saved on your machine so you can reopen recent sessions.
           The most recent are kept and older ones are removed automatically. You can export a
@@ -111,6 +124,14 @@
           if you enabled them), and open such a file again later. Opening one shows
           it; it rejoins the recent list only if you carry on working in it. None of this
           reaches Navisual’s servers.</li>
+        <li><strong>Learned notes about each app (kept on your machine).</strong> When finding a
+          command in an app took more than one try, Navisual writes down the names of the menus and
+          buttons you clicked to get there, with one line the AI writes about it, in a small note
+          for that app. The note is kept on your computer and sent with your later requests in
+          the same app, so the guidance gets it right the first time. It holds interface labels
+          only, never file names, document text, addresses or long numbers. You can read, change
+          or delete these notes in Settings ▸ Screen Guide ▸ Learned notes. They never reach
+          Navisual’s servers.</li>
         <li><strong>The control you last clicked.</strong> While a guidance session is active,
           Navisual records the <em>name and type</em> of the control you click (for example <em>Button
           “Save”</em>), so the AI knows what you just did instead of having to guess it
@@ -220,7 +241,8 @@
       <h2>4. Data we store</h2>
       <p><strong>On your computer</strong> (under <code>%LOCALAPPDATA%\com.navisual.app</code>):
         your settings and any API keys you enter, your sign-in token, conversation/session files
-        (including each step’s screenshot, if you turn that on), and (only if you turn on debug
+        (including each step’s screenshot, if you turn that on), the learned notes about each app
+        (their text goes with your requests in that app, see §1), and (only if you turn on debug
         logging) diagnostic logs. These never leave your machine
         unless you send them to us.</p>
       <p><strong>On our servers (Supabase)</strong>: the first two apply to the
