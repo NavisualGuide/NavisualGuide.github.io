@@ -88,13 +88,16 @@
       <h2>1. What the app processes</h2>
       <ul>
         <li><strong>Screenshots of the window you point it at.</strong> When you ask for
-          guidance, a screenshot is sent to the AI provider you’ve selected so it can identify
-          the next step. This is a single application window or screen (the one you
-          are being guided through), never your whole desktop. You can choose to share a
-          whole screen instead, from the app picker inside Navisual; if you do, that is what is
-          captured and sent, and it stays that way until you choose a single window again. Any
-          screenshot Navisual saves is saved on your own computer, never uploaded, and
-          <strong>never stored on Navisual’s servers</strong>.</li>
+          guidance, a screenshot of the application window you are being guided through is sent
+          to the AI provider you’ve selected so it can identify the next step. You can choose to
+          share a whole screen instead, from the app picker inside Navisual; if you do, that is
+          what is captured and sent, and it stays that way until you choose a single window
+          again. The AI may also ask to see a screenshot from an earlier step of the same task
+          again, for example to read a number an earlier page showed; if it does, that screenshot
+          is sent again with the current request. To make that possible, Navisual may keep the
+          screenshots of a task on your computer until the task ends; nothing is captured for this
+          that was not already sent. Any screenshot Navisual saves is saved on your own computer,
+          never uploaded, and <strong>never stored on Navisual’s servers</strong>.</li>
         <li><strong>Window titles, and your Windows version.</strong> The focused window’s
           title is sent with the request to give the AI context. So are the titles of the windows
           from the earlier steps of the same task, each with what you said at that step, so the AI
@@ -183,7 +186,7 @@
         free tier is served by <em>free-of-charge</em> AI models: we route to whichever provider(s)
         currently offer the best reliability and cost for the free tier, and that routing changes
         from time to time as we improve it. <strong>Free-of-charge AI access is commonly offered on
-        the condition that the provider may retain your requests, including the screenshot of your
+        the condition that the provider may retain your requests, including the screenshots of your
         active window, and use them to train and improve their AI models</strong>. This is standard
         practice across the industry for no-cost API tiers, not something specific to whichever
         provider we currently route to. If you do not want your screen content used for model
@@ -301,7 +304,7 @@
       <table class="legal-table">
         <tr><th>Processor</th><th>Purpose</th><th>What they receive</th></tr>
         <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Your account record; the request payload passes through the relay in transit</td></tr>
-        <tr><td>Free-tier AI provider(s), may change over time</td><td>Upstream for the <strong>free</strong> managed tier</td><td>The request payload (screenshot + text). <strong>May be retained and used to train the model provider’s AI</strong>, see §2</td></tr>
+        <tr><td>Free-tier AI provider(s), may change over time</td><td>Upstream for the <strong>free</strong> managed tier</td><td>The request payload (screenshots + text). <strong>May be retained and used to train the model provider’s AI</strong>, see §2</td></tr>
         <tr><td>Paid AI provider endpoints, may change over time</td><td>Upstream for the <strong>paid</strong> managed tiers</td><td>The request payload. Not used for training under their <em>current</em> paid-API policies (subject to change by those providers)</td></tr>
         <tr><td>Stripe</td><td>Payments</td><td>Your email and payment details: <strong>never your screenshots</strong>. Card data goes directly to Stripe (PCI); we never see card numbers.</td></tr>
         <tr><td>Microsoft</td><td>Voice transcription (only if you enable push-to-talk)</td><td>Your spoken audio</td></tr>
@@ -312,7 +315,7 @@
       <p>
         Our managed services run on infrastructure provided by <strong>Supabase</strong> and the
         upstream AI providers listed above. Your account record and the request payloads you send
-        (a screenshot of your active window plus your text) may be transferred to and processed in
+        (screenshots of your active window plus your text) may be transferred to and processed in
         the <strong>United States</strong> or other jurisdictions where these providers operate. By
         using the managed tier, you consent to this transfer. If you prefer that what is on your
         screen never leaves your machine, use a local provider: <strong>Ollama</strong>, or
