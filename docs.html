@@ -63,7 +63,7 @@
           “make a pivot table from this data” or “add a bevel to this cube”.</li>
         <li><strong>Follow the pointer.</strong> Navisual takes one screenshot, works out the next
           step, and draws a marker on the exact button, with the instruction spoken and captioned.</li>
-        <li><strong>Do the step yourself</strong>, then press <kbd>Ctrl</kbd>+<kbd>~</kbd> for the
+        <li><strong>Do the step yourself</strong>, then press <kbd>Ctrl</kbd>+<kbd>`</kbd> for the
           next one.</li>
       </ol>
       <p>
@@ -148,14 +148,15 @@
       </p>
       <table class="legal-table">
         <tr><th>Action</th><th>Default</th><th>What it does</th></tr>
-        <tr><td>Next step</td><td><kbd>Ctrl</kbd>+<kbd>~</kbd></td><td>Ask for the next step: the one you’ll use constantly</td></tr>
-        <tr><td>Mark wrong</td><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Tell Navisual this step is wrong (see §5)</td></tr>
+        <tr><td>Next step</td><td><kbd>Ctrl</kbd>+<kbd>`</kbd></td><td>Ask for the next step: the one you’ll use constantly</td></tr>
+        <tr><td>Toggle icon mode</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>`</kbd></td><td>Shrink the panel to the goldfish icon, and back</td></tr>
         <tr><td>Voice input</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>Push-to-talk: speak your request instead of typing</td></tr>
+        <tr><td>Mark wrong</td><td><em>unset</em></td><td>Tell Navisual this step is wrong (see §5); assign your own key</td></tr>
         <tr><td>Pause / cancel</td><td><em>unset</em></td><td>Stop guidance; assign your own key</td></tr>
-        <tr><td>Toggle icon mode</td><td><em>unset</em></td><td>Shrink the panel to the goldfish icon, and back</td></tr>
       </table>
       <p>
-        The last two ship unassigned deliberately, so they can’t clash with a shortcut you already
+        <kbd>`</kbd> is the backtick key, left of <kbd>1</kbd> and below Esc. The last two ship
+        unassigned deliberately, so they can’t clash with a shortcut you already
         use. Set your own in <strong>Settings → Hotkeys</strong>, where you can also clear any
         binding with the ×.
       </p>
@@ -280,7 +281,7 @@
       <h2 id="trouble">8. Troubleshooting</h2>
       <table class="legal-table">
         <tr><th>Symptom</th><th>What to do</th></tr>
-        <tr><td>My first click on the app does nothing</td><td>You clicked Navisual’s panel just before, so Windows spent that click re-focusing the app. Use <kbd>Ctrl</kbd>+<kbd>~</kbd> instead of clicking → Next.</td></tr>
+        <tr><td>My first click on the app does nothing</td><td>You clicked Navisual’s panel just before, so Windows spent that click re-focusing the app. Use <kbd>Ctrl</kbd>+<kbd>`</kbd> instead of clicking → Next.</td></tr>
         <tr><td>No pointer, ever, in one app</td><td>That app likely paints its own interface (3D viewport, canvas, game), so pointing falls to the AI’s own reading of the screen. Raise the quality tier in Settings → Provider: it makes more difference here than anywhere else. See §7.</td></tr>
         <tr><td>It’s guiding the wrong app</td><td>Click the header chip and pin the window you actually mean.</td></tr>
         <tr><td>Requests time out</td><td>Usually a slow free model under load. Try again, or switch provider in Settings.</td></tr>
