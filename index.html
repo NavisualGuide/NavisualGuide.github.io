@@ -262,11 +262,11 @@
       </details>
       <details>
         <summary>What data leaves my machine?</summary>
-        <p>A screenshot of your <strong>active window</strong> (or of a single screen, if you pick one) plus your conversation text, sent to whichever AI provider you choose. Element matching runs locally. Note: the <strong>free</strong> tier's AI models may retain and train on those requests (screenshot included); paid tiers don't under their providers' current policies, and Ollama keeps everything local. See the <a href="/privacy.html">Privacy Policy</a>.</p>
+        <p>A screenshot of your <strong>active window</strong> (or of a single screen, if you pick one) plus your conversation text, sent to whichever AI provider you choose. Element matching runs locally. Navisual also logs the task you type and how each step went (never a screenshot), unless the AI runs on your own machine. Note: the <strong>free</strong> tier's AI models may retain and train on those requests (screenshot included); paid tiers don't under their providers' current policies, and Ollama keeps everything local. See the <a href="/privacy.html">Privacy Policy</a>.</p>
       </details>
       <details>
         <summary>Can it run fully offline?</summary>
-        <p>Yes. Choose <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> as your provider and pull a vision model (e.g. <code>llama3.2-vision</code>). Nothing leaves your machine.</p>
+        <p>Yes. Choose <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> as your provider and pull a vision model (e.g. <code>llama3.2-vision</code>). Nothing leaves your machine, and Navisual logs nothing, unless you turn on voice input, which uses Microsoft's online speech service.</p>
       </details>
       <details>
         <summary>Which Windows versions are supported?</summary>
@@ -274,7 +274,7 @@
       </details>
       <details>
         <summary>Is it open source?</summary>
-        <p>Source-available under <a href="https://fsl.software/" target="_blank" rel="noopener">FSL-1.1-Apache-2.0</a>. Each version converts to Apache 2.0 two years after release.</p>
+        <p>Source-available under <a href="https://fsl.software/" target="_blank" rel="noopener">FSL-1.1-ALv2</a>. Each version converts to Apache 2.0 two years after release.</p>
       </details>
       <details>
         <summary>Windows says “Windows protected your PC”. Is it safe?</summary>
@@ -317,7 +317,7 @@
     <span class="sep">·</span>
     <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">Releases</a>
     <span class="sep">·</span>
-    <span>FSL-1.1-Apache-2.0</span>
+    <span>FSL-1.1-ALv2</span>
     <span class="sep">·</span>
     <span>2026</span>
   </footer>
