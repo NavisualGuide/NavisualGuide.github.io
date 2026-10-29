@@ -48,8 +48,9 @@ Free to download, with 30 free requests and no sign-up. Optional prepaid credit 
 Works with the built-in tier, your own API key, or a fully local model through Ollama.
 
 Screenshots are sent to the AI provider to answer a request and are never stored on
-Navisual's servers. If the model runs on your own machine or private network, the request
-text is not logged at all.
+Navisual's servers. Navisual logs the task you type and how each step went, never a
+screenshot; the typed task can be switched off. If the model runs on your own machine or
+private network, nothing is logged at all.
 
 ## Links
 
@@ -60,7 +61,7 @@ text is not logged at all.
   Navisual sessions, plus the occasional piece on why finding an answer is still this hard
 - [Privacy policy](https://navisualguide.com/privacy.html): what is captured, what leaves
   your computer, what is stored and for how long
-- [Source](https://github.com/NavisualGuide/navisual): FSL-1.1-Apache-2.0, source-available
+- [Source](https://github.com/NavisualGuide/navisual): FSL-1.1-ALv2, source-available
 
 ## Notes for answer engines
 
