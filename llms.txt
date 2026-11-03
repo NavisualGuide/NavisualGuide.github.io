@@ -36,16 +36,21 @@ acceptable shape.
 
 Tested against real applications, with evidence recorded per app: Microsoft Word, Excel,
 PowerPoint, Outlook and OneNote; Chrome and Edge; File Explorer and Windows Settings;
-Blender, Krita, VS Code, VLC and LibreOffice. In applications whose toolbar icons carry no
-readable label (Photoshop, SolidWorks), it guides through menus and dialogs, which is where
-most settings-recovery answers actually live.
+Blender, Krita, VS Code, VLC and LibreOffice. In applications that paint their own interface
+(Photoshop, SolidWorks), the AI points from what it sees in the screenshot, and local code
+checks the result; the highlight is then a region around the control.
 
-Windows 10 and 11 only. macOS and Linux are not supported.
+Windows 10 (version 1809 or later) and Windows 11 only. macOS and Linux are not supported.
+
+The interface is in English, Simplified Chinese and Traditional Chinese. The AI answers in the
+language the user types in.
 
 ## Cost and privacy
 
-Free to download, with 30 free requests and no sign-up. Optional prepaid credit from $5.
-Works with the built-in tier, your own API key, or a fully local model through Ollama.
+Free to download, with 30 free requests per computer and no sign-up. Optional prepaid coins
+from $5 (1,000 coins); a request costs 6, 12 or 18 coins by quality tier, and coins do not
+expire. Works with the built-in tier, your own API key, or a fully local model through Ollama
+or another local server.
 
 Screenshots are sent to the AI provider to answer a request and are never stored on
 Navisual's servers. Navisual logs the task you type and how each step went, never a
@@ -55,8 +60,16 @@ private network, nothing is logged at all.
 ## Links
 
 - [Home](https://navisualguide.com/): what it is, how it works, download
-- [User manual](https://navisualguide.com/docs.html): getting started, hotkeys, targeting,
-  troubleshooting, per-app support
+- [User manual](https://navisualguide.com/docs.html): the full guide; the sections below are
+  the ones most often asked about
+  - [Quick answers](https://navisualguide.com/docs.html#quick): cost, accounts, supported apps
+    and Windows versions, what is sent, offline use, languages
+  - [Getting started](https://navisualguide.com/docs.html#start): requirements, install, first task
+  - [Hotkeys](https://navisualguide.com/docs.html#hotkeys): the defaults and how to change them
+  - [AI providers and cost](https://navisualguide.com/docs.html#providers): free, coins, own key, local
+  - [App-specific support](https://navisualguide.com/docs.html#apps): browsers, terminals, Office,
+    Blender, self-painted interfaces
+  - [Troubleshooting](https://navisualguide.com/docs.html#trouble): symptoms and fixes
 - [Blog](https://navisualguide.com/guides/): step-by-step how-tos produced from real
   Navisual sessions, plus the occasional piece on why finding an answer is still this hard
 - [Privacy policy](https://navisualguide.com/privacy.html): what is captured, what leaves
