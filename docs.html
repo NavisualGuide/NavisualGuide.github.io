@@ -9,7 +9,7 @@
   <meta property="og:title" content="Navisual User Manual: Setup, Hotkeys, AI Providers, Troubleshooting" />
   <meta property="og:description" content="How to install and use Navisual on Windows: choose a window, follow the pointer, set hotkeys, fix a wrong step, pick an AI provider and control your privacy." />
   <meta property="og:type" content="article" />
-  <meta property="article:modified_time" content="2026-11-03" />
+  <meta property="article:modified_time" content="2026-11-08" />
   <link rel="canonical" href="https://navisualguide.com/docs.html" />
   <meta property="og:url" content="https://navisualguide.com/docs.html" />
   <meta property="og:site_name" content="Navisual" />
@@ -34,7 +34,7 @@
       "mainEntityOfPage": "https://navisualguide.com/docs.html",
       "inLanguage": "en",
       "datePublished": "2026-07-19",
-      "dateModified": "2026-11-03",
+      "dateModified": "2026-11-08",
       "image": "https://navisualguide.com/social-preview.png",
       "author": {
         "@type": "Person",
@@ -168,7 +168,7 @@
     <article class="legal docs">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Navisual User Manual</h1>
-      <p class="legal-updated">Last updated 3 November 2026 · For Windows 10 and 11</p>
+      <p class="legal-updated">Last updated 8 November 2026 · For Windows 10 and 11</p>
 
       <p>
         <strong>Navisual is a Windows app that guides you through a task in any app.</strong> You
@@ -537,11 +537,14 @@
         </p>
         <p>
           <strong>Voice input</strong> lets you speak your request: press <kbd>Ctrl</kbd>+<kbd>D</kbd> or
-          the 🎤 button. It needs a microphone and an internet connection, because your audio goes to
-          Microsoft’s online speech service. You can turn it off in Settings → Audio. Speech recognition
-          can’t detect a language before you speak, so if yours isn’t your Windows language, set
-          <strong>Voice language</strong> there. The choices include English, French, German, Spanish,
-          Japanese, Chinese, Korean and Portuguese.
+          the 🎤 button. What you said appears in Navisual’s box, so you can correct it before you send
+          it. It needs a microphone and an internet connection, because your audio goes to Microsoft’s
+          online speech service. You can turn it off in Settings → Audio. Speech recognition has to know
+          your language before you speak. On <strong>Auto</strong> it listens for the language of
+          Navisual’s interface, or your Windows language if the interface follows Windows, so if you
+          speak another language, set <strong>Voice language</strong> there. The choices include
+          English, French, German, Spanish, Japanese, Mandarin, Taiwan Mandarin, Cantonese, Korean and
+          Portuguese.
         </p>
       </section>
 
@@ -559,9 +562,10 @@
           <li><strong>Bring your own key.</strong> Anthropic, Google Gemini, OpenAI, DeepSeek, Qwen, or
             any OpenAI-compatible endpoint. Requests go straight from your machine to that provider,
             not through our servers, and they bill you directly. Two notes: <strong>DeepSeek sees your
-            screen only with deepseek-v4-flash-vision-exp</strong>, the model marked “sees the screen”
-            in Settings. With the other DeepSeek models Navisual sends no screenshot, so the AI works
-            from your words, the window title and the names of the controls, without the picture. And <strong>Qwen</strong> is
+            screen only with deepseek-flash</strong>, the model marked “sees the screen” in Settings,
+            and an older choice of deepseek-v4-flash is switched to it for you. With deepseek-v4-pro
+            Navisual sends no screenshot, so the AI works from your words, the window title and the
+            names of the controls, without the picture. And <strong>Qwen</strong> is
             the recommended cloud option for mainland China.</li>
           <li><strong>Ollama or another local server.</strong> Runs on your own machine or network.
             Nothing leaves it, nothing is billed, nothing is logged, and it works offline. You need a
@@ -744,7 +748,7 @@
             <tr><td>Autopilot turned itself off</td><td>It pauses when the screen keeps changing without a clear next step, and once at 5 free requests left. See <a href="#following">section 4</a>.</td></tr>
             <tr><td>A hotkey does nothing</td><td>Another program may hold that shortcut, possibly a second copy of Navisual still open. Close it, or choose a different shortcut in Settings → Hotkeys.</td></tr>
             <tr><td>Nothing is spoken</td><td>Check it isn’t muted in the ··· menu, and that Windows has a voice installed for that language. See <a href="#language">section 8</a>.</td></tr>
-            <tr><td>Voice input transcribes Chinese as pinyin</td><td>Speech recognition can’t detect a language before you speak. Set it explicitly in Settings → Audio.</td></tr>
+            <tr><td>Voice input writes what you said in the wrong language</td><td>Speech recognition can’t detect a language before you speak. On Auto it listens for the interface language; if you speak another, choose it under Voice language in Settings → Audio, then correct the text in the box before sending.</td></tr>
             <tr><td>Google sign-in does nothing</td><td>The Google page may be unreachable from your network. Email and password work either way.</td></tr>
             <tr><td>The pointer is in the wrong place after unplugging a monitor</td><td>It should re-align itself within a second. If it doesn’t, restart Navisual and let us know.</td></tr>
             <tr><td>Something else</td><td>Use <strong>Send feedback</strong> in ⓘ About, which starts an email with your version and provider filled in, write to <a href="mailto:support@navisualguide.com">support@navisualguide.com</a>, or open an issue on <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">GitHub</a>.</td></tr>
