@@ -25,7 +25,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 3 November 2026</p>
+      <p class="legal-updated">Last updated: 21 November 2026</p>
 
       <!-- ==================================================================
            BEFORE YOU CHANGE ANYTHING SUBSTANTIVE HERE, READ THIS.
@@ -194,6 +194,15 @@
           we log nothing about your use either (§4).</li>
       </ul>
       <p>
+        <strong>Managed-tier requests from mainland China</strong> are answered by AI models from
+        Chinese providers, currently <strong>Alibaba Cloud (Qwen)</strong> and
+        <strong>DeepSeek</strong>, instead of the providers that answer everywhere else, at the
+        same tiers and prices. To tell, the relay checks the request’s IP address against the
+        published list of mainland China address blocks at the moment of the request. The result
+        is not stored, though the relay records of §4 note which model answered, and that shows
+        which group of providers answered. Hong Kong, Macao and Taiwan are not part of this.
+      </p>
+      <p>
         Whichever provider receives a request processes it under <em>their</em> privacy policy,
         and we don’t control how third-party AI providers use it.
       </p>
@@ -288,7 +297,8 @@
           It is written once, when a device is new to us, and never updated afterwards: it
           answers “where did this device first appear”, not “where is it now”. Its only use is
           anti-abuse: it lets us notice one network minting many fresh free allowances, and refuse
-          them. It is not used to locate you, and it is kept only on that device’s row: never on
+          them. It is not used to locate you (the mainland China check of §2 reads each request’s
+          address as it arrives, never this stored one), and it is kept only on that device’s row: never on
           your account record, a relay record or a step-outcome row, and never with what is on
           your screen. The relay records below do carry the same device hash for 90 days, so for
           that long the two could be matched.</li>
@@ -343,6 +353,7 @@
         <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Everything §4 lists as on our servers (account record, device count, relay records, step-outcome rows); the request payload passes through the relay in transit</td></tr>
         <tr><td>Free-tier AI provider(s), may change over time</td><td>Upstream for the <strong>free</strong> managed tier</td><td>The request payload (screenshots + text). <strong>May be retained and used to train the model provider’s AI</strong>, see §2</td></tr>
         <tr><td>Paid AI provider endpoints, may change over time</td><td>Upstream for the <strong>paid</strong> managed tiers</td><td>The request payload. Not used for training under their <em>current</em> paid-API policies (subject to change by those providers)</td></tr>
+        <tr><td>Alibaba Cloud (Qwen) and DeepSeek, may change over time</td><td>Upstream for managed-tier requests (free and paid) from <strong>mainland China</strong>, see §2</td><td>The request payload (screenshots + text), processed in mainland China on paid API endpoints, under those providers’ current API terms</td></tr>
         <tr><td>Stripe</td><td>Payments</td><td>Your email and payment details: <strong>never your screenshots</strong>. Card data goes directly to Stripe (PCI); we never see card numbers.</td></tr>
         <tr><td>Microsoft</td><td>Voice transcription (only if you enable push-to-talk)</td><td>Your spoken audio</td></tr>
         <tr><td>GitHub</td><td>App downloads and updates</td><td>Standard request metadata (such as your IP address) when you download, and each time the app checks for an update</td></tr>
@@ -354,7 +365,9 @@
         upstream AI providers listed above. Your account record, the other records of §4, and the
         request payloads you send (screenshots of your active window plus your text) may be
         transferred to and processed in
-        the <strong>United States</strong> or other jurisdictions where these providers operate. By
+        the <strong>United States</strong> or other jurisdictions where these providers operate,
+        and, for managed-tier requests from mainland China, in <strong>mainland China</strong> as
+        well (they still pass through our relay, which Supabase runs outside mainland China). By
         using the managed tier, you consent to this transfer. If you prefer that your screenshots
         and your words never leave your machine, use a local provider: <strong>Ollama</strong>, or
         <strong>Custom (OpenAI-compatible)</strong> pointed at a local server. Your screenshots and
