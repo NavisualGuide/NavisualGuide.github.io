@@ -46,8 +46,16 @@ sitemap: false
     <lastmod>2026-11-22</lastmod>
   </url>
   <url>
+    <loc>https://navisualguide.com/zh/privacy.html</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
     <loc>https://navisualguide.com/terms.html</loc>
     <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://navisualguide.com/zh/terms.html</loc>
+    <lastmod>2026-11-22</lastmod>
   </url>
 {%- comment -%}
   Drafts are excluded. The /guides/ index itself only appears once at least one

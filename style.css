@@ -872,6 +872,17 @@ footer a:hover {
   margin-bottom: 6px;
 }
 
+/* The Chinese legal pages: a translation, and the English text governs. */
+.legal-notice {
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-sm);
+  background: var(--surface-1);
+  font-size: 14px;
+}
+
 .legal-updated {
   font-size: 13px;
   color: var(--text-muted);

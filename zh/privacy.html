@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私政策：Navisual</title>
+  <meta name="description" content="Navisual 如何处理你的数据：截图、账户、付款，以及第三方处理方。" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="隐私政策：Navisual" />
+  <meta property="og:description" content="Navisual 如何处理你的数据：截图、账户、付款，以及第三方处理方。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="zh_CN" />
+  <!-- Chinese translation of /privacy.html, for reference; the English text governs
+       (the notice below says so). EVERY substantive change to privacy.html needs its
+       twin here in the same commit, with the same "last updated" date, or this page
+       starts promising something the English one no longer does (rule 8). Settings
+       and buttons are named as in src/locales/zh-Hans.ts. -->
+  <link rel="canonical" href="https://navisualguide.com/zh/privacy.html" />
+  <link rel="alternate" hreflang="en" href="https://navisualguide.com/privacy.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://navisualguide.com/zh/privacy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://navisualguide.com/privacy.html" />
+  <meta property="og:url" content="https://navisualguide.com/zh/privacy.html" />
+  <meta property="og:site_name" content="Navisual" />
+  <meta property="og:image" content="https://navisualguide.com/social-preview.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Navisual：AI 负责指引，你负责决定。" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://navisualguide.com/social-preview.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Language switch, top right. Same order on every page so it never moves. -->
+  <nav class="lang-switch" aria-label="Language / 语言">
+    <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg>
+    <a href="/privacy.html" hreflang="en" lang="en">English</a>
+    <span class="lang-current" aria-current="page">中文</span>
+  </nav>
+  <main>
+    <article class="legal">
+      <a class="legal-back" href="/zh/">← 返回 navisualguide.com</a>
+      <h1>隐私政策</h1>
+      <p class="legal-updated">最后更新：2026 年 11 月 22 日</p>
+
+      <p class="legal-notice">
+        本页是英文<a href="/privacy.html" hreflang="en" lang="en">隐私政策（Privacy Policy）</a>的中文译本，方便阅读。<strong>如中英文版本不一致，以英文版为准。</strong>
+      </p>
+
+      <p>
+        Navisual（“我们”）是一款 Windows 桌面应用，它查看你当前的窗口，告诉你该点哪里。本政策说明这个应用处理哪些数据、哪些数据会离开你的电脑，以及涉及哪些第三方。简单来说：<strong>你的截图只用于回答你的请求，不保存在我们的服务器上</strong>；<strong>你保存的会话留在你自己的电脑上</strong>；<strong>我们会记录你输入的任务</strong>（你可以关掉，而且 AI 跑在你自己的机器上时什么都不记录）；免费档无需注册。
+      </p>
+      <p>
+        Navisual 的运营地在<strong>加拿大不列颠哥伦比亚省</strong>。由于下文列出的 AI 和基础设施服务商在全球运营，你发送的数据（例如一次请求所附的截图）可能会在<strong>加拿大境外</strong>的服务器上处理，包括美国。
+      </p>
+
+      <h2>1. 应用处理哪些数据</h2>
+      <ul>
+        <li><strong>你所指定窗口的截图。</strong>你请求指引时，你正在操作的那个应用窗口的截图会发送给你选定的 AI 服务商，让它判断下一步。你也可以在 Navisual 的程序选择器里改为共享整个屏幕；这样做的话，截取并发送的就是整个屏幕，直到你重新选择单个窗口为止。如果你打开<strong>自动推进</strong>，Navisual 在指引过程中还会在你的电脑上每秒检查屏幕大约两次，当画面的变化大到看起来你已经完成了这一步，它会自动发送一张新截图来获取下一步，不需要你再请求。这项检查本身在你的电脑上进行，不发送任何东西；由它触发的截图则和其他截图一样被发送。
+          AI 也可能要求再看一次同一任务里前面某一步的截图，例如为了读取前一个页面上显示的数字；这种情况下，那张截图会随当前请求再发送一次。为此，Navisual 可能会在任务结束前把该任务的截图保存在你的电脑上；不会为此另外截取任何原本没有发送过的内容。Navisual 保存的任何截图都保存在你自己的电脑上；除了按上面所说再发给 AI，或者进入你自己导出的文件，它不会去任何地方，<strong>也绝不会保存在 Navisual 的服务器上</strong>。</li>
+        <li><strong>窗口标题，以及你的 Windows 版本。</strong>当前窗口的标题会随请求发送，给 AI 提供上下文。同一任务前面几步所在窗口的标题也会发送，每个标题附上你在那一步说的话，这样 AI 能跟上一个在多个窗口或页面之间进行的任务。另外还会发送你使用的 Windows 版本和内部版本号，例如“Windows 11 (build 26200)”。不同 Windows 版本的“设置”和“文件资源管理器”差别很大，没有这个信息，指引就只能猜你看到的是哪一版。当某一步要你按一个键盘快捷键时，Navisual 会在你的电脑上检查是否已有别的程序占用了这个快捷键；如果有，只告诉 AI 它已被占用，不告诉是哪个程序占用的。除此之外不发送任何关于你电脑的信息：不发送硬件信息，不发送磁盘或剩余空间，不发送已安装的软件。（早期版本还会发送窗口在屏幕上的位置和大小；这个版本不再发送。）</li>
+        <li><strong>窗口中各个控件对自身的描述。</strong>Navisual 通过 Windows 的辅助功能接口（读屏软件使用的同一个接口），读取你正在操作的窗口里按钮、菜单、标签页、列表和输入框的名称、类型和状态：例如<em>按钮“加粗”，已开启</em>，或者一个显示“14”的下拉框。这份列表会随请求发送，让 AI 能准确说出要用哪个控件。它绝不包括你在文本框里输入的内容。</li>
+        <li><strong>你的请求文字。</strong>你输入或说出的内容，加上一段简短的任务进展摘要，以及 AI 选择从同一任务前面某个画面里记下的简短笔记（例如那个画面上显示的验证码或数字）。这些笔记会在同一任务后面的请求中再次发送，并随会话保存在你的电脑上。</li>
+        <li><strong>你保存的会话（只在本机）。</strong>对话、你的任务、计划、你点击了什么以及每一步的截图都会保存在你的电脑上，方便你重新打开最近的会话；截图的保存可以在“设置”里关闭。系统保留最近的会话，较早的会移到回收站。你可以把某个会话导出为文件，存到你选择的任何文件夹（如果保留了截图，文件里也包含截图），以后再打开它。打开这样的文件只是显示它；只有当你在里面继续操作时，它才会重新进入最近列表。这些文件绝不会到达 Navisual 的服务器（你输入的任务是单独记录的，见第 4 节）。</li>
+        <li><strong>关于每个应用的经验笔记（保存在你的电脑上）。</strong>当在某个应用里找到一个命令需要尝试不止一次时，
+          Navisual 会把你为此点过的菜单和按钮的名称，连同 AI 写的一行说明，记在这个应用的一条小笔记里。笔记保存在你的电脑上，并在你之后于同一应用里的请求中发送，让指引第一次就找对。它只包含界面上的标签文字，绝不包含文件名、文档内容、地址或长数字。你可以在 <strong>设置 ▸ 屏幕指引 ▸ 经验笔记</strong> 里查看、修改或删除这些笔记。它们绝不会保存在 Navisual 的服务器上（在托管档，它们会和截图一样，随请求经过我们的中继服务器）。</li>
+        <li><strong>你最后点击的控件。</strong>在指引进行期间，Navisual 会记录你点击的控件的<em>名称和类型</em>（例如<em>按钮“保存”</em>），这样 AI 就知道你刚才做了什么，而不必从像素里去猜。<strong>这只适用于你正在被指引的那个应用里的点击</strong>；在屏幕其他任何地方的点击会被立即丢弃，绝不保存或发送。这次点击也会随你保存的会话留在你的电脑上，这样重新打开的会话可以显示你点了什么。Navisual 记录的是控件的<strong>名称，绝不是它的内容</strong>：输入框里的文字不会被读取，密码框只会被报告为“（密码框）”。
+          <strong>Navisual 完全不监视你的键盘。</strong></li>
+        <li><strong>在受支持的应用里，你的光标位置。</strong>Navisual 会读取光标所在的页、节和行号，是否选中了文字，以及你所在段落的样式和文字（较长的段落会被截短）。这些文字本来就在你发送的截图里。截图无法显示文本光标，没有这个信息，AI 就不知道你在文档的什么位置。</li>
+        <li><strong>语音输入（可选）。</strong>如果你启用按键说话，你说的话会由 WebView2 的 Web Speech API 转成文字，它会把音频实时传给微软的在线语音服务。这是一条单独的数据流，你可以一直不启用。</li>
+      </ul>
+      <p>
+        光标位置在指引停止的那一刻就停止读取，除非你在“开发者”设置里打开了提示词日志，否则绝不会写入磁盘。点击信息随你保存的会话保留（最近的那些会话，在你的电脑上）。用“暂停”快捷键暂停截屏期间，两者都不收集。
+      </p>
+      <p>
+        控件位置的匹配在你的电脑上<strong>本地</strong>完成（Windows UI 自动化 + 系统自带的 OCR）。你的屏幕布局不会被用来建立任何关于你的画像。
+      </p>
+
+      <h2>2. 你的截图发往哪里（由你选择）</h2>
+      <p>AI 服务商由你在“设置”里选择：</p>
+      <ul>
+        <li><strong>托管档（免费 / 付费）</strong>：经由我们的中继服务器（见第 5 节）代你转发给一家 AI 服务商。</li>
+        <li><strong>使用你自己的 API Key</strong>：用你自己的 API Key 直接发送给 Anthropic、Google、OpenAI、DeepSeek 或 Qwen；我们的服务器不参与这个请求（但我们会记录第 4 节所说的步骤结果记录）。</li>
+        <li><strong>Ollama（本地）</strong>，或指向 LM Studio、llama.cpp 这类本地服务器的<strong>自定义（OpenAI 兼容）</strong>：模型在你自己的电脑或局域网里运行，<strong>你的截图和请求绝不会离开你的网络</strong>，我们也不记录任何关于你使用情况的信息（第 4 节）。</li>
+      </ul>
+      <p>
+        <strong>来自中国大陆的托管档请求</strong>由中国服务商的 AI 模型回答，目前是<strong>阿里云（通义千问 Qwen）</strong>和
+        <strong>DeepSeek</strong>，而不是其他地区使用的服务商；档位和价格相同。为了判断这一点，中继服务器会在请求到达时，把请求的 IP 地址与公开发布的中国大陆地址段列表进行比对。比对结果不会被保存，不过第 4 节的中继记录会记下是哪个模型回答的，从中可以看出是哪一组服务商回答的。香港、澳门和台湾不在此列。
+      </p>
+      <p>
+        收到请求的服务商按照<em>它们自己</em>的隐私政策处理请求，我们无法控制第三方 AI 服务商如何使用这些数据。
+      </p>
+      <p>
+        <strong>重要：免费的托管档会把你的数据用于模型训练。</strong>免费档由<em>不收费</em>的 AI 模型提供服务：我们会把请求转给当前在稳定性和成本上最适合免费档的一家或多家服务商，这种分配会随着我们的改进不时变化。<strong>免费的 AI 访问通常附带一个条件：服务商可以保留你的请求，包括你当前窗口的截图，并用来训练和改进它们的 AI 模型</strong>。这是业界免费 API 档位的普遍做法，并不是我们当前转给的某一家服务商特有的。如果你不希望屏幕内容被用于模型训练，请改用以下私密选项之一：
+      </p>
+      <ul>
+        <li><strong>付费托管档</strong>：转给付费的服务商接口，这些服务商<strong>当前的 API 政策声明不会把你的数据用于模型训练</strong>（这是它们的政策，不是我们的保证，服务商可能修改，请查看它们的条款）；</li>
+        <li>按付费方案使用的<strong>自带 API Key</strong> 服务商，适用该服务商当前的政策（注意：服务商自己的<em>免费</em>档（例如免费的 Google AI Studio Key）本身可能会用你的数据训练；请查看该服务商的政策）；或者</li>
+        <li><strong>Ollama</strong>，或指向本地服务器的<strong>自定义</strong>（本地）：你的截图和请求绝不离开你的电脑，因此任何服务商的政策都与它们无关。</li>
+      </ul>
+      <p>
+        有些服务商按地区适用不同的数据使用规则，例如某些服务商依其自己的政策，向欧洲经济区、瑞士或英国的免费档用户提供与付费档相当的数据保护。适用于你所在地区的具体规定，请查看当前上游服务商自己的条款。
+      </p>
+
+      <h2>3. 可选的应用插件（Blender）</h2>
+      <p>
+        对于少数 Navisual 单靠屏幕无法可靠读取界面的应用，我们提供一个<strong>可选插件</strong>，让该应用告诉 Navisual 它的按钮在哪里。目前只有 <strong>Blender</strong> 有。它完全是可选的：没有它 Navisual 照样能用，除非你自己安装<em>并且</em>启用，否则它的任何部分都不会运行。
+      </p>
+      <ul>
+        <li><strong>如何安装。</strong>Navisual 可以替你把插件文件复制到 Blender 的插件文件夹，但只在你点击提示里的<em>安装</em>时才会这样做。之后它一直处于停用状态，直到你在 Blender 自己的<em>偏好设置 → 插件</em>面板里勾选它：这个勾选就是同意的步骤，
+          Navisual 无法替你勾选。</li>
+        <li><strong>启用后做什么。</strong>它在一个本地网络端口（<code>127.0.0.1:47611</code>）上监听，这个端口<strong>只能从你自己的电脑访问</strong>：它不接受来自其他机器的连接，也不向互联网发送任何东西。Navisual 向它询问只读的问题，例如“工具架在哪里？”、“当前是哪个模式？”、“选中的是哪个笔刷？”。</li>
+        <li><strong>它不能做什么。</strong>它在设计上就是只读的：不能点击、输入、运行命令，也不能修改或保存你的文件。这与 Navisual 的核心原则一致：AI 负责指引，从不替你操作。</li>
+        <li><strong>哪些内容会发给 AI。</strong>上面这些界面信息（模式、工具、笔刷名称、场景中的物体名称）会和截图一起包含在发给你所选 AI 服务商的请求里，适用第 2 节。不发送任何文件内容、几何数据或文件路径。</li>
+        <li><strong>如何关闭。</strong>在 Blender 的插件面板里取消勾选即可停用，或在那里用<em>移除</em>删除文件。没有它 Navisual 照样能用。</li>
+      </ul>
+
+      <h2>4. 我们保存哪些数据</h2>
+      <p><strong>在你的电脑上</strong>，位于 <code>%LOCALAPPDATA%\com.navisual.app</code>：你的设置、对话 / 会话文件（包括每一步的截图，除非你关闭）、关于每个应用的经验笔记、一份记录应用做了什么的诊断日志（其中可能包含 AI 对你任务的摘要，以及你被指引过的应用名称），以及只有你打开调试日志时才会生成的更详细的诊断文件。你输入的 <strong>API Key</strong> 和你的<strong>登录令牌</strong>不在这个文件夹里：它们保存在 Windows 凭据管理器中，由 Windows 按你的用户账户加密。（只有当 Windows 拒绝保存时，才会改为写入设置文件，免得你被登出。）这些都不会上传，除了请求需要的内容（API Key 发给它自己的服务商，登录令牌发给我们的服务器，经验笔记发给 AI，见第 1 节）、下面步骤结果记录上你输入的任务，或者你自己发给我们的东西。</p>
+      <p><strong>在我们的服务器上（Supabase）</strong>。每一项都注明了它适用于哪些服务商。</p>
+      <ul>
+        <li><strong>账户记录</strong>（你第一次使用<strong>托管档</strong>时创建，托管档是默认选项）：一个匿名用户 ID、你的请求次数、金币余额、档位，以及（购买之后）你的 Stripe 客户 ID。免费档使用<em>匿名</em>登录，因此在你为购买金币而注册（Google 或邮箱）之前，它<strong>不包含姓名或邮箱</strong>。</li>
+        <li><strong>免费档的设备计数</strong>（<strong>仅限托管档</strong>）：为了按设备（而不是按随手可建的匿名会话）限定 30 次免费请求，应用会在托管档请求中附上一个 Windows 机器标识符的<em>单向哈希值</em>，我们把这个哈希值和请求次数存在一起，<strong>只</strong>用于执行免费次数限制。这个哈希值无法被还原来识别你的机器或你本人；付费请求按金币计费、不看它，自带 API Key 或本地服务商也从来收不到它。
+          <br><br>
+          与它一起，我们还记录<strong>该设备第一次出现时的 IP 地址</strong>。它只在设备第一次出现时写入一次，之后不再更新：它回答的是“这台设备最早出现在哪里”，而不是“它现在在哪里”。它唯一的用途是防止滥用：让我们能发现同一个网络在大量领取新的免费额度，并加以拒绝。它不用于定位你（第 2 节的中国大陆判断读取的是每个请求到达时的地址，从不读取这个保存的地址），而且它只保存在该设备那一行：绝不出现在你的账户记录、中继记录或步骤结果记录上，也绝不与你屏幕上的内容放在一起。下面的中继记录会带有同一个设备哈希值，保存 90 天，所以在这段时间内两者可以对应起来。</li>
+        <li><strong>中继记录</strong>（<strong>仅限托管档</strong>）：我们的中继服务器，也就是把托管请求转给 AI 的服务器，每转发一次就记录简短的一行：哪个服务商和模型回答的、是否用了备用服务商、耗时多久、结果（已处理、服务商出错、达到额度、被拒绝），以及你的匿名用户 ID 和设备哈希值。我们靠它发现服务商故障，或者请求因为错误的原因被拒绝。<strong>这一行不包含截图、不包含你说的任何话，也不包含指引内容</strong>：它保存的细节是状态码。（你输入的任务在下面的步骤结果记录上，除非你把它关掉。）<strong>90 天</strong>后删除。</li>
+        <li><strong>步骤结果和反馈</strong>（任何服务商，<strong>除了在你自己电脑或网络上运行的 AI</strong>，见下文）。你每次请求指引、每一步结束时，我们都记录简短的一行，以便了解指引对的频率，以及大家用 Navisual 做什么。<strong>绝不包含截图。</strong>
+          <br><br>
+          <strong>什么时候记录一行。</strong>每次你请求指引时（回答返回时，或请求失败时）；你进入下一步时（<strong>→ 下一步</strong>，或自动推进）；AI 表示任务完成时；以及你用 <strong>✗ 这步不对</strong> 报告某一步时。
+          <br><br>
+          <strong>每一行包含：</strong>结果（请求、进入下一步、完成，或你选择的原因）、被指引应用的名称、这一步所指的屏幕目标、指针是否放置以及是怎么找到的、服务商和模型、应用版本、会话 ID，以及应用有账户时你账户的匿名 ID（见上面的账户记录）。<strong>只在 ✗ 这步不对 的报告上：</strong>AI 给出的那条指引。<strong>你输入的内容</strong>，除非你把它关掉（见下文）：任何一行上的任务，以及 ✗ 这步不对 报告里你附上的说明。
+          <br><br>
+          <strong>你输入的是你自己的话，所以请读一下这一段。</strong>它按你写的原样记录，截到 500 个字符，也就是说，你在输入框里写的任何东西都会被一起记录：文件名、链接、客户的名字。不要在 Navisual 里输入你不希望我们保存的东西。你可以在<strong>设置 ▸ 屏幕指引 ▸ 你输入的内容</strong> 里关闭它；这一行的其余部分仍会记录。
+          <br><br>
+          <strong>如果 AI 在你自己的电脑或网络上运行，我们什么都不记录</strong>：不管那个设置怎么选，都没有任何记录。
+          Navisual 会查看它所调用的地址：<code>localhost</code> 上的模型，或者私有地址（例如 <code>192.168.x.x</code>）上的机器，回答你时不会有任何东西离开你的网络，Navisual 也保持这样。使用<strong>你自己的 API Key</strong> 连接 Anthropic 或 OpenAI 这类服务商时，你的请求本来就要经过互联网发给它们，所以会按上文所述记录。
+          <br><br>
+          保存多久：你的文字（任务和任何说明）保存 12 个月，这一行的其余部分保存 24 个月（第 8 节）。</li>
+      </ul>
+
+      <h2>5. 第三方处理方</h2>
+      <table class="legal-table">
+        <tr><th>处理方</th><th>用途</th><th>它们收到什么</th></tr>
+        <tr><td>Supabase</td><td>账户、额度数据库、托管 AI 中继服务器，以及应用下载和更新</td><td>第 4 节列出的我们服务器上的所有内容（账户记录、设备计数、中继记录、步骤结果记录）；请求内容在传输中经过中继服务器；你下载应用时以及应用每次检查更新时的标准请求元数据（例如你的 IP 地址）</td></tr>
+        <tr><td>免费档 AI 服务商（可能随时间变化）</td><td><strong>免费</strong>托管档的上游</td><td>请求内容（截图 + 文字）。<strong>可能被保留并用于训练该模型服务商的 AI</strong>，见第 2 节</td></tr>
+        <tr><td>付费 AI 服务商接口（可能随时间变化）</td><td><strong>付费</strong>托管档的上游</td><td>请求内容。按照它们<em>当前</em>的付费 API 政策不用于训练（这些服务商可能修改）</td></tr>
+        <tr><td>阿里云（通义千问 Qwen）和 DeepSeek（可能随时间变化）</td><td>来自<strong>中国大陆</strong>的托管档请求（免费和付费）的上游，见第 2 节</td><td>请求内容（截图 + 文字），在中国大陆的付费 API 接口上，按这些服务商当前的 API 条款处理</td></tr>
+        <tr><td>Stripe</td><td>付款</td><td>你的邮箱和付款信息：<strong>绝不包括你的截图</strong>。银行卡数据直接发给 Stripe（PCI）；我们从来看不到卡号。</td></tr>
+        <tr><td>微软</td><td>语音转文字（只在你启用按键说话时）</td><td>你说话的音频</td></tr>
+        <tr><td>GitHub</td><td>应用下载和更新（第二来源，在无法连接 Supabase 时使用），以及更新日志</td><td>你下载时以及应用每次检查更新时的标准请求元数据（例如你的 IP 地址）</td></tr>
+      </table>
+
+      <h2>6. 跨境数据传输</h2>
+      <p>
+        我们的托管服务运行在 <strong>Supabase</strong> 和上面列出的上游 AI 服务商提供的基础设施上。你的账户记录、第 4 节的其他记录，以及你发送的请求内容（当前窗口的截图加上你的文字）可能会被传输到<strong>美国</strong>或这些服务商运营所在的其他司法管辖区并在那里处理；对于来自中国大陆的托管档请求，也会在<strong>中国大陆</strong>处理（这些请求仍然经过我们的中继服务器，它由 Supabase 在中国大陆以外运行）。使用托管档，即表示你同意这种传输。如果你希望你的截图和你说的话绝不离开你的电脑，请使用本地服务商：<strong>Ollama</strong>，或指向本地服务器的<strong>自定义（OpenAI 兼容）</strong>。这样你的截图和你输入的内容哪里都不去：不发给我们，不发给任何 AI 服务商，我们也不记录任何关于你使用情况的信息（第 4 节）。同时请保持语音输入关闭：无论你用哪个服务商，语音都会发给微软（第 1 节）。
+      </p>
+
+      <h2>7. 付款</h2>
+      <p>
+        金币购买由 <strong>Stripe</strong> 处理。我们会收到付款成功的确认（用来给你的余额充值），并保存你的 Stripe 客户 ID；我们不接收也不保存你的卡号。Stripe 对你付款数据的处理适用
+        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe 的隐私政策</a>。
+      </p>
+
+      <h2>8. 保存期限与删除</h2>
+      <p>
+        <strong>在 Navisual 的服务器上</strong>，中继服务器在传输中转发托管档请求（截图和文字），回答返回后不再保留；我们实际保存的内容列在第 4 节。我们的托管服务商（Supabase）还会保存连接到我们服务器的简短技术日志（时间、地址、状态码和你的 IP 地址），用于排查问题和防止滥用，几天后自动删除。<strong>不过，上游 AI 服务商可能会保留它们：</strong><em>免费</em>档的模型可能保留你的请求并用来训练它们的 AI（见第 2 节），而<em>付费</em>档的服务商按照它们当前的付费 API 政策，声明不会把它用于训练（这是它们的政策，它们可能修改）。<strong>中继记录在 90 天后删除。</strong><strong>你在反馈记录上写的任何内容（你输入的任务和你附上的任何说明）在 12 个月后清除，这一行本身在 24 个月后删除。</strong>两者中你自己的文字保存时间更短，因为一条旧记录对我们有用的是结果，而不是措辞。你的账户记录会一直保留，直到你要求我们删除：删除账户会移除账户记录，并把你的 ID 从剩余的反馈记录和中继记录上解除关联，这样剩下的内容就不再与你相关联。你在反馈记录上输入的任何内容会一直留在上面，直到 12 个月期满，无论账户是否还在。免费次数限制背后的设备记录（第 4 节）对应的是一台机器而不是一个账户，所以删除账户不会删到它；如果你也想清除它，请联系我们（第 11 节）。本地文件保存在你的电脑上，直到你卸载或删除它们。如需删除你的托管档账户数据，请联系我们（第 11 节）。
+      </p>
+
+      <h2>9. 你的权利</h2>
+      <p>
+        取决于你所在的地区（例如欧盟 / 英国的 GDPR、加利福尼亚州的 CCPA），你可能有权访问、更正或删除我们持有的关于你的数据，以及反对或限制对数据的处理。免费档不需要姓名或邮箱，所以在你注册之前我们两者都没有；但设备第一次出现时的 IP 地址（第 4 节），以及你在输入的任务里写的任何内容，都可能识别出你。如需行使上述任何权利，请联系我们。
+      </p>
+
+      <h2>10. 儿童</h2>
+      <p>Navisual 不面向 13 岁以下（或你所在国家规定的最低年龄以下）的儿童，我们也不会在知情的情况下收集他们的数据。</p>
+
+      <h2>11. 联系我们</h2>
+      <p>
+        问题或请求：<a href="mailto:support@navisualguide.com">support@navisualguide.com</a>，或在 <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">github.com/NavisualGuide/navisual</a> 提交 issue。
+      </p>
+
+      <h2>12. 变更</h2>
+      <p>我们的做法发生变化时，我们会更新本页，并修改上面的“最后更新”日期。</p>
+
+      <p class="legal-footnote">
+        另见我们的<a href="/zh/terms.html">服务条款</a>。
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/zh/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/guides/">博客（英文）</a>
+    <span class="sep">·</span>
+    <a href="/zh/docs.html">使用手册</a>
+    <span class="sep">·</span>
+    <a href="/zh/#enterprise">企业</a>
+    <span class="sep">·</span>
+    <a href="/zh/privacy.html">隐私</a>
+    <span class="sep">·</span>
+    <a href="/zh/terms.html">条款</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html" hreflang="en" lang="en">English</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-ALv2</span>
+  </footer>
+</body>
+</html>
