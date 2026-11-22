@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navisual 使用手册：安装、快捷键、AI 服务商、常见问题</title>
+  <meta name="description" content="如何在 Windows 上安装和使用 Navisual：选择窗口、跟着指针做、设置快捷键、纠正错误的一步、选择 AI 服务商，以及管理你的隐私。" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta property="og:title" content="Navisual 使用手册：安装、快捷键、AI 服务商、常见问题" />
+  <meta property="og:description" content="如何在 Windows 上安装和使用 Navisual：选择窗口、跟着指针做、设置快捷键、纠正错误的一步、选择 AI 服务商，以及管理你的隐私。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:modified_time" content="2026-11-22" />
+  <!-- Chinese edition of /docs.html. Every button and setting named here must match
+       the app's Simplified Chinese interface (src/locales/zh-Hans.ts) word for word,
+       or a reader cannot find what the manual names. A change to the English manual
+       needs its twin here, and the reverse (rule 8). -->
+  <link rel="canonical" href="https://navisualguide.com/zh/docs.html" />
+  <link rel="alternate" hreflang="en" href="https://navisualguide.com/docs.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://navisualguide.com/zh/docs.html" />
+  <link rel="alternate" hreflang="x-default" href="https://navisualguide.com/docs.html" />
+  <meta property="og:url" content="https://navisualguide.com/zh/docs.html" />
+  <meta property="og:site_name" content="Navisual" />
+  <meta property="og:image" content="https://navisualguide.com/social-preview.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Navisual：AI 负责指引，你负责决定。" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://navisualguide.com/social-preview.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://navisualguide.com/zh/docs.html#article",
+      "headline": "Navisual 使用手册",
+      "name": "Navisual 使用手册：安装、快捷键、AI 服务商、常见问题",
+      "description": "如何在 Windows 上安装和使用 Navisual：选择窗口、跟着指针做、设置快捷键、纠正错误的一步、选择 AI 服务商，以及管理你的隐私。",
+      "url": "https://navisualguide.com/zh/docs.html",
+      "mainEntityOfPage": "https://navisualguide.com/zh/docs.html",
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-22",
+      "dateModified": "2026-11-22",
+      "image": "https://navisualguide.com/social-preview.png",
+      "author": {
+        "@type": "Person",
+        "name": "Jin Fu",
+        "sameAs": [
+          "https://x.com/stevefujin"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Navisual",
+        "url": "https://navisualguide.com/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Navisual",
+        "url": "https://navisualguide.com/zh/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Navisual",
+          "item": "https://navisualguide.com/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "使用手册",
+          "item": "https://navisualguide.com/zh/docs.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://navisualguide.com/zh/docs.html#quick",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Navisual 会替我点击或输入吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。Navisual 只告诉你该做什么：控件上的指针、一行字幕和一句语音说明。每一次点击和按键都由你自己完成，所以你随时可以停下、换个做法，或者不理它。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "免费下载，每台电脑含 30 次免费请求，不用注册，也不用 API Key。一次请求就是问一次 AI，一次可能包含不止一步。用完之后，可以购买金币、用你自己的 API Key，或者免费使用本地 AI 模型。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要注册账户吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。免费请求、你自己的 API Key 和本地模型都不需要账户。购买金币需要账户，账户也能让你的金币和购买记录在不同电脑之间保留。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "免费请求用完以后要花多少钱？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "金币 5 美元起，可买 1,000 金币。每次请求按质量档位消耗 6、12 或 18 金币，所以 5 美元大约能用 55 到 165 次。金币不会过期。用你自己的 API Key 时由服务商直接向你收费，本地模型则完全免费。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 支持哪些软件？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "几乎所有 Windows 软件都能用。已经在 Microsoft Word、Excel、PowerPoint、Outlook 和 OneNote，Chrome 和 Edge，文件资源管理器和 Windows 设置，以及 Blender、Krita、VS Code、VLC 和 LibreOffice 里测试过。在 Photoshop、SolidWorks 这类自己绘制界面的软件里，AI 根据它在截图里看到的内容来指向。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 支持哪些 Windows 版本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows 10（1809 或更高版本）和 Windows 11。暂不支持 macOS 和 Linux。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 会一直盯着我的屏幕吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。只有在你求助或要下一步的时候，Navisual 才会截一张图给 AI。唯一的例外是你自己打开的自动推进：它在你的电脑上大约每秒比较两次屏幕，只有当屏幕变化大到看起来你已经做完这一步时，才去问 AI。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 会把什么发给 AI？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "你选定窗口的截图（其他部分都会被涂灰），加上你输入的内容、窗口标题、这个窗口里各个控件的名称和状态、你在这个窗口里最后点过的控件，以及你的 Windows 版本。完整清单见隐私政策。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 能离线运行吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "能，通过 Ollama 或 LM Studio 这类本地服务器使用本地 AI 模型。什么都不会离开你的网络，也什么都不记录。你需要一个能看图的模型，指引的质量取决于这个模型。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Navisual 支持哪些语言？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "界面有英文、简体中文和繁体中文。AI 用你输入的语言回答；如果 Windows 装了这种语言的语音，还会把回答读出来。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "在中国大陆能用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "能用，不需要 VPN。在中国大陆，托管服务（免费档和付费档）的请求由通义千问和 DeepSeek 处理。Google 登录在大陆可能打不开，用邮箱注册和登录就行。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <!-- Language switch, top right. Same order on every page so it never moves. -->
+  <nav class="lang-switch" aria-label="Language / 语言">
+    <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg>
+    <a href="/docs.html" hreflang="en" lang="en">English</a>
+    <span class="lang-current" aria-current="page">中文</span>
+  </nav>
+  <main>
+    <article class="legal docs">
+      <a class="legal-back" href="/zh/">← 返回 navisualguide.com</a>
+      <h1>Navisual 使用手册</h1>
+      <p class="legal-updated">最后更新：2026 年 11 月 22 日 · 适用于 Windows 10 和 11</p>
+
+      <p>
+        <strong>Navisual 是一款 Windows 软件，在任何软件里一步一步带你完成任务。</strong>你说出想做的事，
+        Navisual 看一眼你选定的程序，想好下一步，再用屏幕上的指针、字幕和语音告诉你该点哪里。
+        它从不替你点击或输入：每一步都由你自己完成。
+      </p>
+      <p>
+        这份手册讲的是界面上不那么一目了然的部分。第一次用？从<a href="#start">入门</a>开始。
+        遇到问题？去看<a href="#trouble">问题排查</a>。
+      </p>
+
+      <figure class="guide-figure">
+        <a class="guide-zoom" href="/images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg" title="查看原图">
+          <img src="/images/guides/orcaslicer-connect-printer-wifi/01-github-assets.jpg" width="1920" height="1080" decoding="async" alt="Navisual 在 Chrome 里指导下载：橙色指针圈出文件列表里的 Windows 安装包，屏幕下方的字幕说明该点哪个文件，右侧的 Navisual 面板显示任务和已完成的步骤。" />
+        </a>
+        <figcaption>指引中的一步：指针落在要点的控件上，字幕在屏幕下方，右侧面板显示任务和已完成的步骤。截图里的界面是英文的，中文界面的布局完全一样。</figcaption>
+      </figure>
+
+      <nav class="docs-toc" aria-label="目录">
+        <a href="#quick">快速解答</a>
+        <a href="#start">1. 入门</a>
+        <a href="#panel">2. 面板</a>
+        <a href="#target">3. 选择 Navisual 看哪里</a>
+        <a href="#following">4. 跟着指引做</a>
+        <a href="#hotkeys">5. 快捷键</a>
+        <a href="#wrong">6. 指错了怎么办</a>
+        <a href="#sessions">7. 最近的任务和导出</a>
+        <a href="#language">8. 语言、朗读和语音输入</a>
+        <a href="#providers">9. AI 服务商和费用</a>
+        <a href="#apps">10. 针对特定软件的支持</a>
+        <a href="#settings">11. 设置</a>
+        <a href="#updates">12. 更新、你的数据、卸载</a>
+        <a href="#trouble">13. 问题排查</a>
+        <a href="#privacy">14. 一页看懂隐私</a>
+      </nav>
+
+      <!-- The FAQPage JSON-LD in <head> is GENERATED from this section by
+           tools/build-zh-docs-jsonld.py, so the two always match word for word, as
+           Google requires. Edit the questions here, then rerun the script. -->
+      <section id="quick">
+        <h2>快速解答</h2>
+
+        <h3>Navisual 会替我点击或输入吗？</h3>
+        <p>不会。Navisual 只告诉你该做什么：控件上的指针、一行字幕和一句语音说明。每一次点击和按键都由你自己完成，所以你随时可以停下、换个做法，或者不理它。</p>
+
+        <h3>Navisual 免费吗？</h3>
+        <p>免费下载，每台电脑含 30 次免费请求，不用注册，也不用 API Key。一次请求就是问一次 AI，一次可能包含不止一步。用完之后，可以购买金币、用你自己的 API Key，或者免费使用本地 AI 模型。</p>
+
+        <h3>需要注册账户吗？</h3>
+        <p>不需要。免费请求、你自己的 API Key 和本地模型都不需要账户。购买金币需要账户，账户也能让你的金币和购买记录在不同电脑之间保留。</p>
+
+        <h3>免费请求用完以后要花多少钱？</h3>
+        <p>金币 5 美元起，可买 1,000 金币。每次请求按质量档位消耗 6、12 或 18 金币，所以 5 美元大约能用 55 到 165 次。金币不会过期。用你自己的 API Key 时由服务商直接向你收费，本地模型则完全免费。</p>
+
+        <h3>Navisual 支持哪些软件？</h3>
+        <p>几乎所有 Windows 软件都能用。已经在 Microsoft Word、Excel、PowerPoint、Outlook 和 OneNote，Chrome 和 Edge，文件资源管理器和 Windows 设置，以及 Blender、Krita、VS Code、VLC 和 LibreOffice 里测试过。在 Photoshop、SolidWorks 这类自己绘制界面的软件里，AI 根据它在截图里看到的内容来指向。</p>
+
+        <h3>Navisual 支持哪些 Windows 版本？</h3>
+        <p>Windows 10（1809 或更高版本）和 Windows 11。暂不支持 macOS 和 Linux。</p>
+
+        <h3>Navisual 会一直盯着我的屏幕吗？</h3>
+        <p>不会。只有在你求助或要下一步的时候，Navisual 才会截一张图给 AI。唯一的例外是你自己打开的自动推进：它在你的电脑上大约每秒比较两次屏幕，只有当屏幕变化大到看起来你已经做完这一步时，才去问 AI。</p>
+
+        <h3>Navisual 会把什么发给 AI？</h3>
+        <p>你选定窗口的截图（其他部分都会被涂灰），加上你输入的内容、窗口标题、这个窗口里各个控件的名称和状态、你在这个窗口里最后点过的控件，以及你的 Windows 版本。完整清单见隐私政策。</p>
+
+        <h3>Navisual 能离线运行吗？</h3>
+        <p>能，通过 Ollama 或 LM Studio 这类本地服务器使用本地 AI 模型。什么都不会离开你的网络，也什么都不记录。你需要一个能看图的模型，指引的质量取决于这个模型。</p>
+
+        <h3>Navisual 支持哪些语言？</h3>
+        <p>界面有英文、简体中文和繁体中文。AI 用你输入的语言回答；如果 Windows 装了这种语言的语音，还会把回答读出来。</p>
+
+        <h3>在中国大陆能用吗？</h3>
+        <p>能用，不需要 VPN。在中国大陆，托管服务（免费档和付费档）的请求由通义千问和 DeepSeek 处理。Google 登录在大陆可能打不开，用邮箱注册和登录就行。</p>
+      </section>
+
+      <section id="start">
+        <h2>1. 入门</h2>
+        <p>
+          <strong>你需要：</strong>Windows 10（1809 或更高版本）或 Windows 11，以及网络连接（使用本地模型时不需要）。
+          Navisual 还需要 WebView2：Windows 11 自带，Windows 10 上会自动安装。
+        </p>
+        <p>
+          <strong>安装。</strong>从<a href="/zh/">首页</a>下载并运行安装包。安装包有代码签名，但新发布的软件仍然会触发微软的
+          SmartScreen 提示。如果看到它，点<strong>更多信息 → 仍要运行</strong>。
+        </p>
+        <p>
+          <strong>第一次启动。</strong>你会看到一段简短的隐私说明，讲清楚 Navisual 截取什么、发到哪里、记录什么。
+          不需要账户：免费档会匿名登录，给你 <strong>30 次请求</strong>来试用。
+        </p>
+        <p>之后的用法总是一样的：</p>
+        <ol>
+          <li><strong>打开你需要帮助的软件</strong>，让它保持可见。</li>
+          <li><strong>在 Navisual 的输入框里写下你想做的事</strong>，用平常说话的方式就行，比如“用这些数据做一个数据透视表”
+            或“给这个立方体倒角”，然后点<strong>开始指引</strong>。输入框里可能已经有一条建议的任务：可以直接用，也可以改写。</li>
+          <li><strong>跟着指针做。</strong>Navisual 截一张图，想好下一步，在要点的按钮上画出标记，同时用语音和字幕说明。</li>
+          <li><strong>自己做完这一步</strong>，然后按 <kbd>Ctrl</kbd>+<kbd>`</kbd> 进入下一步。</li>
+        </ol>
+        <p>
+          Navisual 只在需要的时候才给 AI 截图：你提问的时候，或者你要下一步的时候。唯一的例外是你自己打开的
+          <a href="#following">自动推进</a>。
+        </p>
+        <p>
+          任务完成后，点<strong>＋ 新任务</strong>重新开始。想修改或纠正你的要求，直接在输入框里写，然后点
+          <strong>↩ 追问</strong>。
+        </p>
+        <h3>面板放在哪里</h3>
+        <p>
+          面板放在哪里 Navisual 都能工作。下面只是建议，不是要求：最好的位置是不挡住你正在用的软件。
+        </p>
+        <ul>
+          <li><strong>一块屏幕：</strong>停靠或收起最合适。在 ··· 菜单里选<strong>停靠左侧</strong>或<strong>停靠右侧</strong>，
+            Navisual 占屏幕一侧的一条，其余留给你的软件，宽屏尤其合适。也可以把 Navisual <strong>收起</strong>成金鱼图标，
+            每一步按 <kbd>Ctrl</kbd>+<kbd>`</kbd>：指针、字幕和语音照常工作。屏幕比较小时，收起可能更合适。</li>
+          <li><strong>两块或更多屏幕：</strong>建议把面板单独放在一块屏幕上，你正在用的软件放在另一块。软件占满整块屏幕，
+            步骤也一直在旁边看得到。</li>
+        </ul>
+      </section>
+
+      <section id="panel">
+        <h2>2. 面板</h2>
+        <p>Navisual 面板就是显示你的任务和已完成步骤的那个窗口。</p>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">部分</th><th scope="col">作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>程序标签</strong>（标题栏）</td><td>显示 Navisual 正在看哪个程序。点它可以换一个（<a href="#target">第 3 节</a>）。</td></tr>
+            <tr><td><strong>余额</strong>（标题栏）</td><td>你剩下的免费次数或金币。点它打开「设置 → 账户」。</td></tr>
+            <tr><td><strong>ⓘ 关于</strong></td><td>版本、更新、这份手册、隐私政策、<strong>反馈问题</strong>，以及<strong>用量</strong>标签页。</td></tr>
+            <tr><td><strong>⚙ 设置</strong></td><td>所有设置（<a href="#settings">第 11 节</a>）。</td></tr>
+            <tr><td><strong>缩成悬浮图标</strong></td><td>把 Navisual 缩成一个小小的悬浮金鱼图标，不挡你的路。快捷键照常可用。点金鱼展开，右键点它打开菜单。</td></tr>
+            <tr><td><strong>正在处理</strong></td><td>Navisual 理解的目标。点它可以看<strong>计划路线</strong>，路线会随着 Navisual 了解到的情况调整。如果目标理解错了，在输入框里说出来。</td></tr>
+            <tr><td><strong>对话</strong></td><td>你的请求和每一步。点缩略图可以看 AI 当时看到的完整截图。</td></tr>
+            <tr><td><strong>→ 下一步</strong></td><td>进入下一步。按 <kbd>Ctrl</kbd>+<kbd>`</kbd> 效果一样，而且更好（<a href="#hotkeys">第 5 节</a>）。</td></tr>
+            <tr><td><strong>✈ 自动推进</strong></td><td>屏幕变化时自动进入下一步（<a href="#following">第 4 节</a>）。</td></tr>
+            <tr><td><strong>＋ 新任务</strong></td><td>清空当前会话，重新开始。</td></tr>
+            <tr><td><strong>🕓 最近的任务</strong></td><td>重新打开之前的任务，接着做（<a href="#sessions">第 7 节</a>）。</td></tr>
+            <tr><td><strong>🎤 语音输入</strong></td><td>说出你的请求，不用打字（<a href="#language">第 8 节</a>）。</td></tr>
+            <tr><td><strong>··· 更多操作</strong></td><td>切换程序、停靠面板、静音，以及打开或关闭字幕。</td></tr>
+          </tbody>
+        </table>
+        <p>
+          ··· 菜单里的<strong>停靠左侧</strong>和<strong>停靠右侧</strong>会把 Navisual 放在屏幕一侧，占四分之一宽、整个高度，
+          其余留给你选的一个程序，这样面板永远不会挡在你的工作上面。<strong>取消停靠</strong>让它重新浮动。
+        </p>
+      </section>
+
+      <section id="target">
+        <h2>3. 选择 Navisual 看哪里</h2>
+        <p>
+          默认情况下，Navisual 看的是最前面的那个窗口。标题栏里的程序标签显示当前是哪个程序。
+          你固定一个窗口时，它的边上会短暂出现一圈轮廓，让你看清共享的是什么。
+        </p>
+        <p><strong>点程序标签</strong>可以更改。有三种选择：</p>
+        <ul>
+          <li><strong>某一个窗口。</strong>选中它就会<em>固定</em>（📌）：即使你点了别的地方，Navisual 也一直看这个窗口。
+            只要你要在几个窗口之间来回切换，或者这个软件会弹出抢焦点的对话框，就该这样选。
+            最小化的窗口也会列出来，选它会把它还原。</li>
+          <li><strong>整个桌面</strong>（多显示器时是<strong>屏幕 1 / 屏幕 2</strong>），用于跨程序的任务，比如把文件从资源管理器拖进另一个程序。
+            多显示器时请选单独的一块屏幕，不要选整个桌面：把所有屏幕拼成一张图，细节会缩小到 AI 看不清的程度。</li>
+          <li><strong>自动识别</strong>，回到跟随最前面窗口的方式。</li>
+        </ul>
+        <p>
+          只共享一个窗口时，它以外的所有内容（包括叠在它上面的其他程序，以及 Navisual 自己的面板）在发送前都会被涂灰，
+          所以图里只有你的目标程序。随图一起发送的其他内容见<a href="#privacy">第 14 节</a>。
+        </p>
+        <p>
+          <strong>如果固定的窗口关闭或被隐藏</strong>，会出现一条提示和<strong>重新选窗口</strong>按钮。你选好之前，
+          Navisual 不会改看别的东西。如果窗口回来了，提示会自动消失。固定的窗口如果只是最小化，需要你从任务栏把它还原。
+        </p>
+        <p>
+          <strong>如果没有可以指引的窗口</strong>，Navisual 会提供<strong>在这块屏幕上引导</strong>或<strong>选择程序</strong>。
+          除非你这样选，否则它不会擅自扩大看的范围。
+        </p>
+      </section>
+
+      <section id="following">
+        <h2>4. 跟着指引做</h2>
+        <p>
+          每一步都会给你一条说明，读出来的同时在屏幕上显示字幕；如果 Navisual 能确定是哪个控件，还会在按钮上画出标记。
+        </p>
+        <p>
+          <strong>如果没有出现标记</strong>，你会看到一行提示，说无法给出指针。这是故意的：Navisual 宁可什么都不指，
+          也不愿指错。有些界面确实无法从外部读取，比如 3D 视图、画布、游戏。文字说明仍然是对的，只是少了箭头。
+        </p>
+        <p>
+          <strong>→ 下一步</strong>进入下一步。<strong>自动推进</strong>（在操作按钮那一行）会在屏幕变化大到看起来你已经做完这一步时，
+          自动做同样的事。每次启动软件时它都是关着的，这是故意的：它每触发一次就可能用掉一次请求。自动推进适合又长又明确的操作；
+          需要边做边想的，适合手动一步一步来。如果它触发得太频繁或太少，调整<strong>设置 → 屏幕指引 → 自动推进</strong>里的滑块。
+        </p>
+        <p>
+          <strong>自动推进会在两种情况下自己暂停：</strong>屏幕一直在变却没有明确的下一步时；以及免费次数只剩 5 次时暂停一次，
+          免得它自己把最后几次用掉。面板上会说明原因，要不要重新打开由你决定。免费次数用完时它会停止。
+        </p>
+        <p>
+          <strong>需要你输入的内容，都会放进剪贴板。</strong>终端命令、网址、文件名、表单里要填的文字都是这样。
+          某一步需要输入时，准确的文字会替你复制好，这一步旁边会显示 📋 标记，你粘贴就行，不用重新打字。
+          快捷键是有意的例外：快捷键会写在说明里，因为它要按，不能粘贴。Navisual 从不替你运行命令或按任何键：你看过之后，自己粘贴、自己按回车。
+        </p>
+        <p>
+          <strong>跨多个程序的任务</strong>不需要任何设置：在浏览器里下载、编辑文件、在终端里运行命令，你在哪个窗口里，
+          Navisual 就跟到哪个窗口。如果你希望它在你来回切换时一直盯着一个程序，就固定那个窗口（<a href="#target">第 3 节</a>）。
+        </p>
+        <p>
+          有时 Navisual 会问你一个问题，而不是给出一步。在回复框里写下答案，按回车。如果它看到的信息不够，无法确定，
+          你得到的会是诚实的回答：“把正确的窗口切到前面来”。
+        </p>
+        <h3>面板上的提示是什么意思</h3>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">提示</th><th scope="col">意思</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>无法给出指针</td><td>Navisual 没能放出一个它有把握的标记。请按文字说明操作。</td></tr>
+            <tr><td>它已经不在屏幕上了</td><td>要点的东西已经不见了，可能是一条自己关掉的通知。如果你还能看到它，就按说明操作。</td></tr>
+            <tr><td>这个位置好像被本面板挡住了</td><td>把 Navisual 面板拖开，就能看到标出的位置。Navisual 不会替你移动窗口。</td></tr>
+            <tr><td>目标窗口不可见</td><td>把那个程序切到前面，就能看到指针。</td></tr>
+            <tr><td>我思考的时候屏幕变了</td><td>这条建议描述的可能是你已经离开的画面。把它当作提示，而不是错误：如果这一步仍然说得通，就继续；否则点<strong>↻ 重新分析</strong>。</td></tr>
+            <tr><td>AI 需要你的输入</td><td>Navisual 问了你一个问题。在输入框里写下你的回答。</td></tr>
+            <tr><td>某个按键“被这台电脑上的另一个程序占用”</td><td>这一步里的快捷键被别的程序占着，比如游戏叠加层或录屏软件，所以按下去可能会打开那个程序。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="hotkeys">
+        <h2>5. 快捷键</h2>
+        <p>
+          用快捷键操作 Navisual 最顺手，因为<strong>快捷键不会把键盘焦点从你的程序上移走</strong>。点 Navisual 面板会移走焦点：
+          这时 Windows 会吞掉你在目标程序上的下一次点击，因为那一下用来重新激活窗口了，你之前打开的菜单也会关掉。
+          如果你遇到过一个按钮要点两次，原因就在这里。用快捷键就不会这样。
+        </p>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">操作</th><th scope="col">默认</th><th scope="col">作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>下一步</td><td><kbd>Ctrl</kbd>+<kbd>`</kbd></td><td>进入下一步：最常用的一个</td></tr>
+            <tr><td>切换图标模式</td><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>`</kbd></td><td>把面板缩成金鱼图标，再按一次还原</td></tr>
+            <tr><td>语音输入</td><td><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>按住说话：说出你的请求，不用打字</td></tr>
+            <tr><td>标记为错误</td><td><em>未设置</em></td><td>告诉 Navisual 这一步不对（<a href="#wrong">第 6 节</a>）；需要你自己指定按键</td></tr>
+            <tr><td>暂停 / 取消</td><td><em>未设置</em></td><td>停止指引；需要你自己指定按键</td></tr>
+          </tbody>
+        </table>
+        <p>
+          <kbd>`</kbd> 是反引号键，在 <kbd>1</kbd> 的左边、Esc 的下面。最后两个默认不设置，是故意的，免得和你已经在用的快捷键冲突。
+          在<strong>设置 → 快捷键</strong>里可以设置你自己的按键，也可以用 ✕ 清除任何一个。
+        </p>
+        <p>
+          下一步和标记为错误只在正在指引某一步时才占用，所以没有任务在进行时，这些按键仍然属于你的其他程序。
+          如果某一步让你按的快捷键正好也是 Navisual 的快捷键，Navisual 会在这一步里把它让出来，并在面板上说明。
+        </p>
+      </section>
+
+      <section id="wrong">
+        <h2>6. 指错了怎么办</h2>
+        <p>
+          每条说明下面都有一个<strong>✗ 这步不对</strong>按钮。点它会问你<em>哪里</em>不对，不同的回答会触发完全不同的处理：
+          选得准，修正就来得更好、更快：
+        </p>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">你选</th><th scope="col">会发生什么</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>位置不对</strong><br />（说明是对的，标记落在了错的按钮上；有标记时才显示）</td><td>Navisual 在你的电脑上<strong>本地</strong>重新搜索屏幕，排除你否定的那个位置。不用问 AI，通常一下就好：建议是对的，只是没瞄准。如果第二次还没找对，就交给 AI。</td></tr>
+            <tr><td><strong>找不到</strong><br />（什么都没标出来，或者说明里的东西不在屏幕上）</td><td>同样先在本地重新搜索，然后重新看一遍你的屏幕。</td></tr>
+            <tr><td><strong>指引不对</strong><br />（这一步不是你需要的）</td><td>直接回到 AI，告诉它哪里错了，让它重新规划。</td></tr>
+            <tr><td><strong>已经做过了</strong></td><td>继续往下。如果下一步已经准备好，会立刻进入，不用花一次请求。</td></tr>
+          </tbody>
+        </table>
+        <p>
+          都不合适？在输入框里写下哪里不对，然后点<strong>↩ 追问</strong>。你写的话一定会发给 AI。如果 Navisual 看错了程序，
+          先点一下正确的窗口，再点 ✗。你的选择会被记录下来，用来改进指引，但从不记录你的屏幕；你输入的文字也会一起记录，
+          除非你把它关掉（<a href="#privacy">第 14 节</a>）。
+        </p>
+        <p>
+          <strong>出现几个带编号的框，而不是一个箭头？</strong>说明 Navisual 找到了不止一个合适的目标（比如三个格子都写着“合计”），
+          它不打算瞎猜。① 是它认为最可能的。点你要的那个：你的点击<em>就是</em>回答，没有对话框要关。如果都不是，点 ✗。
+        </p>
+      </section>
+
+      <section id="sessions">
+        <h2>7. 最近的任务和导出</h2>
+        <p>
+          Navisual 会边做边把每个任务保存在你的电脑上。<strong>🕓 最近的任务</strong>列出最近的 20 个：点一个就能重新打开，
+          从上次停下的地方接着做。更早的会话连同截图一起移到回收站。
+        </p>
+        <p>
+          保存的会话包含对话、你的任务、计划、你点过什么，以及每一步的截图。如果不想保留截图，关掉
+          <strong>设置 → 屏幕指引 → 会话保存</strong>；这样重新打开的会话会在下一步重新读取屏幕。无论哪种方式，
+          重新打开的会话都会跟随你接下来点进去的那个程序。
+        </p>
+        <p>
+          最近的任务里的<strong>导出</strong>会把你的会话（或者只是你选中的几个）各存成一个独立的 HTML 文件，任何浏览器都能打开。
+          <strong>打开文件…</strong>可以在面板里查看这样的文件；只有你在里面继续操作，它才会加入最近的任务。
+          截图是你屏幕的图片，发给别人之前请先看一遍。
+        </p>
+      </section>
+
+      <section id="language">
+        <h2>8. 语言、朗读和语音输入</h2>
+        <p>
+          <strong>界面语言。</strong>Navisual 的界面有英文、简体中文和繁体中文，默认跟随你的 Windows 语言；可以在
+          <strong>设置 → 屏幕指引 → 界面语言</strong>里更改。
+        </p>
+        <p>
+          <strong>AI 的语言。</strong>不管界面设成什么语言，AI 都用你输入的语言回答。
+        </p>
+        <p>
+          <strong>语音朗读</strong>使用 Windows 里安装的语音。设为<strong>自动</strong>时，每条回答都用它自己的语言、
+          由已安装的该语言语音读出来。在<strong>设置 → 音频</strong>里可以选择你喜欢的语音，或者关掉朗读。
+          想临时静音或隐藏字幕，用 ··· 菜单。
+        </p>
+        <p>
+          <strong>语音输入</strong>让你说出请求：按 <kbd>Ctrl</kbd>+<kbd>D</kbd> 或点 🎤 按钮。你说的话会出现在 Navisual 的输入框里，
+          发送前可以修改。它需要麦克风和网络连接，因为你的音频会发送给微软的在线语音服务。可以在「设置 → 音频」里关掉。
+          语音识别必须在你开口之前就知道你说的是什么语言。设为<strong>自动</strong>时，它按 Navisual 的界面语言来听；
+          如果界面跟随 Windows，就按你的 Windows 语言来听。所以如果你说的是另一种语言，请在那里设置<strong>语音语言</strong>。
+          可选的有英语、法语、德语、西班牙语、日语、普通话、台湾普通话、粤语、韩语和葡萄牙语。
+        </p>
+      </section>
+
+      <section id="providers">
+        <h2>9. AI 服务商和费用</h2>
+        <p>Navisual 支持多种 AI 后端，在<strong>设置 → 服务商</strong>里选择。</p>
+        <ul>
+          <li><strong>托管：免费。</strong>不用 Key，不用账户，每台设备 30 次请求。
+            <strong>注意：</strong>免费的 AI 模型通常会保留请求（包括你的截图）用来训练。如果你在意这一点，请改用下面任何一种方式。
+            （<a href="/privacy.html">详见隐私政策（英文）</a>。）</li>
+          <li><strong>托管：按用量付费。</strong>5 美元起充值，Navisual 替你调用更强的付费模型，你不用管理任何 API Key。
+            付费服务商声明不会用你的数据训练模型。</li>
+          <li><strong>自带 Key。</strong>Anthropic、Google Gemini、OpenAI、DeepSeek、Qwen，或任何兼容 OpenAI 接口的服务。
+            请求直接从你的电脑发给那家服务商，不经过我们的服务器，由服务商直接向你收费。两点说明：
+            <strong>DeepSeek 只有选 deepseek-flash 时才能看屏幕</strong>，就是设置里标着“能看屏幕”的那个，
+            之前选了 deepseek-v4-flash 的会自动换成它。选 deepseek-v4-pro 时，Navisual 不发送截图，
+            AI 只能根据你的文字、窗口标题和控件名称来判断，看不到画面。另外，在中国大陆，<strong>Qwen</strong>
+            是推荐的云端选择。</li>
+          <li><strong>Ollama 或其他本地服务器。</strong>在你自己的电脑或网络上运行。什么都不会离开，不收费，不记录，断网也能用。
+            你需要一个能看图的模型，比如 llama3.2-vision，或者通过「自定义」服务商接入任何兼容 OpenAI 接口的本地服务器
+            （LM Studio、llama.cpp、vLLM）。质量完全取决于你运行的模型。</li>
+        </ul>
+        <h3>金币和质量档位</h3>
+        <p>
+          托管服务用<em>金币</em>付费。1 金币固定为 0.005 美元。你选的质量档位决定由哪个模型回答，以及每次请求花多少金币：
+        </p>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">档位</th><th scope="col">每次请求的金币</th><th scope="col">适合</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Speed</strong></td><td>6</td><td>最快、最便宜；适合简单、文字多的界面</td></tr>
+            <tr><td><strong>Regular</strong></td><td>12</td><td>综合最好的默认选择</td></tr>
+            <tr><td><strong>Smart</strong></td><td>18</td><td>在含义模糊或画面密集的界面上最强</td></tr>
+          </tbody>
+        </table>
+        <p>
+          所以 5 美元可买 1,000 金币，大约 55 到 165 次请求。在<strong>设置 → 账户</strong>里购买金币（5 到 500 美元；
+          付款页面会在浏览器里打开，需要账户）。金币不会过期，除法律要求的情况外不予退款，详见<a href="/terms.html">服务条款（英文）</a>。
+          有注册优惠时，软件里会显示。
+        </p>
+        <p>
+          不管选了哪个档位，都会先用免费次数。只剩 5 次时，面板会提醒你。
+        </p>
+        <h3>选哪个？</h3>
+        <p>
+          如果只是试试 Navisual，免费档就够了。如果用在实际工作上，选按用量付费或自带 Key：两者都明显更准确，
+          也都不会让你的屏幕进入训练数据。如果你的屏幕内容完全不能离开你的电脑，只有本地模型能从设计上保证这一点。
+        </p>
+        <p>
+          余额显示在标题栏，点它就能去充值。ⓘ 关于里的<strong>用量</strong>标签页显示你的余额，并估算你自己的 Key 花了多少钱。
+        </p>
+      </section>
+
+      <section id="apps">
+        <h2>10. 针对特定软件的支持</h2>
+        <p>
+          Navisual 通过大多数 Windows 软件本来就公开的无障碍信息来读取界面，所以按钮、菜单和功能区几乎在哪里都工作得很好。
+          有些软件需要更多帮助。
+        </p>
+        <p>
+          <strong>浏览器</strong>是最好的情况之一：网页公开了丰富的结构，所以在网页应用、表单或管理后台里的指向通常是精确的。
+          Chrome 和 Edge 还有专门的快速通道。
+        </p>
+        <p>
+          <strong>终端</strong>（Windows 终端、PowerShell、编辑器里的命令行）靠剪贴板而不是指针：那里没有按钮可指，
+          所以 Navisual 给你一条可以粘贴的命令（<a href="#following">第 4 节</a>），从不替你运行。
+        </p>
+        <p>
+          <strong>Excel、Word 和 PowerPoint</strong> 有专门处理：Navisual 能把一个单元格地址、文档里的一句话或幻灯片上的一个形状，
+          精确定位到像素，而不是凭眼睛猜。不需要任何设置。
+        </p>
+        <p>
+          <strong>Blender</strong> 有一个<strong>可选插件</strong>。Blender 的整个界面都是自己画的，从外部看只是一张图：
+          这个插件让 Blender 告诉 Navisual 它的工具在哪里、你现在处于哪个模式、用的是哪个笔刷。工具栏和属性标签页的指引会可靠得多。
+        </p>
+        <ul>
+          <li>Navisual 发现你在用 Blender 时会提出安装。点<strong>安装</strong>，它会把文件复制到 Blender 的插件文件夹。</li>
+          <li><strong>然后重启 Blender</strong>，打开 <strong>Edit → Preferences → Add-ons</strong>，搜索 <em>Navisual</em>，
+            勾选它。这一勾就是你同意的那一步；Navisual 不能也不会替你勾。</li>
+          <li>它是<strong>只读</strong>的：只回答关于界面的问题，不能点击、输入、运行命令，也不会碰你的文件。
+            它只在你自己的电脑上监听，不向互联网发送任何东西。</li>
+          <li>每个 Blender 版本都有自己的插件文件夹，所以你用的每个版本都要装一次。随时取消勾选就能关掉它。</li>
+        </ul>
+        <p>
+          <strong>自己绘制界面的软件</strong>（SolidWorks 的命令功能区、Photoshop 和 GIMP 的工具箱、3D 视图、大多数游戏）
+          没有公开任何可供 Navisual 在本地读取的信息。<strong>这不代表 Navisual 不能在里面指导你。</strong>没有东西可读时，
+          AI 会像你一样去看截图，根据看到的内容来指向。在能力强的模型上效果很好，连它从没见过的界面也行。
+        </p>
+        <p>
+          变化的是<em>怎么</em>指：标记往往是控件周围的一片区域，而不是紧贴控件的轮廓。而且这里比软件的其他地方都更依赖模型：
+          靠看来读一个陌生界面，本来就比读一个标签难得多。<strong>如果这类软件里没有出现指针，请在设置 → 服务商里提高质量档位</strong>
+          （或者用你自己的 Key 和一个当前能看图的模型）。在这里，这一项改动比任何其他设置都重要。
+        </p>
+        <p>
+          注意，这些软件里你最常需要帮助的部分（菜单、偏好设置、对话框、属性面板）通常<em>不是</em>自己绘制的，表现正常。
+          同一个软件在菜单里指得很准、在画布上只是大概，这很常见。
+        </p>
+        <p>
+          <strong>很小的文字</strong>是另一种难点：屏幕文字识别有一个尺寸下限，排得很密的界面标签可能会漏掉。
+          不管怎样，你都会得到文字说明。
+        </p>
+        <p>
+          <strong>经验笔记。</strong>如果在某个软件里找一个命令试了不止一次，Navisual 会记下它在哪里，下次第一次就能找对。
+          笔记只包含界面上的标签文字，保存在你的电脑上，之后在这个软件里的请求会带上它们。在
+          <strong>设置 → 屏幕指引 → 经验笔记</strong>里可以查看、修改或删除。
+        </p>
+      </section>
+
+      <section id="settings">
+        <h2>11. 设置</h2>
+        <p>点标题栏里的 ⚙ 按钮打开设置。一共有五个标签页：</p>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">标签页</th><th scope="col">里面有什么</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>服务商</strong></td><td>AI 服务商、API Key、模型、质量档位</td></tr>
+            <tr><td><strong>账户</strong></td><td>登录或注册账户、购买金币、修改密码、退出登录、注销账户</td></tr>
+            <tr><td><strong>屏幕指引</strong></td><td>界面语言、指针颜色和粗细、实时字幕、任务建议、自动推进及其灵敏度、会话保存、经验笔记，以及你输入的内容</td></tr>
+            <tr><td><strong>快捷键</strong></td><td>全部五个快捷键</td></tr>
+            <tr><td><strong>音频</strong></td><td>语音朗读和语音选择、语音输入、语音语言</td></tr>
+          </tbody>
+        </table>
+        <p>
+          <strong>应用</strong>保存设置并保持窗口打开；<strong>确定</strong>保存并关闭。不需要重启。
+          <strong>重置所有设置</strong>会恢复所有标签页，而不只是当前这一页：你的 API Key 会保留，但服务器地址和模型选择不会。
+        </p>
+      </section>
+
+      <section id="updates">
+        <h2>12. 更新、你的数据、卸载</h2>
+        <p>
+          <strong>更新。</strong>Navisual 启动后不久会检查有没有新版本，有的话会在标题栏显示提示。你也可以在
+          <strong>ⓘ 关于 → 检查更新</strong>里手动检查，它会告诉你已是最新版本、有新版本，还是检查失败；有新版本时点
+          <strong>安装并重启</strong>。
+        </p>
+        <p>
+          <strong>你的数据。</strong>设置、保存的会话、经验笔记和日志都在
+          <code>%LOCALAPPDATA%\com.navisual.app</code>。API Key 和你的登录信息另外保存在 Windows 凭据管理器里，
+          按你的 Windows 用户加密。
+        </p>
+        <p>
+          <strong>卸载。</strong>在 Windows 设置的<strong>已安装的应用</strong>里删除 Navisual（Windows 10 上是<strong>应用和功能</strong>）。
+          如果之后你保存的会话和设置还在，删除上面那个文件夹即可。
+        </p>
+        <p>
+          <strong>注销账户。</strong>在<strong>设置 → 账户 → 注销账户</strong>里操作。注销是永久的，金币不予退还。
+          已存储的记录如何处理，见<a href="/privacy.html">隐私政策（英文）</a>。
+        </p>
+      </section>
+
+      <section id="trouble">
+        <h2>13. 问题排查</h2>
+        <table class="legal-table">
+          <thead>
+            <tr><th scope="col">现象</th><th scope="col">怎么办</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>我在程序里的第一下点击没反应</td><td>你刚才点了 Navisual 的面板，所以 Windows 把这一下用来重新激活程序了。用 <kbd>Ctrl</kbd>+<kbd>`</kbd> 代替点击 → 下一步。</td></tr>
+            <tr><td>某个程序里从来不出指针</td><td>这个程序很可能是自己绘制界面的（3D 视图、画布、游戏），所以指向要靠 AI 自己看屏幕。在设置 → 服务商里提高质量档位：在这里它比在任何地方都管用。见<a href="#apps">第 10 节</a>。</td></tr>
+            <tr><td>指引的程序不对</td><td>点标题栏里的程序标签，固定你真正要的那个窗口。</td></tr>
+            <tr><td>“你固定的窗口已经关闭或被隐藏”</td><td>点<strong>重新选窗口</strong>再选一次，或者选自动识别。</td></tr>
+            <tr><td>“你固定的窗口已最小化”</td><td>从任务栏把它还原，然后重试。</td></tr>
+            <tr><td>请求超时</td><td>通常是免费模型负载太高、太慢。再试一次，或者在设置里换一个服务商。</td></tr>
+            <tr><td>“免费次数已用完”</td><td>在设置 → 账户里购买金币，或者在设置 → 服务商里填入你自己的 API Key 或本地模型。</td></tr>
+            <tr><td>“金币不足”</td><td>在设置 → 账户里再买一些，或者在设置 → 服务商里选一个更便宜的质量档位。</td></tr>
+            <tr><td>自动推进自己关掉了</td><td>屏幕一直在变却没有明确的下一步时它会暂停，免费次数剩 5 次时也会暂停一次。见<a href="#following">第 4 节</a>。</td></tr>
+            <tr><td>某个快捷键没反应</td><td>可能有别的程序占用了这个快捷键，也可能是另一个还开着的 Navisual。关掉它，或者在设置 → 快捷键里换一个。</td></tr>
+            <tr><td>没有声音</td><td>看看 ··· 菜单里是不是静音了，以及 Windows 有没有装这种语言的语音。见<a href="#language">第 8 节</a>。</td></tr>
+            <tr><td>语音输入把你说的话识别成了别的语言</td><td>语音识别无法在你开口前判断语言。设为自动时，它按界面语言来听；如果你说的是另一种语言，在设置 → 音频的语音语言里选它，发送前再改一下输入框里的文字。</td></tr>
+            <tr><td>Google 登录没反应</td><td>你所在的网络可能打不开 Google 的页面（在中国大陆很常见）。用邮箱和密码注册、登录都可以。</td></tr>
+            <tr><td>拔掉显示器后指针位置不对</td><td>它应该在一秒内自动校正。如果没有，重启 Navisual，并告诉我们。</td></tr>
+            <tr><td>其他问题</td><td>用 ⓘ 关于里的<strong>反馈问题</strong>，它会新建一封邮件，自动填好你的版本和服务商；或者写信到 <a href="mailto:support@navisualguide.com">support@navisualguide.com</a>，或在 <a href="https://github.com/NavisualGuide/navisual/issues" target="_blank" rel="noopener">GitHub</a> 上提一个 issue。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="privacy">
+        <h2>14. 一页看懂隐私</h2>
+        <ul>
+          <li>截图<strong>只</strong>在你提问或要下一步时发给 AI，或者在你自己打开的自动推进发现屏幕变化时发送。
+            自动推进检查屏幕变化的工作在你的电脑上完成。</li>
+          <li>只共享一个窗口时，屏幕上的其他内容在发送前都会被涂灰。如果你选择共享整块屏幕，就会发送整块屏幕。</li>
+          <li>随图一起发送的还有：你输入的内容、窗口标题、这个窗口里各个控件的名称和状态、你在这个窗口里最后点过的控件
+            （只有名称，从不包括内容），以及你的 Windows 版本。Navisual 不监控你的键盘。</li>
+          <li>你的截图发给<em>你</em>选择的 AI 服务商。托管服务会经过我们的中转服务器；自带 Key 时直接发给那家服务商；
+            用本地模型时留在你的电脑或网络里。在中国大陆，托管服务的请求由通义千问和 DeepSeek 处理。</li>
+          <li>我们不在服务器上保存你的截图。每一步的截图和你保存的会话一起存在你的电脑上（可以关掉）。
+            设置留在你的电脑上，API Key 存在 Windows 凭据管理器里。</li>
+          <li>我们会记录你输入的任务和每一步的结果，从不记录截图。可以在设置 → 屏幕指引 → 你输入的内容里关掉对输入任务的记录；
+            AI 在你自己的电脑或网络上运行时，什么都不记录。</li>
+          <li>语音输入如果你使用，会把你的音频发送给微软的语音服务。</li>
+          <li>免费档的模型可能会用你发送的内容训练。付费档、自带 Key 和本地方式都不会。</li>
+        </ul>
+        <p>完整的细节，包括 Blender 插件，见<a href="/privacy.html">隐私政策</a>（英文）。</p>
+      </section>
+
+      <p class="legal-footnote">
+        Navisual 提供的是 AI 辅助的指引，可能会出错。任何重要的操作，执行前请先自己核对；涉及财务、法律、医疗或安全的决定，
+        不要只依赖它。
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <a href="/zh/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/guides/">博客（英文）</a>
+    <span class="sep">·</span>
+    <a href="/zh/docs.html">使用手册</a>
+    <span class="sep">·</span>
+    <a href="/zh/#enterprise">企业</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">隐私（英文）</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">条款（英文）</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <a href="/docs.html" hreflang="en" lang="en">English</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-ALv2</span>
+  </footer>
+</body>
+</html>
