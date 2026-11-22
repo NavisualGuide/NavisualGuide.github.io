@@ -25,7 +25,7 @@
     <article class="legal">
       <a class="legal-back" href="/">← Back to navisualguide.com</a>
       <h1>Privacy Policy</h1>
-      <p class="legal-updated">Last updated: 21 November 2026</p>
+      <p class="legal-updated">Last updated: 22 November 2026</p>
 
       <!-- ==================================================================
            BEFORE YOU CHANGE ANYTHING SUBSTANTIVE HERE, READ THIS.
@@ -350,13 +350,13 @@
       <h2>5. Third-party processors</h2>
       <table class="legal-table">
         <tr><th>Processor</th><th>Purpose</th><th>What they receive</th></tr>
-        <tr><td>Supabase</td><td>Account, quota database, and the managed AI relay</td><td>Everything §4 lists as on our servers (account record, device count, relay records, step-outcome rows); the request payload passes through the relay in transit</td></tr>
+        <tr><td>Supabase</td><td>Account, quota database, the managed AI relay, and app downloads and updates</td><td>Everything §4 lists as on our servers (account record, device count, relay records, step-outcome rows); the request payload passes through the relay in transit; standard request metadata (such as your IP address) when you download the app, and each time it checks for an update</td></tr>
         <tr><td>Free-tier AI provider(s), may change over time</td><td>Upstream for the <strong>free</strong> managed tier</td><td>The request payload (screenshots + text). <strong>May be retained and used to train the model provider’s AI</strong>, see §2</td></tr>
         <tr><td>Paid AI provider endpoints, may change over time</td><td>Upstream for the <strong>paid</strong> managed tiers</td><td>The request payload. Not used for training under their <em>current</em> paid-API policies (subject to change by those providers)</td></tr>
         <tr><td>Alibaba Cloud (Qwen) and DeepSeek, may change over time</td><td>Upstream for managed-tier requests (free and paid) from <strong>mainland China</strong>, see §2</td><td>The request payload (screenshots + text), processed in mainland China on paid API endpoints, under those providers’ current API terms</td></tr>
         <tr><td>Stripe</td><td>Payments</td><td>Your email and payment details: <strong>never your screenshots</strong>. Card data goes directly to Stripe (PCI); we never see card numbers.</td></tr>
         <tr><td>Microsoft</td><td>Voice transcription (only if you enable push-to-talk)</td><td>Your spoken audio</td></tr>
-        <tr><td>GitHub</td><td>App downloads and updates</td><td>Standard request metadata (such as your IP address) when you download, and each time the app checks for an update</td></tr>
+        <tr><td>GitHub</td><td>App downloads and updates (a second source, used when Supabase cannot be reached), and release notes</td><td>Standard request metadata (such as your IP address) when you download, and each time the app checks for an update</td></tr>
       </table>
 
       <h2>6. International data transfers</h2>
