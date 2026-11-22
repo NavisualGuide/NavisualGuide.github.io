@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navisual：在任何软件里，一步一步带你完成任务</title>
+  <meta name="description" content="Navisual 看懂你屏幕上的内容，想好怎么做，再一步一步指给你看：在真正要点的按钮上显示指针，配字幕和语音。适用于任何 Windows 软件。30 次免费请求，无需注册。" />
+  <meta property="og:title" content="Navisual：在任何软件里，一步一步带你完成任务" />
+  <meta property="og:description" content="Navisual 看懂你屏幕上的内容，想好怎么做，再一步一步指给你看。AI 负责指引，你负责决定。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <!-- Chinese edition of the home page. Keep it saying the same things as /index.html:
+       nothing type-checks one page against the other (rule 8), so a change to the
+       English page needs its twin here, and the reverse. -->
+  <link rel="canonical" href="https://navisualguide.com/zh/" />
+  <link rel="alternate" hreflang="en" href="https://navisualguide.com/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://navisualguide.com/zh/" />
+  <link rel="alternate" hreflang="x-default" href="https://navisualguide.com/" />
+  <meta property="og:url" content="https://navisualguide.com/zh/" />
+  <meta property="og:site_name" content="Navisual" />
+  <meta property="og:image" content="https://navisualguide.com/social-preview.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Navisual：AI 负责指引，你负责决定。" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://navisualguide.com/social-preview.png" />
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Structured data: the same product facts as the English page, in Chinese.
+       Same rules: no invented ratings; price 0 because the download is free. -->
+  <script type="application/ld+json">
+    {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Navisual",
+          "url": "https://navisualguide.com/zh/",
+          "inLanguage": "zh-CN",
+          "sameAs": [
+                "https://github.com/NavisualGuide/navisual",
+                "https://www.youtube.com/@NavisualGuide",
+                "https://x.com/NavisualGuide"
+          ],
+          "description": "Navisual 是一款 Windows 屏幕助手：它看懂你屏幕上的内容，为你要做的事规划一步一步的路线，并告诉你该点哪里、该输入什么。它从不替你点击或输入，不会操作你的电脑，每一步都由你自己完成。AI 负责指引，你负责决定。",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Windows 10, Windows 11",
+          "downloadUrl": "https://gwekzberpfuxsoddwwqj.supabase.co/storage/v1/object/public/releases/Navisual-Setup.exe",
+          "softwareHelp": "https://navisualguide.com/zh/docs.html",
+          "image": "https://navisualguide.com/social-preview.png",
+          "author": {
+                "@type": "Person",
+                "name": "Jin Fu",
+                "sameAs": [
+                      "https://x.com/stevefujin"
+                ]
+          },
+          "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "免费下载，含 30 次免费请求，无需注册。之后可按需购买金币，5 美元起。"
+          },
+          "featureList": [
+                "看懂你的屏幕：用 Windows 无障碍接口和文字识别读取当前窗口，看到你看到的内容",
+                "为你要做的事规划一步一步的路线，屏幕变化时随之调整",
+                "告诉你点哪里、输入什么：指针落在真正的按钮上，配字幕和语音说明",
+                "从不点击、输入或接管电脑，每一步都由你自己完成",
+                "指向屏幕上真实的控件，而不是猜像素坐标，所以移动或缩放窗口后依然准确",
+                "适用于任何软件。已在 Word、Excel、PowerPoint、Outlook，Chrome、Edge，文件资源管理器和 Windows 设置，Blender、Krita、VS Code、VLC、LibreOffice、OneNote 等软件中测试",
+                "在不提供控件名称的软件里（包括 Photoshop、Krita 和 SolidWorks），结合 AI 自己的视觉定位和本地核对来找到控件",
+                "可用内置免费档、你自己的 API Key，或通过 Ollama 使用本地模型"
+          ],
+          "applicationSubCategory": "屏幕助手 / 软件操作指引",
+          "keywords": [
+                "屏幕助手",
+                "AI 屏幕助手",
+                "软件操作指引",
+                "一步一步教你操作软件",
+                "告诉你点哪里",
+                "可视化教学",
+                "学习新软件",
+                "电脑操作求助",
+                "Windows 软件帮助",
+                "人在回路的 AI",
+                "不接管电脑的 AI"
+          ]
+    }
+    </script>
+</head>
+<body>
+  <!-- Language switch, top right. Same order on every page so it never moves. -->
+  <nav class="lang-switch" aria-label="Language / 语言">
+    <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 3.9 5.8 3.9 9.5s-1.3 6.9-3.9 9.5c-2.6-2.6-3.9-5.8-3.9-9.5s1.3-6.9 3.9-9.5z"/></svg>
+    <a href="/" hreflang="en" lang="en">English</a>
+    <span class="lang-current" aria-current="page">中文</span>
+  </nav>
+  <main>
+
+    <!-- ── Hero ── -->
+    <div class="hero">
+      <div class="badge">Windows · 公开测试 · 免费试用</div>
+      <h1 class="wordmark">Navisual</h1>
+      <p class="tagline-primary">AI 负责指引，你负责决定。</p>
+      <p class="slogan">在任何软件里，一步一步带你完成任何任务。</p>
+      <p class="desc">
+        问聊天机器人怎么做，它说完了，你还得在几十个按钮、好几层菜单里自己去找它说的那一个。
+        让 AI 智能体替你做，又得把电脑的控制权交给它。
+        Navisual 两样都不是：它看懂你屏幕上的内容，想好该怎么做，再一步一步指给你看。界面越复杂，它越帮得上忙。
+      </p>
+      <a class="cta" href="https://gwekzberpfuxsoddwwqj.supabase.co/storage/v1/object/public/releases/Navisual-Setup.exe">
+        下载 Windows 版
+        <span class="cta-sub">30 次免费请求 · 无需注册 · 安装包已数字签名</span>
+      </a>
+      <p class="promo-strip">
+        <span class="promo-strip-tag">上线优惠</span>
+        注册免费账户即送 <strong>1,000 金币</strong>，在较快的模型上大约能用 80 次。
+        不用绑卡，每台电脑限领一次，截至 2026 年 12 月 12 日。
+      </p>
+      <p class="hero-links">
+        <a href="/zh/docs.html">使用手册</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">更新日志</a>
+      </p>
+      <p class="disclaimer">Navisual 使用 AI，而 AI 会出错。执行每一步建议之前，请先自行确认。</p>
+    </div>
+
+    <!-- ── Demo ──
+         The English page embeds the demo from YouTube, which mainland China cannot
+         reach, so this page shows a still of a real guided step instead. Swap in a
+         Bilibili embed or a self-hosted clip here once there is one. -->
+    <section class="video-section">
+      <figure class="guide-figure">
+        <a class="guide-zoom" href="/images/home/excel-pivot-step.jpg" title="查看原图">
+          <img src="/images/home/excel-pivot-step.jpg" width="1920" height="1080" decoding="async" alt="Navisual 在 Excel 里指导做数据透视表：橙色指针圈出右侧「数据透视表字段」里的 Sales 复选框，左边的透视表已经按地区和季度汇总出销售额，屏幕下方的字幕和右下角的 Navisual 面板显示这一步的说明。" />
+        </a>
+        <figcaption>在 Excel 里做数据透视表：指针落在要勾选的字段上，屏幕下方的字幕说明这一步，面板列出已经走过的步骤。（截图为英文界面，中文界面布局相同。）</figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Use cases ── -->
+    <section class="use-cases">
+      <h2>为复杂界面而做</h2>
+      <p class="use-cases-sub">界面简单的时候，聊天机器人的回答往往就够用了。Navisual 用在它不够用的地方：
+        密密麻麻的工具栏、一层套一层的菜单、藏在好几级下面的设置，还有要在好几个应用之间来回切换的任务。</p>
+      <div class="case-grid">
+        <div class="case">
+          <span class="case-icon">📋</span>
+          <h3 class="case-title">照着现成的说明一步步做</h3>
+          <p class="case-prompt">“这是项目 README 里的安装步骤，带我一步一步做。”</p>
+          <p class="case-desc">把帮助文档、操作手册，或者聊天机器人写的一大段回答贴进来，Navisual 会把它拆成一步一步，在各种繁杂的不同应用之间（浏览器、编辑器、终端等）精确指向你需要进行的下一步操作，还会把每条命令放进剪贴板，你粘贴就行，不用重新打字。</p>
+        </div>
+        <div class="case">
+          <span class="case-icon">📄</span>
+          <h3 class="case-title">办公软件</h3>
+          <p class="case-prompt">“给这张表格加一个数据透视表。”</p>
+          <p class="case-desc">在几百个命令的功能区里，从「插入 → 数据透视表」到字段设置和格式，一步一步带你做。Excel、Word 和 PowerPoint 里的指向格外精确。</p>
+        </div>
+        <div class="case">
+          <span class="case-icon">🎨</span>
+          <h3 class="case-title">学习新软件</h3>
+          <p class="case-prompt">“Blender 里怎么给这个立方体倒角？”</p>
+          <p class="case-desc">在成百上千的面板和图标里指出该用的工具，再告诉你快捷键：边做边学，不用啃手册。部分软件有可选插件（目前是 Blender，更多在路上），能让指向更精确。</p>
+        </div>
+        <div class="case">
+          <span class="case-icon">🙌</span>
+          <h3 class="case-title">日常电脑求助</h3>
+          <p class="case-prompt">“帮我设置邮箱账户。”</p>
+          <p class="case-desc">带你走完账户向导、藏在好几层下面的设置和陌生的对话框。不管软件界面是什么语言，都用你的语言回答：英文软件也可以用中文问。</p>
+        </div>
+      </div>
+      <p class="providers-sub" style="text-align: center; margin-top: 20px; margin-bottom: 0;">
+        Navisual 设计上适用于任何 Windows 软件，其中一些测试得比别的多。目前覆盖最深的是
+        <strong>Microsoft Word、Excel、PowerPoint、Outlook</strong> 和 <strong>OneNote</strong>；
+        <strong>Chrome</strong> 和 <strong>Edge</strong>；<strong>文件资源管理器</strong>和
+        <strong>Windows 设置</strong>；<strong>Blender</strong>、<strong>Krita</strong>、
+        <strong>VS Code</strong>、<strong>VLC</strong>、<strong>Photoshop</strong>、
+        <strong>SolidWorks</strong> 和 <strong>LibreOffice</strong>。更多优化正在进行中。
+      </p>
+    </section>
+
+    <!-- ── How it works ── -->
+    <section class="how-it-works">
+      <h2>怎么用</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p>输入你想做的事，或者按住快捷键直接说出来。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p>Navisual 看一眼你当前的窗口，规划接下来的步骤，并指出要点的那个按钮。</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p>跟着指针、字幕和语音做。做完一步，按 <kbd>Ctrl+`</kbd> 进入下一步。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Providers ── -->
+    <section class="providers">
+      <h2>用你喜欢的 AI</h2>
+      <p class="providers-sub">自带 30 次免费请求。用你自己的 API Key 不限次数，也可以用 Ollama 完全离线运行。</p>
+      <div class="provider-grid">
+        <div class="provider-chip managed">托管 <span class="chip-note">免费和付费</span></div>
+        <div class="provider-chip">Gemini</div>
+        <div class="provider-chip">Claude</div>
+        <div class="provider-chip">OpenAI</div>
+        <div class="provider-chip">DeepSeek</div>
+        <div class="provider-chip">通义千问 Qwen</div>
+        <div class="provider-chip">Ollama <span class="chip-note">本地</span></div>
+      </div>
+    </section>
+
+    <!-- ── Enterprise & Team ── -->
+    <section class="enterprise" id="enterprise">
+      <div class="enterprise-card">
+        <h2>企业与团队</h2>
+        <p>
+          需要统一结算、在本地部署 AI 模型，或者定制集成？
+        </p>
+        <a class="btn-secondary" href="mailto:sales@navisualguide.com?subject=%E4%BC%81%E4%B8%9A%E4%B8%8E%E5%9B%A2%E9%98%9F%E5%92%A8%E8%AF%A2">
+          联系销售
+        </a>
+        <p class="enterprise-mail">
+          <a href="mailto:sales@navisualguide.com?subject=%E4%BC%81%E4%B8%9A%E4%B8%8E%E5%9B%A2%E9%98%9F%E5%92%A8%E8%AF%A2">sales@navisualguide.com</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Privacy ── -->
+    <section class="privacy-section">
+      <h2>隐私</h2>
+      <p>
+        Navisual 只发送你的<strong>当前窗口，或者你选定的某一块屏幕</strong>，而且只发给你选择的
+        AI 服务商。截图保存在你自己的电脑上，<strong>不会存到 Navisual 的服务器上</strong>。
+      </p>
+      <p>
+        免费档之所以免费，是因为它的 AI 服务商可能会保留你的请求并用来训练模型；付费档、你自己的
+        API Key，以及离线运行的 <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>
+        都不会。详情见<a href="/privacy.html">隐私政策</a>（英文）。
+      </p>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq">
+      <h2>常见问题</h2>
+      <details>
+        <summary>Navisual 是做什么的？适合谁用？</summary>
+        <p>它理解你的问题和你当前的窗口，针对你描述的任务给出实时的、一步一步的指引：指出下一步要点的按钮或菜单，并用语音讲解。界面越复杂越有用：工具成百上千的应用、藏在好几层下面的设置，或者要跨好几个应用的任务。适合任何在陌生软件里卡住的人：学习新软件、带家人走完一个安装向导，或者只是想不起某个设置在哪里。就像有个熟手坐在你旁边帮你指，只是每一下都由你自己点。</p>
+      </details>
+      <details>
+        <summary>AI 会控制我的鼠标吗？</summary>
+        <p>不会。Navisual 只指出该点哪里，并讲解下一步。每一次点击、每一次按键、每一次确认，都是你自己做。</p>
+      </details>
+      <details>
+        <summary>在中国大陆能用吗？需要 VPN 吗？</summary>
+        <p>能用，不需要 VPN。在中国大陆，免费档和付费档的请求由通义千问和 DeepSeek 处理（<a href="/privacy.html">隐私政策</a>第 2 节有说明）。Google 登录在大陆可能打不开，用邮箱注册和登录就行。下载安装包和自动更新也都在大陆实测过，可以正常使用。</p>
+      </details>
+      <details>
+        <summary>支持中文吗？能用 DeepSeek 和通义千问吗？</summary>
+        <p>支持。界面有简体中文和繁体中文，AI 用你输入的语言回答。要用自己的 Key，在「设置 → 服务商」里选 DeepSeek 或 Qwen，填入 API Key 即可。DeepSeek 选 deepseek-flash（设置里标着“能看屏幕”）时会上传截图；选 deepseek-v4-pro 时只传文字，不上传截图。Qwen 支持看截图。</p>
+      </details>
+      <details>
+        <summary>浏览器里能用吗？命令行呢？</summary>
+        <p>都能用。网页是 Navisual 读得最准的界面之一：网页应用、表单、管理后台、设置页面都没问题，Chrome 和 Edge 还有专门的快速通道。至于终端，Navisual 从不替你运行任何东西：需要输入命令时，它把准确的命令放进剪贴板，你看过之后自己粘贴、自己按回车。网址、文件名，以及其他需要重新打字的内容也一样。一个任务要在浏览器下载、文本编辑器和终端之间来回切换也没问题，你在哪个窗口里，Navisual 就跟到哪个窗口。</p>
+      </details>
+      <details>
+        <summary>哪些数据会离开我的电脑？</summary>
+        <p>你<strong>当前窗口</strong>的截图（如果你选了某一块屏幕，就是那块屏幕的截图），加上你们的对话文字，发给你选择的 AI 服务商。找控件的工作在你的电脑上完成。Navisual 还会记录你输入的任务和每一步的结果（从不记录截图），除非 AI 运行在你自己的电脑上。注意：<strong>免费档</strong>的 AI 模型可能会保留这些请求（包括截图）并用来训练；按服务商目前的政策，付费档不会；Ollama 则一切都留在本地。详见<a href="/privacy.html">隐私政策</a>（英文）。</p>
+      </details>
+      <details>
+        <summary>能完全离线运行吗？</summary>
+        <p>能。在服务商里选择 <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>，再下载一个能看图的模型（比如 <code>llama3.2-vision</code>）。什么都不会离开你的电脑，Navisual 也什么都不记录。只有一个例外：如果你打开语音输入，它会用到微软的在线语音服务。</p>
+      </details>
+      <details>
+        <summary>支持哪些 Windows 版本？</summary>
+        <p>Windows 10（1809 或更高版本）和 Windows 11。需要 WebView2：Windows 11 自带，Windows 10 上会自动安装。</p>
+      </details>
+      <details>
+        <summary>是开源的吗？</summary>
+        <p>源代码公开，采用 <a href="https://fsl.software/" target="_blank" rel="noopener">FSL-1.1-ALv2</a> 许可，每个版本发布两年后转为 Apache 2.0。</p>
+      </details>
+      <details>
+        <summary>Windows 提示“Windows 已保护你的电脑”，安全吗？</summary>
+        <p>安全。这是微软的 SmartScreen：任何新发布的软件，在下载量积累到一定程度之前都会触发这个提示。它看的是下载量，不是安全性，即使软件做了正规的代码签名也会出现。Navisual 的安装包有代码签名（Azure Trusted Signing），源代码也完全<a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">公开</a>（FSL）。点<strong>更多信息</strong>，再点<strong>仍要运行</strong>即可继续。安装的人多了，这个提示就会消失。</p>
+      </details>
+      <details>
+        <summary>30 次免费请求用完以后呢？</summary>
+        <p><strong>2026 年 12 月 12 日之前，注册免费账户即送 1,000 金币</strong>，在较快的付费模型上大约能用 80 次，不用绑卡，每台电脑限领一次。之后可以：给托管服务充值金币，按用量付费（5 美元起）；用你自己的 API Key（Anthropic、Gemini、OpenAI、DeepSeek、Qwen）；或者用 Ollama 在本地运行，免费且不限次数。</p>
+      </details>
+      <details>
+        <summary>必须注册账户吗？</summary>
+        <p>不用。30 次免费请求不需要账户，用自己的 API Key 或 Ollama 也不需要。账户的作用是让金币和购买记录在重装后还在；上线优惠期间，注册账户也是领 1,000 金币的方式。</p>
+      </details>
+      <details>
+        <summary>有 macOS 或 Linux 版吗？</summary>
+        <p>目前只有 Windows 版。macOS 和 Linux 版计划在 1.0 正式发布之后推出。</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="/zh/">navisualguide.com</a>
+    <span class="sep">·</span>
+    <a href="/guides/">博客（英文）</a>
+    <span class="sep">·</span>
+    <a href="/zh/docs.html">使用手册</a>
+    <span class="sep">·</span>
+    <a href="/zh/#enterprise">企业</a>
+    <span class="sep">·</span>
+    <a href="/privacy.html">隐私（英文）</a>
+    <span class="sep">·</span>
+    <a href="/terms.html">条款（英文）</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual" target="_blank" rel="noopener">GitHub</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/NavisualGuide/navisual/releases" target="_blank" rel="noopener">更新日志</a>
+    <span class="sep">·</span>
+    <a href="/" hreflang="en" lang="en">English</a>
+    <span class="sep">·</span>
+    <span>FSL-1.1-ALv2</span>
+    <span class="sep">·</span>
+    <span>2026</span>
+  </footer>
+</body>
+</html>
