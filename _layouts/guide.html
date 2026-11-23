@@ -226,6 +226,36 @@
     </div>
   </main>
 
+  {%- comment -%}
+    Copy buttons on code blocks. A block marked {: data-file="name"} gets a
+    "Copy name" button, so several on one page are told apart by what they copy
+    -- on screen as well as to a screen reader. Plain text only: the block's
+    textContent, never its highlighted HTML.
+  {%- endcomment -%}
+  <script>
+  document.querySelectorAll(".prose pre").forEach(function (pre) {
+    var host = pre.closest(".highlighter-rouge") || pre;
+    var file = host.getAttribute("data-file") || pre.getAttribute("data-file");
+    var wrap = document.createElement("div");
+    wrap.className = "code-wrap";
+    host.parentNode.insertBefore(wrap, host);
+    wrap.appendChild(host);
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "code-copy";
+    var label = file ? "Copy " + file : "Copy";
+    btn.textContent = label;
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(pre.textContent).then(function () {
+        btn.textContent = "Copied";
+        btn.classList.add("done");
+        setTimeout(function () { btn.textContent = label; btn.classList.remove("done"); }, 2000);
+      });
+    });
+    wrap.appendChild(btn);
+  });
+  </script>
+
   <footer>
     <a href="/">navisualguide.com</a>
     <span class="sep">·</span>

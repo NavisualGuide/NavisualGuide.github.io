@@ -934,6 +934,46 @@ footer a:hover {
   color: var(--text);
 }
 
+/* Code blocks in guides. Added 2026-11-23 for the first guide that ships files
+   the reader has to create (the K2 camera guide): the reader copies them, and
+   Navisual points at the Copy button, so the button carries the file name --
+   "Copy go2rtc.yaml" -- rather than a bare "Copy" repeated down the page. */
+.prose pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin: 0 0 16px;
+  overflow-x: auto;
+}
+
+.prose pre code { background: none; padding: 0; font-size: inherit; }
+
+.code-wrap { position: relative; }
+
+.code-wrap pre { padding-top: 40px; }
+
+.code-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font: 600 12px/1 'Inter Variable', Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--surface-3);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.code-copy:hover { border-color: var(--accent); }
+
+.code-copy.done { color: var(--accent); }
+
 .legal-table {
   width: 100%;
   border-collapse: collapse;
