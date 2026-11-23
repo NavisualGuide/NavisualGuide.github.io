@@ -1,6 +1,7 @@
 ---
-title: "Setup OrcaSlicer with your 3D printer over Wi-Fi"
-description: "Download, install and connect, in one pass, including the field almost every guide skips, which is why the Device tab shows 404 even when printing works."
+title: "How to connect OrcaSlicer to your printer over Wi-Fi"
+description: "Connect OrcaSlicer over Wi-Fi, plus the field most guides skip: Device UI, the printer's web interface. Leave it empty and the Device tab shows 404 Not Found."
+last_modified: 2026-11-22
 date: 2026-09-11
 app: "OrcaSlicer 2.4.2"
 os: "Windows 10 / 11"

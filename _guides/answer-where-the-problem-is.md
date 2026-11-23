@@ -98,7 +98,7 @@ Here is what that looks like in practice.
 Both of these started as someone stuck in front of a screen, asking Navisual. They are written up
 step by step:
 
-**[Setup OrcaSlicer with your 3D printer over Wi-Fi](/guides/orcaslicer-connect-printer-wifi/)**
+**[How to connect OrcaSlicer to your printer over Wi-Fi](/guides/orcaslicer-connect-printer-wifi/)**
 Almost every guide online skips one field. Leave it blank and the Device tab shows a blank
 404 even though printing works fine.
 
