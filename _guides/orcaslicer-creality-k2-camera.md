@@ -37,7 +37,7 @@ to watch the camera in Creality Print instead.
 
 **The short answer:** the K2 camera still streams, but only over Creality's own WebRTC connection on
 port 8000, which neither Fluidd nor OrcaSlicer can play. A free program, **go2rtc**, can. Run it on
-your PC with a two-line setting naming the printer, then set OrcaSlicer's **Device UI** to a small
+your PC with a short settings file naming the printer, then set OrcaSlicer's **Device UI** to a small
 page it serves, `http://127.0.0.1:1984/k2.html`. The Device tab then shows Fluidd and the live
 camera side by side. Nothing on the printer changes, so no root and no firmware downgrade.
 
@@ -69,11 +69,14 @@ camera side by side. Nothing on the printer changes, so no root and no firmware 
    *All files* matters: without it Notepad saves `go2rtc.yaml.txt`, and go2rtc will not find it.
 6. **Create k2.html.** In a new Notepad window, click **Copy k2.html** below and paste. Save it
    into `Documents\go2rtc\www` the same way, as `k2.html`. Nothing in it needs editing.
-7. **Start go2rtc.exe.** Double-click it. If Windows shows *Windows protected your PC*, click
-   **More info**, then **Run anyway**. A black window opens. Leave it open: closing it stops the
+7. **Start go2rtc.exe.** Double-click it. Windows will most likely show *Windows protected your
+   PC*, because go2rtc is not from a big publisher: click **More info**, then **Run anyway**. A
+   black window opens and lists what it is listening on. Leave it open: closing it stops the
    camera.
 8. **Check it in a browser.** Open `http://127.0.0.1:1984/k2.html`. Fluidd appears on the left
-   and the camera on the right, with **Camera: live** above it.
+   and the camera on the right, with **Camera: live** above it. Windows Firewall may ask whether
+   go2rtc can use public and private networks; the camera worked in our test whichever way that
+   was left, because go2rtc only listens on this PC.
 9. **Point OrcaSlicer at the page.** Click the **Wi-Fi icon** beside **Printer** again, set
    **Device UI** to `http://127.0.0.1:1984/k2.html`, and click **OK**.
 10. **Open the Device tab.** Fluidd on the left, the live camera on the right.
@@ -133,12 +136,16 @@ function connect() {
   const ws = new WebSocket("ws://" + location.host + "/api/ws?src=" + SRC);
   const pc = new RTCPeerConnection();
   pc.addTransceiver("video", { direction: "recvonly" });
-  pc.ontrack = e => { document.getElementById("cam").srcObject = e.streams[0] || new MediaStream([e.track]); };
   pc.onicecandidate = e => {
     if (e.candidate) ws.send(JSON.stringify({ type: "webrtc/candidate", value: e.candidate.candidate }));
   };
   pc.onconnectionstatechange = () => {
-    if (pc.connectionState === "connected") state.textContent = "Camera: live";
+    if (pc.connectionState === "connected") {
+      const cam = document.getElementById("cam");
+      cam.srcObject = new MediaStream(pc.getReceivers().map(r => r.track));
+      cam.play().catch(() => {});
+      state.textContent = "Camera: live";
+    }
     if (pc.connectionState === "failed" || pc.connectionState === "disconnected") {
       pc.close(); ws.close();
       state.textContent = "Camera: reconnecting...";
@@ -175,6 +182,9 @@ beside Fluidd instead of inside it.
 
 ## If the camera stays black
 
+- **The page says *Camera: live* but the picture is black.** That can simply be the printer: with
+  the chamber light off, the K2 camera sends an almost black picture. Turn the light on from the
+  printer's screen or Fluidd.
 - **The go2rtc window was closed.** The page says *Camera: go2rtc is not running*. Start
   `go2rtc.exe` again.
 - **Fluidd is blank, or the page says no printer address was found.** Check the address in
@@ -186,7 +196,12 @@ beside Fluidd instead of inside it.
 
 ## How this guide was made
 
-Draft. To be completed after the Navisual walkthrough.
+Draft. Walked through from an empty Documents folder on 2026-11-23, with Navisual following the
+steps pasted from the end of this page: it found the Wi-Fi icon, GitHub's *Show all assets* and
+the win64 file, the Paste button in File Explorer, both Copy buttons on this page, and Notepad's
+**Save as type** list twice, which is the step that otherwise leaves you with `go2rtc.yaml.txt`.
+The camera page itself was fixed during that run: its first version connected but left the video
+paused.
 
 ## Let Navisual walk you through it
 
