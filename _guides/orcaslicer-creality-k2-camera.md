@@ -32,72 +32,73 @@ steps:
     text: "Click the Device tab at the top of OrcaSlicer. Fluidd shows on the left and the live printer camera on the right."
 ---
 
-You set up a Creality K2 in OrcaSlicer, the Device tab shows Fluidd, and the camera is nowhere. The
-usual advice is to add a camera in Fluidd pointing at `http://<printer-ip>:8080/?action=stream`, or
-at port 8000. On current K2 firmware neither address serves any video, and Creality's own answer is
-to watch the camera in Creality Print instead.
+So you've hooked a Creality K2 up to OrcaSlicer, the Device tab shows Fluidd, and there's no camera
+anywhere. Search around and you'll be told to add a camera in Fluidd at
+`http://<printer-ip>:8080/?action=stream`, or to try port 8000. On current K2 firmware neither one
+gives you any video, and Creality's own answer is basically "use Creality Print".
 
-**The short answer:** the K2 camera still streams, but only over Creality's own WebRTC connection on
-port 8000, which neither Fluidd nor OrcaSlicer can play. A free program, **go2rtc**, can. Run it on
-your PC with a short settings file naming the printer, then set OrcaSlicer's **Device UI** to a small
-page it serves, `http://127.0.0.1:1984/k2.html`. The Device tab then shows Fluidd and the live
-camera side by side. Nothing on the printer changes, so no root and no firmware downgrade.
+**The short answer:** the K2 camera still streams, just only over Creality's own WebRTC connection
+on port 8000, and neither Fluidd nor OrcaSlicer can play that. A free little program called
+**go2rtc** can. You run it on your PC with a short settings file that names the printer, then set
+OrcaSlicer's **Device UI** to a page it serves, `http://127.0.0.1:1984/k2.html`. After that the
+Device tab shows Fluidd and the live camera side by side. Nothing on the printer gets touched: no
+root, no firmware downgrade.
 
 {% include figure.html
    src="/images/guides/orcaslicer-creality-k2-camera/01-device-tab-camera.jpg"
    alt="OrcaSlicer's Device tab showing Fluidd on the left and the live Creality K2 Plus camera on the right, labelled Camera: live"
-   caption="The end result: OrcaSlicer's Device tab with Fluidd and the K2 camera side by side."
+   caption="Where you'll end up: Fluidd and the K2 camera side by side in OrcaSlicer's Device tab."
    width="1920" height="1032" %}
 
 ## Before you start
 
-- **Checked on a Creality K2 Plus** with OrcaSlicer 2.4.2 on Windows 11. OrcaSlicer updates often;
-  all this guide uses is its Physical Printer dialog and Device tab. The K2 and K2 Pro use the same
-  camera connection, so it should work on them too, but that is not tested. On a K1C (2025) it is
-  untested.
-- **go2rtc has to be running on this PC** for the camera to show, and the camera page only works
-  on this PC. It listens on `127.0.0.1` only, so nothing new is opened to your network.
-- **Creality Print keeps working.** It showed the camera at the same time as OrcaSlicer.
-- You will copy two small files from this page. Each has a **Copy** button.
+- **I tested this on a K2 Plus**, with OrcaSlicer 2.4.2 on Windows 11. OrcaSlicer updates a lot,
+  but all this needs is its Physical Printer dialog and the Device tab, so a newer version should
+  be fine. The K2 and K2 Pro use the same camera connection and should work too, though I haven't
+  tried them. Same for the K1C (2025).
+- **go2rtc has to be running on your PC** for the camera to show up, and the camera page only
+  works on that PC. It only listens on `127.0.0.1`, so nothing new gets opened up to your network.
+- **Creality Print keeps working.** It happily showed the camera at the same time as OrcaSlicer.
+- You'll copy two small files from this page. Each one has a **Copy** button.
 
 ## Steps
 
-1. **Find the printer's IP address.** In OrcaSlicer, on the **Prepare** tab, click the small
-   **Wi-Fi icon** beside the **Printer** header in the left rail. The address is in the
-   **Hostname, IP or URL** field, for example `192.168.0.88`. The box is narrow and usually shows
-   only the start, like `http://192.168`: click in it and press **End** to see the rest. Note it
-   and close the dialog.
-2. **Make two folders.** In File Explorer, open **Documents**, create a folder named `go2rtc`, and
-   inside it a folder named `www`.
-3. **Download go2rtc.** Open
+1. **Find the printer's IP address.** In OrcaSlicer, on the **Prepare** tab, click the little
+   **Wi-Fi icon** next to the **Printer** header in the left rail. The address is in the
+   **Hostname, IP or URL** box, something like `192.168.0.88`. The box is narrow and usually only
+   shows the start, like `http://192.168`, so click in it and press **End** to see the rest. Jot it
+   down and close the dialog.
+2. **Make two folders.** In File Explorer, open **Documents**, make a folder called `go2rtc`, and
+   inside that one a folder called `www`.
+3. **Download go2rtc.** Go to
    [github.com/AlexxIT/go2rtc/releases](https://github.com/AlexxIT/go2rtc/releases), find the
-   newest release, open its **Assets** list and download `go2rtc_win64.zip`.
+   newest release, open its **Assets** list and grab `go2rtc_win64.zip`.
 4. **Put go2rtc.exe in Documents\go2rtc.** Open the zip and copy `go2rtc.exe` into the `go2rtc`
    folder.
-5. **Create go2rtc.yaml.** Open Notepad, click **Copy go2rtc.yaml** below and paste. Replace
-   `192.168.0.88` with your printer's address. Choose **File ▸ Save as**, go to
-   `Documents\go2rtc`, set **Save as type** to **All files**, name it `go2rtc.yaml` and save.
-   *All files* matters: without it Notepad saves `go2rtc.yaml.txt`, and go2rtc will not find it.
-6. **Create k2.html.** In a new Notepad window, click **Copy k2.html** below and paste. Save it
-   into `Documents\go2rtc\www` the same way, as `k2.html`. Nothing in it needs editing.
-7. **Start go2rtc.exe.** Double-click it. Windows will most likely show *Windows protected your
-   PC*, because go2rtc is not from a big publisher: click **More info**, then **Run anyway**. A
-   black window opens and lists what it is listening on. Leave it open: closing it stops the
+5. **Create go2rtc.yaml.** Open Notepad, hit **Copy go2rtc.yaml** below and paste. Swap
+   `192.168.0.88` for your printer's address. Then **File ▸ Save as**, go to `Documents\go2rtc`,
+   set **Save as type** to **All files**, name it `go2rtc.yaml` and save. Don't skip the *All
+   files* bit: without it Notepad quietly saves `go2rtc.yaml.txt` and go2rtc won't find it.
+6. **Create k2.html.** In a new Notepad window, hit **Copy k2.html** below and paste. Save it into
+   `Documents\go2rtc\www` the same way, as `k2.html`. You don't need to change anything in it.
+7. **Start go2rtc.exe.** Double-click it. Windows will probably say *Windows protected your PC*,
+   just because go2rtc isn't from a big publisher. Click **More info**, then **Run anyway**. A
+   black window pops up listing what it's listening on. Leave it open: closing it stops the
    camera.
-8. **Check it in a browser.** Open `http://127.0.0.1:1984/k2.html`. Fluidd appears on the left
-   and the camera on the right, with **Camera: live** above it. Windows Firewall may ask whether
-   go2rtc can use public and private networks; the camera worked in our test whichever way that
-   was left, because go2rtc only listens on this PC.
-9. **Point OrcaSlicer at the page.** Click the **Wi-Fi icon** beside **Printer** again, set
+8. **Check it in a browser.** Open `http://127.0.0.1:1984/k2.html`. You should see Fluidd on the
+   left and the camera on the right, with **Camera: live** above it. Windows Firewall might ask
+   whether go2rtc can use public and private networks. For me the camera worked either way,
+   since go2rtc only listens on your own PC.
+9. **Point OrcaSlicer at the page.** Click the **Wi-Fi icon** next to **Printer** again, set
    **Device UI** to `http://127.0.0.1:1984/k2.html`, and click **OK**.
-10. **Open the Device tab.** Fluidd on the left, the live camera on the right.
+10. **Open the Device tab.** Fluidd on the left, live camera on the right. Done.
 
-**To start it with Windows** (optional): press **Win+R**, type `shell:startup`, press Enter, and
-put a shortcut to `go2rtc.exe` in the folder that opens.
+**Want it to start with Windows?** Press **Win+R**, type `shell:startup`, press Enter, and drop a
+shortcut to `go2rtc.exe` in the folder that opens.
 
 ## The two files
 
-**go2rtc.yaml**: the only line to change is the printer's address.
+**go2rtc.yaml**: the only thing you change is the printer's address.
 
 ```yaml
 api:
@@ -112,8 +113,8 @@ streams:
 ```
 {: data-file="go2rtc.yaml"}
 
-**k2.html**: Fluidd on the left, the camera on the right. It reads the printer's address from
-go2rtc.yaml, so there is nothing to edit.
+**k2.html**: Fluidd on the left, camera on the right. It reads the printer's address from
+go2rtc.yaml, so there's nothing to edit.
 
 ```html
 <!doctype html>
@@ -184,45 +185,31 @@ connect();
 
 ## Why adding a camera in Fluidd does nothing
 
-This is the part that sends people in circles. Fluidd's **Settings ▸ Cameras** accepts the camera,
-then lists it with a warning triangle and never shows it, whatever stream type and address you
-give it. The Moonraker version Creality ships on the K2 is old, and it drops the camera's
-**Enable** setting when it saves; Fluidd reads the missing setting as *off*. So no camera added
-there ever displays on a K2, including a working one. That is why this guide shows the camera
-beside Fluidd instead of inside it.
+This is the bit that sends everyone in circles. Fluidd's **Settings ▸ Cameras** lets you add the
+camera, then shows it with a warning triangle and never actually displays it, no matter which
+stream type or address you try. The reason: the Moonraker version Creality ships on the K2 is old,
+and it drops the camera's **Enable** setting when it saves. Fluidd reads the missing setting as
+*off*. So no camera you add there will ever show on a K2, even one that works. That's why this
+guide puts the camera next to Fluidd instead of inside it.
 
 ## If the camera stays black
 
-- **The page says *Camera: live* but the picture is black.** That can simply be the printer: with
-  the chamber light off, the K2 camera sends an almost black picture. Turn the light on from the
-  printer's screen or Fluidd.
-- **The go2rtc window was closed.** The page says *Camera: go2rtc is not running*. Start
+- **The page says *Camera: live* but the picture is black.** Could just be the printer: with the
+  chamber light off, the K2 camera sends an almost black picture. Turn the light on from the
+  printer's screen or from Fluidd.
+- **You closed the go2rtc window.** The page will say *Camera: go2rtc is not running*. Start
   `go2rtc.exe` again.
-- **Fluidd is blank, or the page says no printer address was found.** Check the address in
-  `go2rtc.yaml`, and that the file is really `go2rtc.yaml`, not `go2rtc.yaml.txt`.
-- **The black window closes straight away.** go2rtc could not read its settings. Open
-  `go2rtc.yaml` again and compare it with the block above; the indentation has to match.
-- **Check the printer's side.** `http://<printer-ip>:8000/` should answer in a browser, even with
-  a blank page. If it does not load at all, the printer is not reachable from this PC.
-
-## How this guide was made
-
-Walked through from an empty Documents folder on 2026-11-23, with Navisual following the
-steps pasted from the end of this page: it found the Wi-Fi icon, GitHub's *Show all assets* and
-the win64 file, the Paste button in File Explorer, both Copy buttons on this page, and Notepad's
-**Save as type** list twice, which is the step that otherwise leaves you with `go2rtc.yaml.txt`.
-The camera page itself was fixed during that run: its first version connected but left the video
-paused.
-
-It was walked a second time the same day, by hand, on a PC that already had `go2rtc.exe` and
-`go2rtc.yaml` in place. Navisual noticed what was there and went straight to the missing
-`k2.html`. It also got the printer's address wrong: the Hostname box showed only
-`http://192.168`, and the AI filled in the rest with a guess. One typed correction put it right,
-and step 1 now says how to see the whole address.
+- **Fluidd is blank, or the page says no printer address was found.** Double-check the address in
+  `go2rtc.yaml`, and make sure the file really is `go2rtc.yaml` and not `go2rtc.yaml.txt`.
+- **The black window closes right away.** go2rtc couldn't read its settings. Open `go2rtc.yaml`
+  and compare it with the block above; the indentation has to match exactly.
+- **Check the printer end.** `http://<printer-ip>:8000/` should load in a browser, even if it's a
+  blank page. If it doesn't load at all, your PC can't reach the printer.
 
 ## Let Navisual walk you through it
 
-Paste this into Navisual's task box. It points at each control on your screen, one step at a time.
+If you'd rather not follow along by hand, paste this into Navisual's task box. It'll point at
+each control on your screen, one step at a time.
 
 ```text
 Walk me through these steps to show my Creality K2 camera in OrcaSlicer, using the guide at navisualguide.com/guides/orcaslicer-creality-k2-camera/:
@@ -242,7 +229,7 @@ Walk me through these steps to show my Creality K2 camera in OrcaSlicer, using t
 {% include figure.html
    src="/images/guides/orcaslicer-creality-k2-camera/02-navisual-copy-button.png"
    alt="Navisual pointing at this guide's Copy go2rtc.yaml button, with its panel on the right reading: Click the Copy go2rtc.yaml button above the code box"
-   caption="Navisual pointing at this page's own Copy button during the walkthrough."
+   caption="Navisual pointing at this page's own Copy button."
    width="1349" height="942" %}
 
-go2rtc is an open-source project by AlexxIT on GitHub, MIT licensed; its Creality support arrived in version 1.9.10.
+go2rtc is an open-source project by AlexxIT on GitHub, MIT licensed. Creality support landed in version 1.9.10.
