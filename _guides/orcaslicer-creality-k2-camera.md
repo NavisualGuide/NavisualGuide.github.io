@@ -2,14 +2,16 @@
 title: "Show the Creality K2 camera in OrcaSlicer, without root"
 description: "On current K2 firmware the camera only shows in Creality Print. A free program, go2rtc, puts it back in OrcaSlicer's Device tab. No root, no downgrade."
 date: 2026-11-23
-app: "OrcaSlicer 2.4.2 · Creality K2 Plus"
+app: "OrcaSlicer · Creality K2 Plus"
 os: "Windows 10 / 11"
 total_time: PT20M
+hero_image: /images/guides/orcaslicer-creality-k2-camera/01-device-tab-camera.jpg
+hero_alt: "OrcaSlicer's Device tab with Fluidd on the left and the live Creality K2 Plus camera on the right"
 draft: true
 
 steps:
   - name: "Find the printer's IP address in OrcaSlicer"
-    text: "In OrcaSlicer, on the Prepare tab, click the small Wi-Fi icon beside the Printer header in the left rail. The Physical Printer dialog opens. The printer's address is in the Hostname, IP or URL field, for example 192.168.0.88. Note it and close the dialog."
+    text: "In OrcaSlicer, on the Prepare tab, click the small Wi-Fi icon beside the Printer header in the left rail. The Physical Printer dialog opens. The printer's address is in the Hostname, IP or URL field, for example 192.168.0.88. The box is narrow and usually cuts the address off, so click in it and press End to see the rest. Note it and close the dialog."
   - name: "Make two folders: Documents\\go2rtc and Documents\\go2rtc\\www"
     text: "In File Explorer, open Documents and create a folder named go2rtc. Inside it, create a folder named www."
   - name: "Download go2rtc for Windows"
@@ -41,11 +43,18 @@ your PC with a short settings file naming the printer, then set OrcaSlicer's **D
 page it serves, `http://127.0.0.1:1984/k2.html`. The Device tab then shows Fluidd and the live
 camera side by side. Nothing on the printer changes, so no root and no firmware downgrade.
 
+{% include figure.html
+   src="/images/guides/orcaslicer-creality-k2-camera/01-device-tab-camera.jpg"
+   alt="OrcaSlicer's Device tab showing Fluidd on the left and the live Creality K2 Plus camera on the right, labelled Camera: live"
+   caption="The end result: OrcaSlicer's Device tab with Fluidd and the K2 camera side by side."
+   width="1920" height="1032" %}
+
 ## Before you start
 
-- **Checked on a Creality K2 Plus** with OrcaSlicer 2.4.2 on Windows 11. The K2 and K2 Pro use the
-  same camera connection, so it should work on them too, but that is not tested. On a K1C (2025) it
-  is untested.
+- **Checked on a Creality K2 Plus** with OrcaSlicer 2.4.2 on Windows 11. OrcaSlicer updates often;
+  all this guide uses is its Physical Printer dialog and Device tab. The K2 and K2 Pro use the same
+  camera connection, so it should work on them too, but that is not tested. On a K1C (2025) it is
+  untested.
 - **go2rtc has to be running on this PC** for the camera to show, and the camera page only works
   on this PC. It listens on `127.0.0.1` only, so nothing new is opened to your network.
 - **Creality Print keeps working.** It showed the camera at the same time as OrcaSlicer.
@@ -55,7 +64,9 @@ camera side by side. Nothing on the printer changes, so no root and no firmware 
 
 1. **Find the printer's IP address.** In OrcaSlicer, on the **Prepare** tab, click the small
    **Wi-Fi icon** beside the **Printer** header in the left rail. The address is in the
-   **Hostname, IP or URL** field, for example `192.168.0.88`. Note it and close the dialog.
+   **Hostname, IP or URL** field, for example `192.168.0.88`. The box is narrow and usually shows
+   only the start, like `http://192.168`: click in it and press **End** to see the rest. Note it
+   and close the dialog.
 2. **Make two folders.** In File Explorer, open **Documents**, create a folder named `go2rtc`, and
    inside it a folder named `www`.
 3. **Download go2rtc.** Open
@@ -203,13 +214,25 @@ the win64 file, the Paste button in File Explorer, both Copy buttons on this pag
 The camera page itself was fixed during that run: its first version connected but left the video
 paused.
 
+It was walked a second time the same day, by hand, on a PC that already had `go2rtc.exe` and
+`go2rtc.yaml` in place. Navisual noticed what was there and went straight to the missing
+`k2.html`. It also got the printer's address wrong: the Hostname box showed only
+`http://192.168`, and the AI filled in the rest with a guess. One typed correction put it right,
+and step 1 now says how to see the whole address.
+
 ## Let Navisual walk you through it
 
 Paste this into Navisual's task box. It points at each control on your screen, one step at a time.
 
+{% include figure.html
+   src="/images/guides/orcaslicer-creality-k2-camera/02-navisual-copy-button.png"
+   alt="Navisual pointing at this guide's Copy go2rtc.yaml button, with its panel on the right reading: Click the Copy go2rtc.yaml button above the code box"
+   caption="Navisual pointing at this page's own Copy button during the walkthrough."
+   width="1349" height="942" %}
+
 ```text
 Walk me through these steps to show my Creality K2 camera in OrcaSlicer, using the guide at navisualguide.com/guides/orcaslicer-creality-k2-camera/:
-1. Find the printer's IP address in OrcaSlicer's Physical Printer dialog (Wi-Fi icon beside the Printer header on the Prepare tab).
+1. Find the printer's IP address in OrcaSlicer's Physical Printer dialog (Wi-Fi icon beside the Printer header on the Prepare tab). The Hostname box cuts the address off, so ask me to click in it and press End before reading it.
 2. Make Documents\go2rtc and Documents\go2rtc\www.
 3. Download go2rtc_win64.zip from github.com/AlexxIT/go2rtc/releases (Assets of the newest release).
 4. Copy go2rtc.exe from the zip into Documents\go2rtc.
