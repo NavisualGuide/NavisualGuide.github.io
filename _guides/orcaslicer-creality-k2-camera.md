@@ -224,12 +224,6 @@ and step 1 now says how to see the whole address.
 
 Paste this into Navisual's task box. It points at each control on your screen, one step at a time.
 
-{% include figure.html
-   src="/images/guides/orcaslicer-creality-k2-camera/02-navisual-copy-button.png"
-   alt="Navisual pointing at this guide's Copy go2rtc.yaml button, with its panel on the right reading: Click the Copy go2rtc.yaml button above the code box"
-   caption="Navisual pointing at this page's own Copy button during the walkthrough."
-   width="1349" height="942" %}
-
 ```text
 Walk me through these steps to show my Creality K2 camera in OrcaSlicer, using the guide at navisualguide.com/guides/orcaslicer-creality-k2-camera/:
 1. Find the printer's IP address in OrcaSlicer's Physical Printer dialog (Wi-Fi icon beside the Printer header on the Prepare tab). The Hostname box cuts the address off, so ask me to click in it and press End before reading it.
@@ -244,5 +238,11 @@ Walk me through these steps to show my Creality K2 camera in OrcaSlicer, using t
 10. Open the Device tab.
 ```
 {: data-file="steps for Navisual"}
+
+{% include figure.html
+   src="/images/guides/orcaslicer-creality-k2-camera/02-navisual-copy-button.png"
+   alt="Navisual pointing at this guide's Copy go2rtc.yaml button, with its panel on the right reading: Click the Copy go2rtc.yaml button above the code box"
+   caption="Navisual pointing at this page's own Copy button during the walkthrough."
+   width="1349" height="942" %}
 
 go2rtc is an open-source project by AlexxIT on GitHub, MIT licensed; its Creality support arrived in version 1.9.10.
