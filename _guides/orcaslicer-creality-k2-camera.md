@@ -1,5 +1,5 @@
 ---
-title: "Show the Creality K2 camera in OrcaSlicer, without root"
+title: "Show the Creality K2 camera in OrcaSlicer"
 description: "On current K2 firmware the camera only shows in Creality Print. A free program, go2rtc, puts it back in OrcaSlicer's Device tab. No root, no downgrade."
 date: 2026-11-23
 app: "OrcaSlicer · Creality K2 Plus"
@@ -7,7 +7,7 @@ os: "Windows 10 / 11"
 total_time: PT20M
 hero_image: /images/guides/orcaslicer-creality-k2-camera/01-device-tab-camera.jpg
 hero_alt: "OrcaSlicer's Device tab with Fluidd on the left and the live Creality K2 Plus camera on the right"
-draft: true
+draft: false
 
 steps:
   - name: "Find the printer's IP address in OrcaSlicer"
@@ -207,7 +207,7 @@ beside Fluidd instead of inside it.
 
 ## How this guide was made
 
-Draft. Walked through from an empty Documents folder on 2026-11-23, with Navisual following the
+Walked through from an empty Documents folder on 2026-11-23, with Navisual following the
 steps pasted from the end of this page: it found the Wi-Fi icon, GitHub's *Show all assets* and
 the win64 file, the Paste button in File Explorer, both Copy buttons on this page, and Notepad's
 **Save as type** list twice, which is the step that otherwise leaves you with `go2rtc.yaml.txt`.
